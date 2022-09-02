@@ -1,0 +1,56 @@
+.nav-bar {
+  display: flex;
+  width: 100%;
+  padding: 0 2rem;
+}
+.nav-bar .brand {
+  width: 30%;
+}
+.nav-bar .brand img {
+  height: 2rem;
+}
+.nav-bar nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+.nav-bar nav img {
+  margin-left: 5%;
+  width: 20%;
+}
+.nav-bar nav .hamburger {
+  background-color: transparent;
+  border: none;
+  display: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 5%;
+}
+.nav-bar nav .hamburger :focus {
+  outline: none;
+}
+.nav-bar nav .nav-ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  list-style-type: none;
+  margin-right: 5%;
+}
+.nav-bar nav .nav-ul li a {
+  display: inline-block;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: color 0.5s ease-in-out;
+}
+.nav-bar nav .nav-ul li a:hover {
+  color: #ffff66;
+}
+
+/*# sourceMappingURL=nav-bar-layout.css.map */

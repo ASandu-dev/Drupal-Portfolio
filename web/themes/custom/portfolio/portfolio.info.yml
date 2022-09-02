@@ -1,0 +1,16 @@
+name: Portfolio
+type: theme
+description: 'My portfolio theme'
+core_version_requirement: ^8 || ^9
+libraries:
+ - portfolio/global-styling
+base theme: stable9
+regions:
+ primary_menu: 'Menu'
+ branding: 'Branding'
+ header: 'Header'
+ content: 'Content'
+ footer_first: 'Links footer'
+ footer_second: 'Copyright footer'
+logo: images/logo.png
+screenshot: screenshot.jpg

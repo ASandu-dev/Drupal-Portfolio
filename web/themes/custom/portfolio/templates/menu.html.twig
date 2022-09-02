@@ -1,0 +1,39 @@
+
+{% import _self as menus %}
+
+<nav>
+  <button class="hamburger" id="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
+{{ menus.menu_links(items, attributes, 0) }}
+</nav>
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul{{ attributes.addClass('nav-ul').setAttribute('id', 'nav-ul') }}>
+    {% else %}
+      <ul>
+    {% endif %}
+    {% for item in items %}
+      <li{{ item.attributes }}>
+        {{ link(item.title, item.url) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+{#        <nav>#}
+{#            <button class="hamburger" id="hamburger">#}
+{#            <i class="fas fa-bars"></i>#}
+{#          </button>#}
+{#          <ul class="nav-ul" id="nav-ul">#}
+{#            <li><a href="">About</a></li>#}
+{#            <li><a href="">Portfolio</a></li>#}
+{#            <li><a href="">Contact</a></li>#}
+{#            <li class="blog-link"><a href="">Blog</a></li>#}
+{#          </ul>#}
+{#        </nav>#}

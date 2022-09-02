@@ -1,0 +1,9 @@
+global-styling:
+ version: 1
+ css:
+  theme:
+    assets/styles/css/basic-reset.css: {}
+    assets/styles/scss/front-page-layout.css: {}
+    assets/styles/scss/nav-bar-layout.css: {}
+#    assets/styles/scss/styles.scss: { css_path: '/assets/styles/css/'}
+#    assets/styles/less/styles.less: {}
