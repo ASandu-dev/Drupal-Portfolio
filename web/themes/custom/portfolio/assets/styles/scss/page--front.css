@@ -6,8 +6,62 @@
 .main .hero-section {
   height: 100vh;
   width: 100%;
-  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("/web/themes/custom/portfolio/assets/images/hero-bg.jpeg") center center no-repeat;
+  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("../../images/hero-bg.jpeg") center center no-repeat;
   background-size: cover;
+}
+.main .hero-section .container {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15rem 8rem;
+}
+.main .hero-section .container .left-pane {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 5rem;
+}
+.main .hero-section .container .left-pane h1 {
+  font-size: 4em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  color: white;
+}
+.main .hero-section .container .left-pane p {
+  font-size: 1.5em;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+.main .hero-section .container .left-pane a {
+  border: 1px white solid;
+  border-radius: 5px;
+  padding: 1rem;
+  text-decoration: none;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  transition: background-color ease-in-out 0.2s;
+  margin-top: 2rem;
+}
+.main .hero-section .container .left-pane a:hover {
+  font-weight: 400;
+  color: rebeccapurple;
+  background-color: white;
+}
+.main .hero-section .container .right-pane {
+  flex: 1;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.main .hero-section .container .right-pane img {
+  height: 90%;
 }
 .main .about-section {
   height: 100vh;
