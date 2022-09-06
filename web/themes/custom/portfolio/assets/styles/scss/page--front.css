@@ -1,0 +1,33 @@
+.main {
+  width: 100%;
+  position: relative;
+  top: -5rem;
+}
+.main .hero-section {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("/web/themes/custom/portfolio/assets/images/hero-bg.jpeg") center center no-repeat;
+  background-size: cover;
+}
+.main .about-section {
+  height: 100vh;
+  background-color: #0a6fb4;
+}
+.main .counts-section {
+  height: 100vh;
+  background-color: #0f6292;
+}
+.main .skills-section {
+  height: 100vh;
+  background-color: red;
+}
+.main .portfolio-section {
+  height: 100vh;
+  background-color: green;
+}
+.main .contact-section {
+  height: 100vh;
+  background-color: rebeccapurple;
+}
+
+/*# sourceMappingURL=page--front.css.map */

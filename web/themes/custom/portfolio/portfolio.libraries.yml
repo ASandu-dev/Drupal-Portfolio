@@ -4,5 +4,6 @@ global-styling:
   theme:
     assets/styles/css/basic-reset.css: {}
     assets/styles/scss/front-page-layout.css: {}
+    assets/styles/scss/page--front.css: {}
     assets/styles/scss/nav-bar-layout.css: {}
 
