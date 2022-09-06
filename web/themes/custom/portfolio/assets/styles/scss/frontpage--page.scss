@@ -1,0 +1,114 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+  height: 90vh;
+
+  .present {
+    flex: 1;
+
+    h1 {
+      font-size: 120px;
+      font-weight: 500;
+      line-height: 0.8;
+      background: linear-gradient(to right, #ffffff, #e3e3ec);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      margin-top: 5px;
+      margin-bottom: 0px;
+      font-size: 22px;
+      color: #e3e3ec;
+    }
+
+    p {
+      margin-top: 5px;
+      font-size: 18px;
+      color: #e3e3ec;
+
+      span {
+        color: $contrastColour;
+        font-size: 20px;
+      }
+    }
+
+    .cta {
+      padding: 50px 0px 0px 0px;
+    }
+
+    .cta-portfolio {
+
+      background-color: $whiteText;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      border: none;
+      color: $contrastColour;
+      margin: 30px 0px 0px 30px;
+      transition: background-color 0.5s ease-in-out;
+      padding: 15px 30px;
+      text-decoration: none;
+
+
+      &:hover {
+        background-color: $contrastColour;
+        color: $whiteText;
+      }
+
+      &:focus {
+        border-color: transparent;
+        outline: none;
+        background-color: $whiteText;
+        color: $contrastColour;
+      }
+    }
+
+    .cta-hire {
+      background: $contrastColour;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      border: none;
+      color: white;
+      margin: 30px 0px 0px 30px;
+      transition: background-color 0.5s ease-in-out;
+      padding: 15px 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.5s ease-in-out;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $whiteText;
+        color: $contrastColour;
+      }
+
+      &:focus {
+        border-color: transparent;
+        outline: none;
+        background-color: $whiteText;
+        color: $contrastColour;
+      }
+    }
+  }
+
+  .present-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+
+    img {
+      height: 100%;
+      filter: drop-shadow(0px 5px 3px black);
+      animation: drop 1.5s ease;
+    }
+  }
+}
+
+
+

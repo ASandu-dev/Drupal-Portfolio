@@ -12,5 +12,5 @@ regions:
  content: 'Content'
  footer_first: 'Links footer'
  footer_second: 'Copyright footer'
-logo: images/logo.png
+logo: assets/images/logo.png
 screenshot: screenshot.jpg
