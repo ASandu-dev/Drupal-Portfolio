@@ -1,11 +1,14 @@
 global-styling:
- version: 1
- css:
-  theme:
-    assets/styles/css/basic-reset.css: {}
-    assets/styles/scss/front-page-layout.css: {}
-    assets/styles/scss/page--front.css: {}
-    assets/styles/scss/nav-bar-layout.css: {}
+  version: 1
+  css:
+    theme:
+      assets/styles/css/basic-reset.css: { }
+      assets/styles/scss/page-layout.css: { }
+      assets/styles/scss/page--front.css: { }
+      assets/styles/scss/nav-bar-layout.css: { }
+  js:
+    assets/styles/js/main.js: { }
+    //kit:fontawesome:com/6273be7f9c:js: { type: external }
 
-    https://fonts:googleapis:com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i: {type: external}
+    https://fonts:googleapis:com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i: { type: external }
 
