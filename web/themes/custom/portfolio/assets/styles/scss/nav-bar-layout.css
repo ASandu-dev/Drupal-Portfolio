@@ -19,22 +19,6 @@
   align-items: center;
   justify-content: space-between;
 }
-.nav-bar nav img {
-  margin-left: 5%;
-  width: 20%;
-}
-.nav-bar nav .hamburger {
-  background-color: transparent;
-  border: none;
-  display: none;
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 24px;
-  margin-right: 5%;
-}
-.nav-bar nav .hamburger :focus {
-  outline: none;
-}
 .nav-bar nav .nav-ul {
   display: flex;
   align-items: center;
@@ -63,8 +47,65 @@
   transform: scaleX(0);
   transform-origin: left;
 }
-.nav-bar nav .nav-ul li a.is-active:after, .nav-bar nav .nav-ul li a:hover:after {
-  transform: scaleX(1);
+.nav-bar nav .hamburger {
+  background-color: transparent;
+  border: none;
+  display: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 5%;
+}
+.nav-bar nav .hamburger :focus {
+  outline: none;
+}
+
+.active {
+  background-color: rgb(1, 139, 139);
+  padding: 1em 0;
+  position: absolute; /*WITH RESPECT TO PARENT*/
+  display: none;
+  border-radius: 8px;
+  top: 35px;
+}
+
+/* For extremely small screen devices (475px and below) */
+@media only screen and (max-width: 475px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
+}
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
+}
+/* Medium screen devices (768px and above) */
+@media only screen and (max-width: 768px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
+}
+/* Big screen devices (889px and above) */
+@media only screen and (max-width: 889px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
+  .nav-bar .brand {
+    width: 50%;
+  }
+  .nav-bar .nav .nav-ul {
+    display: none;
+  }
+  .nav-bar .nav .hamburger {
+    display: block;
+  }
+}
+@media only screen and (max-width: 1086px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
 }
 
 /*# sourceMappingURL=nav-bar-layout.css.map */

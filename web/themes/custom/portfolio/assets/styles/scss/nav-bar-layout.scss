@@ -21,26 +21,6 @@
     align-items: center;
     justify-content: space-between;
 
-    img {
-      margin-left: 5%;
-      width: 20%;
-    }
-
-    .hamburger {
-      background-color: transparent;
-      border: none;
-      display: none;
-      color: #ffffff;
-      cursor: pointer;
-      font-size: 24px;
-      margin-right: 5%;
-
-      :focus {
-        outline: none;
-      }
-    }
-
-
     .nav-ul {
       display: flex;
       align-items: center;
@@ -70,36 +50,86 @@
           transform-origin: left;
         }
 
-  .button.secondary { /* divider between buttons and menu links */
-    border-bottom: 1px #444 solid;
+
+      }
+
+    }
+
+    .hamburger {
+      background-color: transparent;
+      border: none;
+      display: none;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 24px;
+      margin-right: 5%;
+
+      :focus {
+        outline: none;
+      }
+    }
   }
-
-
 }
 
+.active {
+  background-color: rgb(1, 139, 139);
+  padding: 1em 0;
+  position: absolute; /*WITH RESPECT TO PARENT*/
+  display: none;
+  border-radius: 8px;
+  top: 35px;
+}
+
+/* For extremely small screen devices (475px and below) */
+@media only screen and (max-width: 475px) {
+
+  .nav-bar {
+    padding: 0 1rem;
+  }
+}
 
 /* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 595px) {
+
+  .nav-bar {
+    padding: 0 1rem;
+  }
 }
 
-/* Small screen devices (600px and above) */
-@media only screen and (max-width: 600px) {
-}
 
 /* Medium screen devices (768px and above) */
 @media only screen and (max-width: 768px) {
+  .nav-bar {
+    padding: 0 1rem;
 
+  }
 }
 
 /* Big screen devices (889px and above) */
 @media only screen and (max-width: 889px) {
+  .nav-bar {
+    padding: 0 1rem;
 
+    .brand {
+      width: 50%;
+    }
+
+    .nav {
+      .nav-ul {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+  }
 }
 
-@media only screen and (max-width: 1024px) {
-
+@media only screen and (max-width: 1086px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
 }
 
-/* Extra big screen devices (1200px and above) */
-@media only screen and (max-width: 1200px) {
-}
+

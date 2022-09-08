@@ -6,5 +6,8 @@
     "prettier": "^2.7.1",
     "tailwindcss": "^3.1.8",
     "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "jquerry": "^0.0.1-security"
   }
 }
