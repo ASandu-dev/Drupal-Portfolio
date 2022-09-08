@@ -6,6 +6,7 @@
   height: 5rem;
   z-index: 100;
   padding: 0 10rem;
+  position: relative;
 }
 .nav-bar .brand {
   width: 30%;
@@ -60,13 +61,22 @@
   outline: none;
 }
 
-.active {
-  background-color: rgb(1, 139, 139);
-  padding: 1em 0;
-  position: absolute; /*WITH RESPECT TO PARENT*/
-  display: none;
-  border-radius: 8px;
-  top: 35px;
+.nav-bar nav.active .nav-ul {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: red;
+  display: block;
+  z-index: 101;
+}
+.nav-bar nav.active .nav-ul .hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 102;
 }
 
 /* For extremely small screen devices (475px and below) */

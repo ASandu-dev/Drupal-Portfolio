@@ -1,5 +1,10 @@
 function toggle(){
-  document.getElementById('toggle').click(function (event){
-    document.getElementById('nav').classList.add('active');
-  })
+    if (document.getElementById('nav').className !== ('active')){
+      document.getElementById('nav').className += ('active');
+    }else if (document.getElementById('nav').className === ('active')){
+    document.getElementById('nav').classList.remove('active');
+  }
+
+
+
 }
