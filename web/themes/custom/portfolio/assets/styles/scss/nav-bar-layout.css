@@ -55,28 +55,29 @@
   color: #ffffff;
   cursor: pointer;
   font-size: 24px;
-  margin-right: 5%;
 }
 .nav-bar nav .hamburger :focus {
   outline: none;
 }
 
 .nav-bar nav.active .nav-ul {
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: red;
-  display: block;
-  z-index: 101;
+  background-color: rebeccapurple;
+  top: -1.5rem;
+  right: -1rem;
+  width: 100vw;
+  height: 100vh;
 }
-.nav-bar nav.active .nav-ul .hamburger {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 102;
+.nav-bar nav.active .nav-ul li {
+  padding: 1rem 0;
+}
+.nav-bar nav.active .nav-ul .hamburger.active {
+  display: block;
+  position: relative;
+  top: 1rem;
+  right: 1rem;
 }
 
 /* For extremely small screen devices (475px and below) */

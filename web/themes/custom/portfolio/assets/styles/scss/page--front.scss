@@ -14,7 +14,7 @@
     background-size: cover;
 
 
-    .container {
+    .container-hero {
       display: flex;
       height: 100%;
       flex-direction: row;
@@ -104,26 +104,11 @@
     background-color: rebeccapurple;
   }
 }
-
-@keyframes float {
-  0% {
-
-    transform: translatey(0px);
-  }
-  50% {
-
-    transform: translatey(-20px);
-  }
-  100% {
-
-    transform: translatey(0px);
-  }
-}
-
+//Media Queries
 @media screen and (max-width: 650px) {
   .hero-section {
 
-    .container {
+    .container-hero {
       flex-direction: column;
       justify-items: center;
       align-content: center;
@@ -136,5 +121,20 @@
         display: none;
       }
     }
+  }
+}
+//Animations
+@keyframes float {
+  0% {
+
+    transform: translatey(0px);
+  }
+  50% {
+
+    transform: translatey(-20px);
+  }
+  100% {
+
+    transform: translatey(0px);
   }
 }
