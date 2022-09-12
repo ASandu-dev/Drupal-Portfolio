@@ -10,10 +10,11 @@
         45deg,
         rgba(86, 58, 250, 0.9) 0%,
         rgba(116, 15, 214, 0.9) 100%),
-        url("../../images/hero-bg.jpeg") center center no-repeat;
+    url("../../images/hero-bg.jpeg") center center no-repeat;
     background-size: cover;
 
-    .container{
+
+    .container-hero {
       display: flex;
       height: 100%;
       flex-direction: row;
@@ -21,7 +22,7 @@
       align-items: center;
       padding: 15rem 8rem;
 
-      .left-pane{
+      .left-pane {
         display: flex;
         flex-direction: column;
         flex: 1;
@@ -30,19 +31,21 @@
         align-items: flex-start;
         padding-left: 5rem;
 
-        h1{
+        h1 {
           font-size: 4em;
           font-family: "Roboto", sans-serif;
           font-weight: 600;
           color: white;
         }
-        p{
+
+        p {
           font-size: 1.5em;
           color: white;
           font-family: "Roboto", sans-serif;
           font-weight: 300;
         }
-        a{
+
+        a {
           border: 1px white solid;
           border-radius: 5px;
           padding: 1rem;
@@ -53,7 +56,7 @@
           transition: background-color ease-in-out 0.2s;
           margin-top: 2rem;
 
-          &:hover{
+          &:hover {
             font-weight: 400;
             color: rebeccapurple;
             background-color: white;
@@ -61,14 +64,15 @@
         }
       }
 
-      .right-pane{
+      .right-pane {
         flex: 1;
         height: 100%;
         justify-content: center;
         align-items: center;
 
-        img{
+        img {
           height: 90%;
+          animation: float 5s ease-in-out infinite;
         }
 
       }
@@ -98,5 +102,39 @@
   .contact-section {
     height: 100vh;
     background-color: rebeccapurple;
+  }
+}
+//Media Queries
+@media screen and (max-width: 650px) {
+  .hero-section {
+
+    .container-hero {
+      flex-direction: column;
+      justify-items: center;
+      align-content: center;
+      .left-pane{
+        flex: 2;
+        padding: 0;
+        align-items: center;
+      }
+      .right-pane{
+        display: none;
+      }
+    }
+  }
+}
+//Animations
+@keyframes float {
+  0% {
+
+    transform: translatey(0px);
+  }
+  50% {
+
+    transform: translatey(-20px);
+  }
+  100% {
+
+    transform: translatey(0px);
   }
 }

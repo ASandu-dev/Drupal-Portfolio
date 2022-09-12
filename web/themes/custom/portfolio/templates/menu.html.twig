@@ -1,10 +1,7 @@
 
 {% import _self as menus %}
 
-<nav>
-  <button class="hamburger" id="hamburger">
-    <i class="fas fa-bars"></i>
-  </button>
+<nav id="nav">
 {{ menus.menu_links(items, attributes, 0) }}
 </nav>
 {% macro menu_links(items, attributes, menu_level) %}
@@ -24,5 +21,6 @@
       </li>
     {% endfor %}
     </ul>
+        <button class="hamburger" onclick="toggle()"><i class="fa-solid fa-bars"></i></button>
   {% endif %}
 {% endmacro %}

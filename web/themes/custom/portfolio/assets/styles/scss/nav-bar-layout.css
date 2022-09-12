@@ -6,6 +6,7 @@
   height: 5rem;
   z-index: 100;
   padding: 0 10rem;
+  position: relative;
 }
 .nav-bar .brand {
   width: 30%;
@@ -18,22 +19,6 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-}
-.nav-bar nav img {
-  margin-left: 5%;
-  width: 20%;
-}
-.nav-bar nav .hamburger {
-  background-color: transparent;
-  border: none;
-  display: none;
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 24px;
-  margin-right: 5%;
-}
-.nav-bar nav .hamburger :focus {
-  outline: none;
 }
 .nav-bar nav .nav-ul {
   display: flex;
@@ -63,8 +48,75 @@
   transform: scaleX(0);
   transform-origin: left;
 }
-.nav-bar nav .nav-ul li a.is-active:after, .nav-bar nav .nav-ul li a:hover:after {
-  transform: scaleX(1);
+.nav-bar nav .hamburger {
+  background-color: transparent;
+  border: none;
+  display: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 24px;
+}
+.nav-bar nav .hamburger :focus {
+  outline: none;
+}
+
+.nav-bar nav.active .nav-ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: rebeccapurple;
+  top: -1.5rem;
+  right: -1rem;
+  width: 100vw;
+  height: 100vh;
+}
+.nav-bar nav.active .nav-ul li {
+  padding: 1rem 0;
+}
+.nav-bar nav.active .nav-ul .hamburger.active {
+  display: block;
+  position: relative;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* For extremely small screen devices (475px and below) */
+@media only screen and (max-width: 475px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
+}
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
+}
+/* Medium screen devices (768px and above) */
+@media only screen and (max-width: 768px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
+}
+/* Big screen devices (889px and above) */
+@media only screen and (max-width: 889px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
+  .nav-bar .brand {
+    width: 50%;
+  }
+  .nav-bar .nav .nav-ul {
+    display: none;
+  }
+  .nav-bar .nav .hamburger {
+    display: block;
+  }
+}
+@media only screen and (max-width: 1086px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
 }
 
 /*# sourceMappingURL=nav-bar-layout.css.map */

@@ -9,7 +9,7 @@
   background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("../../images/hero-bg.jpeg") center center no-repeat;
   background-size: cover;
 }
-.main .hero-section .container {
+.main .hero-section .container-hero {
   display: flex;
   height: 100%;
   flex-direction: row;
@@ -17,7 +17,7 @@
   align-items: center;
   padding: 15rem 8rem;
 }
-.main .hero-section .container .left-pane {
+.main .hero-section .container-hero .left-pane {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -26,19 +26,19 @@
   align-items: flex-start;
   padding-left: 5rem;
 }
-.main .hero-section .container .left-pane h1 {
+.main .hero-section .container-hero .left-pane h1 {
   font-size: 4em;
   font-family: "Roboto", sans-serif;
   font-weight: 600;
   color: white;
 }
-.main .hero-section .container .left-pane p {
+.main .hero-section .container-hero .left-pane p {
   font-size: 1.5em;
   color: white;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
 }
-.main .hero-section .container .left-pane a {
+.main .hero-section .container-hero .left-pane a {
   border: 1px white solid;
   border-radius: 5px;
   padding: 1rem;
@@ -49,19 +49,20 @@
   transition: background-color ease-in-out 0.2s;
   margin-top: 2rem;
 }
-.main .hero-section .container .left-pane a:hover {
+.main .hero-section .container-hero .left-pane a:hover {
   font-weight: 400;
   color: rebeccapurple;
   background-color: white;
 }
-.main .hero-section .container .right-pane {
+.main .hero-section .container-hero .right-pane {
   flex: 1;
   height: 100%;
   justify-content: center;
   align-items: center;
 }
-.main .hero-section .container .right-pane img {
+.main .hero-section .container-hero .right-pane img {
   height: 90%;
+  animation: float 5s ease-in-out infinite;
 }
 .main .about-section {
   height: 100vh;
@@ -82,6 +83,33 @@
 .main .contact-section {
   height: 100vh;
   background-color: rebeccapurple;
+}
+
+@media screen and (max-width: 650px) {
+  .hero-section .container-hero {
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+  }
+  .hero-section .container-hero .left-pane {
+    flex: 2;
+    padding: 0;
+    align-items: center;
+  }
+  .hero-section .container-hero .right-pane {
+    display: none;
+  }
+}
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }
 
 /*# sourceMappingURL=page--front.css.map */
