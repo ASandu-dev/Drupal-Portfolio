@@ -3,9 +3,7 @@ global-styling:
   css:
     theme:
       assets/styles/css/basic-reset.css: { }
-      assets/styles/scss/page-layout.css: { }
-      assets/styles/scss/page--front.css: { }
-      assets/styles/scss/nav-bar-layout.css: { }
+      assets/styles/css/main.css: {}
   js:
     assets/js/main.js: { }
     https://kit:fontawesome:com/6273be7f9c:js: { type: external }

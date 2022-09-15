@@ -1,26 +1,27 @@
 
 {% import _self as menus %}
 
-<nav id="nav">
+<nav id="nav" class="w-full h-10 p-4 flex-row ">
 {{ menus.menu_links(items, attributes, 0) }}
 </nav>
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('nav-ul').setAttribute('id', 'nav-ul') }}>
+      <ul{{ attributes.addClass('flex justify-end').setAttribute('id', 'nav-ul') }}>
     {% else %}
       <ul>
     {% endif %}
     {% for item in items %}
-      <li{{ item.attributes }}>
+      <li{{ item.attributes.addClass('px-3 text-slate-300 hover:text-white duration-500') }}>
         {{ link(item.title, item.url) }}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
       </li>
     {% endfor %}
-    </ul>
         <button class="hamburger" onclick="toggle()"><i class="fa-solid fa-bars"></i></button>
+    </ul>
+
   {% endif %}
 {% endmacro %}

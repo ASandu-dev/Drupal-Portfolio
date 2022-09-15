@@ -1,14 +1,16 @@
-<div class="container-layout">
+<div class="w-screen">
+{#  NavBar&Branding #}
+  <div class="w-full h-32  bg-purple-700 grid grid-cols-2 gap4 px-12 py-6">
 
-  <div class="nav-bar">
-    <div class="brand">
+    <div class="flex">
       {{ page.branding }}
     </div>
 
-    <div class="nav">
+    <div class="w-full bg-purple-700">
       {{ page.primary_menu }}
     </div>
   </div>
+{#  Body #}
   <div class="main">
     <section class="hero-section">
         <div class="container-hero">
@@ -20,7 +22,7 @@
           </div>
 
           <div class="right-pane">
-            <img src="/themes/custom/portfolio/assets/images/hero-img.png" alt="desk_image">
+            <img src="../assets/images/hero-img.png" alt="desk_image">
           </div>
         </div>
     </section>
