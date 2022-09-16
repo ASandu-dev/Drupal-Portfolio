@@ -1,27 +1,64 @@
-
 {% import _self as menus %}
 
-<nav id="nav" class="w-full h-10 p-4 flex-row ">
-{{ menus.menu_links(items, attributes, 0) }}
+<nav class="md:flex items-center">
+  {{ menus.menu_links(items, attributes, 0) }}
+  {{ menus.mobile_links(items, 0) }}
 </nav>
+
+
+<!-- Macro for Menu -->
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('flex justify-end').setAttribute('id', 'nav-ul') }}>
+      <div class="hidden md:flex items-center space-x-1">
+      <ul{{ attributes.addClass("hidden md:flex items-center space-x-1") }}>
     {% else %}
       <ul>
     {% endif %}
     {% for item in items %}
-      <li{{ item.attributes.addClass('px-3 text-slate-300 hover:text-white duration-500') }}>
+      <li{{ item.attributes.addClass("py-5 px-3 text-gray-300 hover:text-white") }}>
         {{ link(item.title, item.url) }}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
       </li>
     {% endfor %}
-        <button class="hamburger" onclick="toggle()"><i class="fa-solid fa-bars"></i></button>
+
     </ul>
+    </div>
+    <div class="md:hidden flex items-center">
+      <button class="mobile-menu-button"><i class="fa-solid fa-bars text-white"></i></button>
+    </div>
 
   {% endif %}
 {% endmacro %}
+
+<!-- Mobile menu -->
+{% macro mobile_links(items, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <div class="mobile-menu bg-purple-700 hidden md:hidden absolute z-0 left-0 top-0 w-[100vw] h-[100vh] flex justify-center align-center py-[50%]">
+      <ul>
+    {% else %}
+      <ul>
+    {% endif %}
+    {% for item in items %}
+      <li{{ item.attributes.addClass("block py-4 text-2xl px-4 text-white hover:bg-gray-200") }}>
+        {{ link(item.title, item.url) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+
+    </ul>
+    <div class="absolute top-8 right-8">
+      <button class="mobile-close-button"><i class="fa-solid fa-x text-white"></i></button>
+    </div>
+    </div>
+
+  {% endif %}
+{% endmacro %}
+

@@ -1,28 +1,29 @@
-<div class="w-screen">
+<div class="w-full">
 {#  NavBar&Branding #}
-  <div class="w-full h-32  bg-purple-700 grid grid-cols-2 gap4 px-12 py-6">
-
-    <div class="flex">
+  <!-- navbar goes here -->
+  <div class="flex justify-between z-10 h-16 px-64 bg-purple-700 items-center">
+    <div class="flex h-11 py-2 w-auto mr-1 items-center">
       {{ page.branding }}
     </div>
 
-    <div class="w-full bg-purple-700">
+    <div >
       {{ page.primary_menu }}
     </div>
   </div>
 {#  Body #}
   <div class="main">
-    <section class="hero-section">
-        <div class="container-hero">
+    <!-- Hero Section -->
+    <section class="w-full h-[100vh] -mt-16 flex p-64 md:p-2 justify-center align-center background-image">
+        <div class="flex my-32">
 
-          <div class="left-pane">
-            <h1>Hi I am Andrei Sandu</h1>
-            <p>I love technology and love to learn as much as possible about it</p>
-            <a href="#about">Get Started</a>
+          <div class="flex-col pt-[20%] inline-block align-middle align-super">
+            <h1 class="font-['Roboto'] text-4xl text-white">Hi I am Andrei Sandu</h1>
+            <p class="font-['Roboto'] text-xl text-white">I love technology and love to learn as much as possible about it</p>
+            <a class="font-['Roboto'] text-2xl text-white mt-6" href="#about">Get Started</a>
           </div>
 
-          <div class="right-pane">
-            <img src="../assets/images/hero-img.png" alt="desk_image">
+          <div class="w-auto h-auto">
+            <img class="w-[650px] h-[650px] animate-vertical " src="/themes/custom/portfolio/assets/images/hero-img.png" alt="desk_image">
           </div>
         </div>
     </section>
