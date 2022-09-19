@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a98fbe38365bccc7c4148726b60f6be",
+    "content-hash": "17b298c7d162ba54b9e97044b59b2026",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1710,6 +1710,51 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ctools",
                 "issues": "https://www.drupal.org/project/issues/ctools"
+            }
+        },
+        {
+            "name": "drupal/disable_enable_all_assign_block",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/disable_enable_all_assign_block.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/disable_enable_all_assign_block-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "1639c5136de1cf5ca7a5feb509fe01b30d67fa4d"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1592024185",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Rohit Rajput (rohit-drupal)",
+                    "homepage": "https://www.drupal.org/u/rohit-drupal",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Disable and enable all assign block as per the region at one time.",
+            "homepage": "https://www.drupal.org/project/disable_enable_all_assign_block",
+            "support": {
+                "source": "https://git.drupalcode.org/project/disable_enable_all_assign_block"
             }
         },
         {

@@ -20,6 +20,7 @@
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
+        "drupal/disable_enable_all_assign_block": "^2.0",
         "drupal/fontawesome": "^2.23",
         "drupal/pathauto": "^1.11",
         "drupal/scss_compiler": "^1.1",
