@@ -1,7 +1,7 @@
 <div class="w-full">
-  {# NavBar&Branding #}
-  <!-- navbar goes here -->
-  <div class="flex justify-between z-10 h-32 sm: px-32 lg:px-64 bg-purple-700 items-center">
+
+  <!-- navbar and branding -->
+  <nav class="sticky top-0 flex justify-between z-10 h-32 xs:px-16 lg:px-64 bg-transparent items-center">
     <div class="flex h-11 py-2 w-auto mr-1 items-center">
       {{ page.branding }}
     </div>
@@ -9,11 +9,13 @@
     <div>
       {{ page.primary_menu }}
     </div>
-  </div>
+  </nav>
   {# Body #}
   <div class="main">
     <!-- Hero Section -->
-    <section class="w-full h-[100vh] -mt-32 flex sm:p0 lg:p-64 justify-center align-center background-image">
+    <section class="w-full h-[100vh] -mt-32 flex xs:p0 lg:p-64 justify-center align-center background-image">
+
+      <!-- Leftside text -->
       <div class="flex my-16 items-center self-center">
         <div class="flex-col w-full h-full inline-block content-center px-5">
           <div class="align-super py-20">
@@ -28,8 +30,9 @@
             </a>
           </div>
         </div>
+        <!-- Right-side image -->
 
-        <div class="w-auto h-auto z-0 sm:hidden xl:block">
+        <div class="w-auto h-auto z-0 xs:hidden md:block">
           <img class="sm:h-[80%] animate-vertical"
             src="themes/custom/portfolio/assets/images/hero-img.png"
             alt="desk_image" />
@@ -37,8 +40,36 @@
       </div>
     </section>
 
-    <section class="about-section" id="about"></section>
-    <section class="counts-section"></section>
+    <!-- About Section -->
+    <section class="w-full h-[50vh] -mt-32 flex xs:p0 lg:p-64 justify-center align-center bg-gray-200" id="about">
+      <!-- Leftside text -->
+      <div class="flex my-16 items-center self-center">
+        <div class="flex-col w-full h-full inline-block content-center px-5">
+          <div class="align-super py-20">
+            <h1 class="font-['Roboto'] text-4xl text-purple-700">
+              Hi, I'm Andrei. I am a passionate designer and developer of web and mobile apps
+
+            </h1>
+            <p class="font-['Roboto'] font-thin italic text-xl text-gray-800 mb-8">
+              I love to continuoussly learn and apply my skills into creating various type of projects.
+            </p>
+            <a class="font-['Roboto'] text-xl text-purple-700 mt-6 p-2 border-2 border-purple-700 rounded-md hover:bg-purple-700 hover:text-white transition" href="#about">
+              Read More ...
+            </a>
+          </div>
+        </div>
+        <!-- Right-side image -->
+
+        <div class="w-auto h-auto z-0 xs:hidden md:block">
+          <img class="sm:h-[80%]"
+               src="themes/custom/portfolio/assets/images/about.jpeg"
+               alt="desk_image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Counts Section -->
+    <section class="w-full h-[50vh] -mt-32 flex xs:p0 lg:p-64 justify-center align-center background-image"></section>
     <section class="skills-section"></section>
     <section class="portfolio-section"></section>
     <section class="contact-section"></section>
