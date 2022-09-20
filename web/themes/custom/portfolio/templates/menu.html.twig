@@ -11,13 +11,13 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <div class="hidden md:flex items-center space-x-1">
+      <div class="hidden xl:flex  items-center space-x-1">
       <ul{{ attributes.addClass("hidden md:flex items-center space-x-1") }}>
     {% else %}
       <ul>
     {% endif %}
     {% for item in items %}
-      <li{{ item.attributes.addClass("py-5 px-3 text-gray-300 hover:text-white") }}>
+      <li{{ item.attributes.addClass("py-5 px-3 text-gray-300 hover:text-white uppercase") }}>
         {{ link(item.title, item.url) }}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
@@ -27,7 +27,7 @@
 
     </ul>
     </div>
-    <div class="md:hidden flex items-center">
+    <div class="xl:hidden flex items-center">
       <button class="mobile-menu-button"><i class="fa-solid fa-bars text-white"></i></button>
     </div>
 
@@ -39,7 +39,7 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <div class="mobile-menu bg-purple-700 hidden md:hidden absolute z-0 left-0 top-0 w-[100vw] h-[100vh] flex justify-center align-center py-[50%]">
+      <div class="mobile-menu bg-purple-700 hidden xl:hidden absolute z-10 left-0 top-0 w-[100vw] h-[100vh] flex justify-center align-center py-[30%]">
       <ul>
     {% else %}
       <ul>

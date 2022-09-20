@@ -1,7 +1,7 @@
 <div class="w-full">
   {# NavBar&Branding #}
   <!-- navbar goes here -->
-  <div class="flex justify-between z-10 h-16 px-64 bg-purple-700 items-center">
+  <div class="flex justify-between z-10 h-32 sm: px-32 lg:px-64 bg-purple-700 items-center">
     <div class="flex h-11 py-2 w-auto mr-1 items-center">
       {{ page.branding }}
     </div>
@@ -13,24 +13,24 @@
   {# Body #}
   <div class="main">
     <!-- Hero Section -->
-    <section class="w-full h-[100vh] -mt-16 flex p-64 md:p-2 justify-center align-center background-image">
-      <div class="flex my-32">
-        <div class="flex-col pt-[20%] inline-block align-middle">
-          <div class="align-super">
+    <section class="w-full h-[100vh] -mt-32 flex sm:p0 lg:p-64 justify-center align-center background-image">
+      <div class="flex my-16 items-center self-center">
+        <div class="flex-col w-full h-full inline-block content-center px-5">
+          <div class="align-super py-20">
             <h1 class="font-['Roboto'] text-4xl text-white">
               Hi I am Andrei Sandu
             </h1>
-            <p class="font-['Roboto'] text-xl text-white">
+            <p class="font-['Roboto'] text-xl text-white mb-8">
               I love technology and love to learn as much as possible about it
             </p>
-            <a class="font-['Roboto'] text-2xl text-white mt-6" href="#about">
+            <a class="font-['Roboto'] text-2xl text-white mt-6 p-2 border-2 rounded-md hover:bg-white hover:text-purple-700 transition" href="#about">
               Get Started
             </a>
           </div>
         </div>
 
-        <div class="w-auto h-auto">
-          <img class="w-[650px] h-[650px] animate-vertical"
+        <div class="w-auto h-auto z-0 sm:hidden xl:block">
+          <img class="sm:h-[80%] animate-vertical"
             src="themes/custom/portfolio/assets/images/hero-img.png"
             alt="desk_image" />
         </div>
