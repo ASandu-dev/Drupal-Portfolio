@@ -42,38 +42,40 @@
     </section>
 
     <!-- About Section -->
-    <section class="w-full h-[50vh] flex xs:p0 lg:p-64 justify-center align-center bg-gray-200" id="about">
-      <!-- Leftside text -->
-      <div class="flex my-16 items-center self-center">
+    <section class="w-full xs:h-[80vh] lg:h-[80vh] flex xs:p0 lg:p-64 justify-center align-center bg-gray-200" id="about">
+      <!-- Left-side text -->
+      <div class="flex xs:my-8 my-16 items-center self-center">
         <div class="flex-col w-full h-full inline-block content-center px-5">
-          <div class="align-super py-20">
-            <h1 class="font-['Roboto'] text-4xl text-purple-700">
+          <div class="align-super xs:pt-5 xs:pb-10 md:py-20">
+            <h1 class="font-['Roboto'] xs:text-xl md:text-2xl text-purple-700">
               Hi, I'm Andrei. I am a passionate designer and developer of web and mobile apps
             </h1>
-            <p class="font-['Roboto'] font-thin italic text-xl text-gray-800 mb-8">
-              I love to continuoussly learn and apply my skills into creating various type of projects.
+            <p class="font-['Roboto'] font-thin italic xs:text-lg md:text-xl text-gray-800 mb-8">
+              I love to continuously learn and apply my skills into creating various type of projects.
             </p>
             <ul class="list-none">
               <li class="flex items-center">
-                <div class="my-2 mx-2">
+                <div class="my-2 mx-2 text-xs italic">
                 <i class="fa-solid fa-circle-check text-purple-700"></i>
                 </div>
-                Web development fascinates me. Keep wondering what is the next cool thing.</li>
+                <div class="xs:text-xs md:text-lg italic font-thin">Web development fascinates me. Keep wondering what is the next cool thing.</div>
+              </li>
               <li class="flex items-center">
-                <div class="my-2 mx-2">
+                <div class="my-2 mx-2 text-xs italic">
                 <i class="fa-solid fa-circle-check text-purple-700"></i>
                  </div>
-                Android development field is another intriguing field.</li>
+                <div class="xs:text-xs md:text-lg italic font-thin">Android development field is another intriguing field.</div></li>
               <li class="flex items-center">
                 <div class="my-2 mx-2">
                   <i class="fa-solid fa-circle-check text-purple-700"></i>
                 </div>
-                However it all comes together when cyber-security is included in the development process.</li>
+                <div class="xs:text-xs md:text-lg italic font-thin">However it all comes together when cyber-security is included in the development process.</div>
+              </li>
               <li class="flex items-center">
-                <div class="my-2 mx-2">
+                <div class="my-2 mx-2 text-xs italic">
                   <i class="fa-solid fa-circle-check text-purple-700"></i>
                 </div>
-                I write about what I do and what I find interesting.
+                <div class="xs:text-xs md:text-lg italic font-thin">I write about what I do and what I find interesting.</div>
               </li>
             </ul>
             <div class="mt-8">
@@ -84,19 +86,45 @@
         </div>
         <!-- Right-side image -->
 
-        <div class="w-auto h-auto z-0 xs:hidden md:block">
-          <img class="sm:h-[80%]"
+      <div class="w-auto h-auto z-0 xs:hidden md:block">
+        <img class="sm:h-[50%]"
                src="themes/custom/portfolio/assets/images/about.jpeg"
-               alt="desk_image" />
+               alt="team_img" />
         </div>
       </div>
     </section>
 
     <!-- Counts Section -->
-    <section class="w-full h-[50vh] flex xs:p0 lg:p-64 justify-center align-center background-image"></section>
+    <section class="w-full xs:h-[20vh] lg:h-[20vh] flex xs:p0 justify-center align-center background-image">
 
-    <section class="skills-section"></section>
+      <div class="flex flex-col my-auto items-center">
+        <div id="counts" class="sm:text-xl text-4xl text-white p-3 purecounter" data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1">0</div>
+        <p class="text-white xs:text-lg lg:text-2xl uppercase">projects</p>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section class="w-full xs:h-[80vh] lg:h-[80vh] flex flex-col xs:p0 lg:p-6 justify-center align-center bg-gray-200">
+      <div class="h-8 uppercase text-2xl align-center my-3 text-purple-700">Skills</div>
+      {{ page.skills }}
+      <div class="bg-green-700 w-[100%] h-full grid grid-cols-3 gap-8 justify-items-center">
+        <div class="w-72 h-72 p-10 m-10 col-start-1 col-span-1 bg-white flex flex-col justify-items-center content-center">
+        <div class="mx-auto my-auto"><i class="fa-brands fa-drupal text-8xl text-blue-700"></i></div>
+        <h1 class="mx-auto my-auto text4xl text-blue-400 mt-4">Drupal</h1>
+        </div>
+        <div class="w-72 h-72 p-10 m-10 col-start-2 col-span-1 bg-white flex flex-col justify-items-center content-center">
+          <div class="mx-auto my-auto"><i class="fa-brands fa-drupal text-8xl text-blue-700"></i></div>
+          <h1 class="mx-auto my-auto text4xl text-blue-400 mt-4">Drupal</h1>
+        </div>
+        <div class="w-72 h-72 p-10 m-10 col-start-3 col-span-1 bg-white flex flex-col justify-items-center content-center">
+          <div class="mx-auto my-auto"><i class="fa-brands fa-drupal text-8xl text-blue-700"></i></div>
+          <h1 class="mx-auto my-auto text4xl text-blue-400 mt-4">Drupal</h1>
+        </div>
+      </div>
+
+    </section>
+    <!-- Portfolio Section -->
     <section class="portfolio-section"></section>
+    <!-- Contact Section -->
     <section class="contact-section"></section>
   </div>
 </div>
