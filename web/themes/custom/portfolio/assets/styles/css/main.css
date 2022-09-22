@@ -547,6 +547,10 @@ video {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .mr-1 {
   margin-right: 0.25rem;
 }
@@ -589,8 +593,8 @@ video {
 .h-auto {
   height: auto;
 }
-.h-\[50vh\] {
-  height: 50vh;
+.h-8 {
+  height: 2rem;
 }
 .w-\[100vw\] {
   width: 100vw;
@@ -636,6 +640,9 @@ video {
 .content-center {
   align-content: center;
 }
+.items-start {
+  align-items: flex-start;
+}
 .items-center {
   align-items: center;
 }
@@ -680,6 +687,9 @@ video {
 }
 .p-2 {
   padding: 0.5rem;
+}
+.p-3 {
+  padding: 0.75rem;
 }
 .py-5 {
   padding-top: 1.25rem;
@@ -730,6 +740,10 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 .font-thin {
   font-weight: 100;
@@ -796,13 +810,49 @@ video {
 
 @media (min-width: 360px) {
 
+  .xs\:my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
   .xs\:hidden {
     display: none;
+  }
+
+  .xs\:h-\[80vh\] {
+    height: 80vh;
+  }
+
+  .xs\:h-\[20vh\] {
+    height: 20vh;
   }
 
   .xs\:px-16 {
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+
+  .xs\:pt-5 {
+    padding-top: 1.25rem;
+  }
+
+  .xs\:pb-10 {
+    padding-bottom: 2.5rem;
+  }
+
+  .xs\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .xs\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .xs\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
 
@@ -810,6 +860,15 @@ video {
 
   .sm\:h-\[80\%\] {
     height: 80%;
+  }
+
+  .sm\:h-\[50\%\] {
+    height: 50%;
+  }
+
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -822,17 +881,54 @@ video {
   .md\:flex {
     display: flex;
   }
+
+  .md\:py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1024px) {
+
+  .lg\:h-\[80vh\] {
+    height: 80vh;
+  }
+
+  .lg\:h-\[20vh\] {
+    height: 20vh;
+  }
 
   .lg\:p-64 {
     padding: 16rem;
   }
 
+  .lg\:p-6 {
+    padding: 1.5rem;
+  }
+
   .lg\:px-64 {
     padding-left: 16rem;
     padding-right: 16rem;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
