@@ -105,10 +105,19 @@
     <!-- Skills Section -->
     <section class="w-full xs:h-[80vh] lg:h-[80vh] flex flex-col xs:p0 lg:p-6 justify-center align-center bg-gray-200">
       <div class="h-8 uppercase text-2xl align-center my-3 text-purple-700">Skills</div>
-      <div class="bg-green-700 w-[100%] h-full">
-        <div class="w-fit h-fit p-10 bg-white">
-        <div>Logo</div>
-        <h1>title</h1>
+      {{ page.skills }}
+      <div class="bg-green-700 w-[100%] h-full grid grid-cols-3 gap-8 justify-items-center">
+        <div class="w-72 h-72 p-10 m-10 col-start-1 col-span-1 bg-white flex flex-col justify-items-center content-center">
+        <div class="mx-auto my-auto"><i class="fa-brands fa-drupal text-8xl text-blue-700"></i></div>
+        <h1 class="mx-auto my-auto text4xl text-blue-400 mt-4">Drupal</h1>
+        </div>
+        <div class="w-72 h-72 p-10 m-10 col-start-2 col-span-1 bg-white flex flex-col justify-items-center content-center">
+          <div class="mx-auto my-auto"><i class="fa-brands fa-drupal text-8xl text-blue-700"></i></div>
+          <h1 class="mx-auto my-auto text4xl text-blue-400 mt-4">Drupal</h1>
+        </div>
+        <div class="w-72 h-72 p-10 m-10 col-start-3 col-span-1 bg-white flex flex-col justify-items-center content-center">
+          <div class="mx-auto my-auto"><i class="fa-brands fa-drupal text-8xl text-blue-700"></i></div>
+          <h1 class="mx-auto my-auto text4xl text-blue-400 mt-4">Drupal</h1>
         </div>
       </div>
 
