@@ -2,6 +2,14 @@
 module.exports = {
   content: ["./templates/**/*.twig"],
   theme: {
+    colors: {
+      'php': '#f55729',
+      'css3': '#f5b52d',
+      'html5': '#de0666',
+      'JavaScript': '#46a8f5',
+      'Sass': '#de0666',
+      'Drupal': '#2c0fba',
+    },
     screens:{
       'xs' : '360px',
       // => @media (min-width: 360px) { ... }
