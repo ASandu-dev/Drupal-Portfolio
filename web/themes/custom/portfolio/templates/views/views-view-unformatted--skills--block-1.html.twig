@@ -1,16 +1,18 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
+<div class="bg-green-700 w-[100%] h-full grid grid-cols-3 gap-8 justify-items-center">
+
 {% for row in rows %}
   {%
     set row_classes = [
     default_row_class ? 'views-row',
   ]
   %}
-  <div{{ row.attributes.addClass("bg-green-700 w-[100%] h-full grid grid-cols-3 gap-8 justify-items-center") }}>
-    <div class="w-72 h-72 p-10 m-10 col-start-1 col-span-1 bg-white flex flex-col justify-items-center content-center">
+    <div class="w-72 h-72 p-10 m-10 bg-white flex flex-col justify-items-center content-center">
       {{- row.content -}}
     </div>
 
-  </div>
+
 {% endfor %}
+</div>
