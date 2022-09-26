@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Implements hook_preprocess().
+ */
+function portfolio_preprocess_views_view_field__skills__block_1__field_skill_logo(&$variables, $hook) {
+
+  $skillName = $variables['row']->_entity->field_skill_name->value;
+  switch ($skillName) {
+    case 'PHP': $variables['skillClass'] = 'text-PHP';
+    break;
+    case 'CSS3': $variables['skillClass'] = 'text-CSS3';
+      break;
+    case 'HTML5': $variables['skillClass'] = 'text-HTML5';
+      break;
+    case 'JavaScript': $variables['skillClass'] = 'text-JavaScript';
+      break;
+    case 'Sass': $variables['skillClass'] = 'text-Sass';
+      break;
+    case 'Drupal': $variables['skillClass'] = 'text-Drupal';
+      break;
+  }
+
+}

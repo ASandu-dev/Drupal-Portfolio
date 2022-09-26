@@ -1,7 +1,7 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-<div class="bg-green-700 w-[100%] h-full grid grid-cols-3 gap-8 justify-items-center">
+<div class="lg:w-[60%] grid grid-cols-1 gap-8 mt-8 xs:mt-2 md:grid-cols-2 lg:grid-cols-3 justify-items-center align-center">
 
 {% for row in rows %}
   {%
@@ -9,7 +9,7 @@
     default_row_class ? 'views-row',
   ]
   %}
-    <div class="w-72 h-72 p-10 m-10 bg-white flex flex-col justify-items-center content-center">
+    <div class="block shadow hover:shadow-2xl rounded-md w-72 md:w-44 h-72 md:h-44 p-10 md:p-3 m-10 md:m-1.5 xs:m-1.5 bg-white flex flex-col justify-items-center content-center">
       {{- row.content -}}
     </div>
 
