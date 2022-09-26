@@ -3,6 +3,7 @@ const btn = document.querySelector("button.mobile-menu-button");
 const menu = document.querySelector(".mobile-menu");
 const close = document.querySelector("button.mobile-close-button");
 const counter = document.querySelector(".counter");
+const backtotop = document.querySelector(".back-to-top");
 
 //add event listeners
 
@@ -13,38 +14,7 @@ close.addEventListener("click", () =>{
   menu.classList.toggle("hidden");
 });
 
-// counter.each(function() {
-//   var $this = $(this),
-//     countTo = $this.attr('data-count');
-//
-//   $({ countNum: $this.text()}).animate({
-//       countNum: countTo
-//     },
-//
-//     {
-//
-//       duration: 8000,
-//       easing:'linear',
-//       step: function() {
-//         $this.text(Math.floor(this.countNum));
-//       },
-//       complete: function() {
-//         $this.text(this.countNum);
-//         //alert('finished');
-//       }
-//
-//     });
-
-
-
-// });
-/*!
- * purecounter.js - A simple yet configurable native javascript counter which you can count on.
- * Author: Stig Rex
- * Version: 1.1.4
- * Url: https://github.com/srexi/purecounterjs
- * License: MIT
- */
+//PureCounter - from projects section
 !function () {
   "use strict";
 
@@ -202,3 +172,22 @@ close.addEventListener("click", () =>{
   }())
 }();
 //# sourceMappingURL=purecounter.js.map
+
+/**
+ * Easy on scroll event listener
+ */
+const onscroll = (el, listener) => {
+  el.addEventListener('scroll', listener)
+}
+if (backtotop) {
+  const toggleBacktotop = () => {
+    if (window.scrollY > 100) {
+      backtotop.classList.remove('hidden')
+    } else {
+      backtotop.classList.add('hidden')
+    }
+  }
+  window.addEventListener('load', toggleBacktotop)
+  onscroll(document, toggleBacktotop)
+}
+
