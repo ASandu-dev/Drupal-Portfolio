@@ -1,15 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./templates/**/*.twig"],
+  content: ["./templates/**/*.twig", "./portfolio.theme"],
   theme: {
-    colors: {
-      'php': '#f55729',
-      'css3': '#f5b52d',
-      'html5': '#de0666',
-      'JavaScript': '#46a8f5',
-      'Sass': '#de0666',
-      'Drupal': '#2c0fba',
-    },
     screens:{
       'xs' : '360px',
       // => @media (min-width: 360px) { ... }
@@ -30,6 +22,14 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      colors: {
+        'PHP': '#f55729',
+        'CSS3': '#f5b52d',
+        'HTML5': '#de0666',
+        'JavaScript': '#46a8f5',
+        'Sass': '#de0666',
+        'Drupal': '#2c0fba',
+      },
       animation: {
         'vertical': 'hover 2s ease-in-out infinite alternate-reverse both',
       },

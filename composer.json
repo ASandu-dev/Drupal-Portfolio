@@ -102,6 +102,7 @@
         }
     },
     "require-dev": {
-        "drupal/devel": "^4.1"
+        "drupal/devel": "^4.1",
+        "kint-php/kint": "^4.2"
     }
 }
