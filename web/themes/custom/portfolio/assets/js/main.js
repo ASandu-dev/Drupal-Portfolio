@@ -3,6 +3,7 @@ const btn = document.querySelector("button.mobile-menu-button");
 const menu = document.querySelector(".mobile-menu");
 const close = document.querySelector("button.mobile-close-button");
 const counter = document.querySelector(".counter");
+const backtotop = document.querySelector(".back-to-top");
 
 //add event listeners
 
@@ -171,3 +172,22 @@ close.addEventListener("click", () =>{
   }())
 }();
 //# sourceMappingURL=purecounter.js.map
+
+/**
+ * Easy on scroll event listener
+ */
+const onscroll = (el, listener) => {
+  el.addEventListener('scroll', listener)
+}
+if (backtotop) {
+  const toggleBacktotop = () => {
+    if (window.scrollY > 100) {
+      backtotop.classList.remove('hidden')
+    } else {
+      backtotop.classList.add('hidden')
+    }
+  }
+  window.addEventListener('load', toggleBacktotop)
+  onscroll(document, toggleBacktotop)
+}
+
