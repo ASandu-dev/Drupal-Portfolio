@@ -191,3 +191,15 @@ if (backtotop) {
   onscroll(document, toggleBacktotop)
 }
 
+/** Github Calendar */
+GitHubCalendar(".calendar", "ASandu-dev");
+
+// or enable responsive functionality:
+GitHubCalendar(".calendar", "ASandu-dev", { responsive: true });
+
+// Use a proxy
+GitHubCalendar(".calendar", "ASandu-dev", {
+  proxy (username) {
+    return fetch(`https://your-proxy.com/github?user=${username}`)
+  }
+}).then(r => r.text())
