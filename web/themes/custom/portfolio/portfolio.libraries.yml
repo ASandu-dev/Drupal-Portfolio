@@ -4,9 +4,13 @@ global-styling:
     theme:
       assets/styles/css/basic-values.css: { }
       assets/styles/css/main.css: {}
+      https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css: {type: external}
   js:
-    assets/js/main.js: { }
+    https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js: { type: external}
     https://kit:fontawesome:com/6273be7f9c:js: { type: external }
+    assets/js/main.js: { }
+
+
 
     https://fonts:googleapis:com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i: { type: external }
 

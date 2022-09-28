@@ -13,5 +13,6 @@ regions:
  footer_first: 'Links footer'
  footer_second: 'Copyright footer'
  skills: 'Skills'
+ social: 'Social Media'
 logo: assets/images/logo.png
 screenshot: screenshot.jpg

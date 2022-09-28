@@ -21,11 +21,14 @@
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
         "drupal/disable_enable_all_assign_block": "^2.0",
+        "drupal/entity_extra_field": "@alpha",
+        "drupal/eva": "^2.1",
         "drupal/fontawesome": "^2.23",
         "drupal/pathauto": "^1.11",
         "drupal/scss_compiler": "^1.1",
         "drush/drush": "^11.1",
-        "symfony/webpack-encore-bundle": "^1.15"
+        "symfony/webpack-encore-bundle": "^1.15",
+        "twig/twig": "2.15.2"
     },
     "conflict": {
         "drupal/drupal": "*"

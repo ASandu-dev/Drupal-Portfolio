@@ -1,0 +1,13 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function portfolio_hello_theme() {
+  return [
+    'portfolio_hello_block' => [
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+  ];
+}
