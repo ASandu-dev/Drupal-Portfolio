@@ -27,7 +27,8 @@
         "drupal/pathauto": "^1.11",
         "drupal/scss_compiler": "^1.1",
         "drush/drush": "^11.1",
-        "symfony/webpack-encore-bundle": "^1.15"
+        "symfony/webpack-encore-bundle": "^1.15",
+        "twig/twig": "2.15.2"
     },
     "conflict": {
         "drupal/drupal": "*"
