@@ -1,0 +1,27 @@
+<div class="min-w-full min-h-screen">
+
+  <!-- navbar and branding -->
+  <nav class="flex justify-between z-10 h-32 xs:px-16 lg:px-64 bg-purple-700 items-center">
+    <div class="flex h-11 py-2 w-auto mr-1 items-center">
+      {{ page.branding }}
+    </div>
+
+    <div>
+      {{ page.primary_menu }}
+    </div>
+  </nav>
+  {# Body #}
+
+  <main class="content">
+    {{ page.content }}
+  </main>
+
+  <div class="footer-first">
+    {{ page.footer_first }}
+  </div>
+
+  <div class="footer_second">
+    {{ page.footer_second }}
+  </div>
+
+</div>
