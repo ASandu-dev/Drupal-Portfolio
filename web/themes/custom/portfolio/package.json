@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "jquerry": "^0.0.1-security",
+    "postcss-cli": "^10.0.0",
     "specificity": "^0.4.1",
     "watch": "^1.0.2",
     "yarn": "^1.22.19"
