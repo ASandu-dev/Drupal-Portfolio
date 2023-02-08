@@ -24,6 +24,7 @@
         "drupal/entity_extra_field": "@alpha",
         "drupal/eva": "^2.1",
         "drupal/fontawesome": "^2.23",
+        "drupal/google_analytics": "^4.0",
         "drupal/pathauto": "^1.11",
         "drupal/scss_compiler": "^1.1",
         "drush/drush": "^11.1",
