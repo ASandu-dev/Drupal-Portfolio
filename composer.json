@@ -17,9 +17,9 @@
     "require": {
         "composer/installers": "^1.9",
         "drupal/admin_toolbar": "^3.1",
-        "drupal/core-composer-scaffold": "^9.4",
-        "drupal/core-project-message": "^9.4",
-        "drupal/core-recommended": "^9.4",
+        "drupal/core-composer-scaffold": "^9.5.3",
+        "drupal/core-project-message": "^9.5.3",
+        "drupal/core-recommended": "^9.5.3",
         "drupal/disable_enable_all_assign_block": "^2.0",
         "drupal/entity_extra_field": "@alpha",
         "drupal/eva": "^2.1",
@@ -29,7 +29,7 @@
         "drupal/scss_compiler": "^1.1",
         "drush/drush": "^11.1",
         "symfony/webpack-encore-bundle": "^1.15",
-        "twig/twig": "2.15.2"
+        "twig/twig": "^2.15.4"
     },
     "conflict": {
         "drupal/drupal": "*"
