@@ -67,10 +67,10 @@
  *
  */
 #}
-<article class="min-h-[700px] w-[450px] flex flex-col items-center rounded-lg shadow shadow-blue-500/40 hover:shadow-indigo-500/40 overflow-hidden">
+<article class="min-h-[700px] w-[100%] mx-2 flex flex-col items-center rounded-lg shadow shadow-blue-500/40 hover:shadow-indigo-500/40 overflow-hidden">
 
-  <!-- Header -->
-  <div class="w-[450px] h-[450px]">
+  <!-- Image- Top of the card -->
+  <div class="w-[350px] h-[350px] mb-16">
     {{ content.field_image }}
   </div>
   <!-- Header -->
@@ -96,10 +96,10 @@
     {% endif %}
   </div>
   <!-- Body and image -->
-  <div class="h-full flex flex-col justify-between">
-    <div class="align-top text-justify text-gray-400 py-5 px-4">
-      {{ content.body }}
-    </div>
+{#  <div class="h-full flex flex-col justify-between">#}
+{#    <div class="align-top text-justify text-gray-400 py-5 px-4">#}
+{#      {{ content.body }}#}
+{#    </div>#}
 
       <a class="w-full h-14 bg-purple-700 rounded-b-lg justify-center items-center flex text-white" href="{{ url }}">Read More</a>
 
