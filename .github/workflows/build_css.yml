@@ -19,6 +19,10 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        
+      - name: Add PostCSS to PATH
+        run: export PATH="$PATH:node_modules/postcss"
+
 
       - name: Build
         working-directory: web/themes/custom/portfolio
