@@ -67,42 +67,22 @@
  *
  */
 #}
-<article class="min-h-[700px] w-[100%] mx-2 flex flex-col items-center rounded-lg shadow shadow-blue-500/40 hover:shadow-indigo-500/40 overflow-hidden">
-
-  <!-- Image- Top of the card -->
-  <div class="w-[350px] h-[350px] mb-16">
-    {{ content.field_image }}
-  </div>
-  <!-- Header -->
-  <div class="w-full px-4 flex flex-col my-5 justify-center items-start">
+<article class="flex flex-col items-center justify-between bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out">
+  <!-- Image -->
+  <div> {{ content.field_image }} </div>
+  <!-- Content -->
+  <div class="p-6">
     <!-- Title -->
-    <div>
-      {% if label and not page %}
-      <div class="text-4xl">
-        <h2 class="w-full text-left">
-          <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-        </h2>
-        {% endif %}
-      </div>
-    </div>
-    {% if display_submitted %}
-      <!-- Author - Date - Metadata -->
-      <footer>
-        <div{{ author_attributes }}>
-          {% trans %}Submitted by {{ author_name }}{% endtrans %}
-          {{ metadata }}
-        </div>
-      </footer>
+    {% if label and not page %}
+    <h2 class="text-lg font-semibold mb-2">
+      <a href="{{ url }}" class="hover:text-indigo-500">{{ label }}</a></h2>
     {% endif %}
-  </div>
-  <!-- Body and image -->
-{#  <div class="h-full flex flex-col justify-between">#}
-{#    <div class="align-top text-justify text-gray-400 py-5 px-4">#}
-{#      {{ content.body }}#}
-{#    </div>#}
-
-      <a class="w-full h-14 bg-purple-700 rounded-b-lg justify-center items-center flex text-white" href="{{ url }}">Read More</a>
-
+    <!-- Meta -->
+    <p class="text-gray-600 text-sm mb-2">By <span class="font-semibold">{{ author_name }}</span></p>
+    <!-- Excerpt -->
+    <p class="text-gray-700 text-sm mb-4">{{ content.body|render|striptags|slice(0, 150)|trim ~ '...' }} </p>
+    <!-- Read More -->
+    <a href="{{ url}}" class="text-indigo-500 font-semibold hover:underline">Read More &rarr;</a>
   </div>
 </article>
 
