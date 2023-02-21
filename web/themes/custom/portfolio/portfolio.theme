@@ -28,3 +28,13 @@ function portfolio_preprocess_views_view_field__skills__block_1__field_skill_log
   }
 
 }
+/**
+ * Implements hook_page_alter().
+ *
+ */
+function portfolio_theme_suggestions_page_alter(&$suggestions, $variables){
+  //add a page--article suggestion for node type article
+  if (isset($variables['page__node']) && $variables['node']->getType() == 'article') {
+    $suggestions[] = 'page__article';
+  }
+}

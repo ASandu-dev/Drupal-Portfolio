@@ -1,3 +1,4 @@
+
 {#
 /**
  * @file
@@ -64,25 +65,42 @@
  *   is an administrator.
  *
  * @see template_preprocess_node()
- *
  */
 #}
-<article class="flex flex-col items-center justify-between bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out">
-  <!-- Image -->
-  <div> {{ content.field_image }} </div>
-  <!-- Content -->
-  <div class="p-6">
-    <!-- Title -->
-    {% if label and not page %}
-    <h2 class="text-lg font-semibold mb-2">
-      <a href="{{ url }}" class="hover:text-indigo-500">{{ label }}</a></h2>
-    {% endif %}
-    <!-- Meta -->
-    <p class="text-gray-600 text-sm mb-2">By <span class="font-semibold">{{ author_name }}</span></p>
-    <!-- Excerpt -->
-    <p class="text-gray-700 text-sm mb-4">{{ content.body|render|striptags|slice(0, 150)|trim ~ '...' }} </p>
-    <!-- Read More -->
-    <a href="{{ url}}" class="text-indigo-500 font-semibold hover:underline">Read More &rarr;</a>
-  </div>
-</article>
+{%
+    set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+{% set created_date = node.getCreatedTime|format_date('umami_dates') %}
+<article{{ attributes.addClass(classes) }}>
 
+    {{ title_prefix }}
+    {% if label %}
+        <header class="node__header">
+            <h1 class="text-blue-700">
+                {{ label }}
+            </h1>
+        </header>
+    {% endif %}
+    {{ title_suffix }}
+
+    {% if display_submitted %}
+        <footer class="node__meta">
+            <div{{ author_attributes.addClass('node__submitted') }}>
+                {% trans %}<span class="by-author">by {{ author_name }}</span> {{ created_date }}{% endtrans %}
+                {{ metadata }}
+            </div>
+        </footer>
+    {% endif %}
+
+    <div{{ content_attributes.addClass('node__content') }}>
+        {{ content }}
+    </div>
+
+</article>
