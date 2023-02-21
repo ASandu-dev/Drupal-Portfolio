@@ -15,13 +15,16 @@
   <main class="w-full h-full px-[5%]">
     {{ page.content }}
   </main>
+<!-- Footer -->
+  <section class="h-[5vh] -mb-[79px] min-w-full bg-purple-800 flex items-center justify-between text-gray-200 font-thin italic">
+    <div class="ml-[10%]">
+      {{ page.footer_second }}
+    </div>
+    <div class="mr-[10%]">
+      {{ page.social }}
+    </div>
+  </section>
+  <a href="#" class="back-to-top w-12 h-12 rounded-xl shadow-xl flex align-right justify-center items-center sticky bottom-2 right-2 bg-blue-600 transition-all ease-in-out hover:bg-blue-400 hidden"><i class="fa-sharp fa-solid fa-arrow-up w-auto h-auto text-2xl text-white"></i></a>
 
-  <div class="footer-first">
-    {{ page.footer_first }}
-  </div>
-
-  <div class="footer_second">
-    {{ page.footer_second }}
-  </div>
 
 </div>
