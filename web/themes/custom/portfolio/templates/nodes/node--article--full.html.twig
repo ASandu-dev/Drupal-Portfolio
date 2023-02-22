@@ -74,10 +74,6 @@
         <span class="text-gray-600">{{ date }}</span>
     </div>
     <div class="prose">
-        <p>{% if content %}
-                {{ content }}
-            {% endif %}
-        </p>
-        <p>More content</p>
+        {{ content.body }}
     </div>
 </article>
