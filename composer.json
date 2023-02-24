@@ -108,14 +108,6 @@
     "require-dev": {
         "drupal/devel": "^4.1",
         "kint-php/kint": "^4.2"
-    },
-    "scripts": {
-        "build": [
-            "cd web/themes/custom/portfolio && npm run build"
-        ],
-        "post-install-cmd": [
-            "@build"
-        ]
     }
 
 }
