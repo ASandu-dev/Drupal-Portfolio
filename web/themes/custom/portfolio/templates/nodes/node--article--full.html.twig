@@ -73,7 +73,17 @@
         <span class="text-gray-600">{{ author_name }}</span>
         <span class="text-gray-600">{{ date }}</span>
     </div>
-    <div class="prose">
-        {{ content.body }}
+    <div class="prose flex">
+        <div class="max-w-7/10 bg-gray-200 flex">
+            <div class="h-56 float-left mr-4 mt-2">
+                {{ content.field_image }}
+            </div>
+            <div>
+            {{ content.body }}
+            </div>
+        </div>
+        <div class="max-w-3/10 sm:hidden bg-gray-400">
+            {{ page.sidebar }}
+        </div>
     </div>
 </article>

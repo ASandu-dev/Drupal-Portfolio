@@ -10,6 +10,7 @@ regions:
  branding: 'Branding'
  header: 'Header'
  content: 'Content'
+ sidebar: 'Sidebar'
  footer_first: 'Links footer'
  footer_second: 'Copyright footer'
  skills: 'Skills'
