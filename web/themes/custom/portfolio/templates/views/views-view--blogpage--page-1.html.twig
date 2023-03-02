@@ -33,6 +33,7 @@
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
+  'flex justify-center',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
@@ -50,7 +51,7 @@
   {{ attachment_before }}
 
   {% if rows -%}
-    <div class="flex flex-wrap justify-center">
+    <div class="flex flex-wrap justify-center w-[80%]">
     {{ rows }}
     </div>
   {% elseif empty -%}
