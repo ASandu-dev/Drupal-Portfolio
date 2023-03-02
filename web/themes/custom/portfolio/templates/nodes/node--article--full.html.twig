@@ -68,15 +68,26 @@
  */
 #}
 <article class="container mx-auto py-4">
-    {# Article - Title #}
     <h1 class="text-4xl font-bold mb-4">{{ label }}</h1>
-    {# Article - Author and Article-Publish date #}
     <div class="flex flex-col md:flex-row justify-between mb-4">
         <span class="text-gray-600">{{ author_name }}</span>
         <span class="text-gray-600">{{ date }}</span>
     </div>
-    {# Article - Content #}
-    <div class="prose w-[60%] sm:w-full sm:px-2">
-        {{ content.body }} {{ 'yeey' }}
+    <div class="prose flex">
+        <div class="max-w-7/10 bg-gray-200 flex">
+            <div class="text-wrap">
+                <div class="image-container float-left mr-4 mt-2 w-48 h-48 bg-gray-300 overridden">
+                    {{ content.field_image }}
+                </div>
+                <div class="text-container">
+                    {{ content.body }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+        <div class="max-w-3/10 sm:hidden bg-gray-400">
+            {{ page.sidebar }}
+        </div>
     </div>
 </article>

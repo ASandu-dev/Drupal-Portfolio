@@ -6,3 +6,34 @@
   background: linear-gradient(45deg, rgba(86,58,250,0.9)0%, rgba(116,15,214,0.9)100%), url("../../images/hero-bg.jpeg") center center no-repeat;
   background-size: cover;
 }
+ //article layout -- full width
+.text-wrap {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 7/10);
+  gap: 1rem;
+}
+
+.image-container {
+  height: 100%;
+  min-height: 100px;
+  width: 250px;
+}
+
+.text-container {
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .text-wrap::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .text-container {
+    margin-top: -1rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+  }
+}
+

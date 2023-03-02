@@ -67,22 +67,31 @@
  *
  */
 #}
-<article class="flex flex-col items-center justify-between bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out">
-  <!-- Image -->
-  <div> {{ content.field_image }} </div>
-  <!-- Content -->
-  <div class="p-6">
-    <!-- Title -->
-    {% if label and not page %}
-    <h2 class="text-lg font-semibold mb-2">
-      <a href="{{ url }}" class="hover:text-indigo-500">{{ label }}</a></h2>
-    {% endif %}
-    <!-- Meta -->
-    <p class="text-gray-600 text-sm mb-2">By <span class="font-semibold">{{ author_name }}</span></p>
-    <!-- Excerpt -->
-    <p class="text-gray-700 text-sm mb-4">{{ content.body|render|striptags|slice(0, 150)|trim ~ '...' }} </p>
-    <!-- Read More -->
-    <a href="{{ url}}" class="text-indigo-500 font-semibold hover:underline">Read More &rarr;</a>
-  </div>
+<article class="block max-w-sm max-h-[48rem] rounded-lg bg-white shadow-lg">
+    <!-- Image -->
+    <div class="rounded-t-lg flex justify-center px-6"> {{ content.field_image }} </div>
+    <!-- Content -->
+    <div class="p-6">
+        <!-- Title -->
+        {% if label and not page %}
+            <h2 class="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
+                <a href="{{ url }}" class="hover:text-indigo-500">{{ label }}</a></h2>
+        {% endif %}
+        <!-- Meta -->
+        <p class="text-gray-600 text-sm mb-2">By <span class="font-semibold">{{ author_name }}</span></p>
+        <!-- Excerpt -->
+        <p class="mb-4 text-base text-neutral-600">{{ content.body|render|striptags|slice(0, 150)|trim ~ '...' }} </p>
+        <!-- Read More -->
+        <button type="button"
+                class="inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal
+                text-white bg-blue-600 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600
+                hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+                focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+                focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+                data-te-ripple-init
+                data-te-ripple-color="light">
+            Read more
+        </button>
+    </div>
 </article>
 
