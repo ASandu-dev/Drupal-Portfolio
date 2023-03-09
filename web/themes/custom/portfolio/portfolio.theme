@@ -28,6 +28,7 @@ function portfolio_preprocess_views_view_field__skills__block_1__field_skill_log
   }
 
 }
+
 /**
  * Implements hook_page_alter().
  *

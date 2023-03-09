@@ -67,33 +67,48 @@
  *
  */
 #}
-<article class="block max-w-sm max-h-[48rem] rounded-lg bg-white shadow-lg">
+<article class="flex flex-col overflow-hidden rounded-lg border bg-white">
     <!-- Image -->
-    <div class="rounded-t-lg flex justify-center w-full h-[250px] object-cover object-center rounded-t-lg p-6"> {{ content.field_image }} </div>
+    {% if content.field_image %}
+        <a href="{{ url }}" class="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
+            <img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}"
+                 alt="{{ content.field_image['#items'].alt }}"
+                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+                 loading="lazy">
+        </a>
+    {% endif %}
     <!-- Content -->
-    <div class="p-6">
+    <div class="flex flex-1 flex-col p-4 sm:p-6">
         <!-- Title -->
         {% if label and not page %}
-            <h2 class="mb-2 text-xl font-medium leading-tight text-neutral-800 ">
-                <a href="{{ url }}" class="hover:text-indigo-500">{{ label }}</a></h2>
+            <h2 class="mb-2 text-lg font-semibold text-gray-800">
+                <a href="{{ url }}"
+                   class="transition duration-100 hover:text-indigo-500 active:text-indigo-600">{{ label }}</a>
+            </h2>
         {% endif %}
-        <!-- Meta -->
-        <p class="text-gray-600 text-sm mb-2">By <span class="font-semibold">{{ author_name }}</span></p>
         <!-- Excerpt -->
-        <p class="mb-4 text-base text-neutral-600">{{ content.body|render|striptags|slice(0, 150)|trim ~ '...' }} </p>
-        <!-- Read More -->
+        <p class="mb-8 text-gray-500">{{ content.body|render|striptags|slice(0, 150)|trim ~ '...' }} </p>
+
+        <!-- Author info -->
+        <div class="mt-auto flex items-end justify-between">
+            <div class="flex items-center gap-2">
+                <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
+
+                           {{ author_picture }}
+
+                </div>
+                <div>
+                    <span class="block text-indigo-500">{{ author_name }}</span>
+                    {% if node.createdtime %}
+                        <span class="block text-sm text-gray-400">{{ node.createdtime|format_date('custom', 'M / Y') }}</span>
+                    {% endif %}
+                </div>
+            </div>
         <a href="{{ url }}">
-            <button type="button"
-                    class="inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal
-                text-white bg-blue-600 shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600
-                hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
-                focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
-                focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-                    data-te-ripple-init
-                    data-te-ripple-color="light">
-                Read more
-            </button>
+            <span class="rounded border px-2 py-1 text-sm text-gray-500">Article</span>
         </a>
+
+        </div>
     </div>
 </article>
 
