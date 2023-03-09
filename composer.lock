@@ -1210,40 +1210,6 @@
             "time": "2022-05-31T18:46:25+00:00"
         },
         {
-<<<<<<< HEAD
-            "name": "drupal-ckeditor-libraries-group/codesnippet",
-            "version": "4.20.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal-ckeditor-libraries-group/codesnippet.git",
-                "reference": "1d46bcee1f2c437c6c492d5f550790698aa8244b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drupal-ckeditor-libraries-group/codesnippet/zipball/1d46bcee1f2c437c6c492d5f550790698aa8244b",
-                "reference": "1d46bcee1f2c437c6c492d5f550790698aa8244b",
-                "shasum": ""
-            },
-            "type": "drupal-library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later",
-                "LGPL-2.1-or-later",
-                "MPL-1.1"
-            ],
-            "description": "CKEditor 4 codesnippet plugin",
-            "homepage": "https://ckeditor.com/cke4/addon/codesnippet",
-            "keywords": [
-                "CKEditor",
-                "codesnippet",
-                "plugin"
-            ],
-            "support": {
-                "issues": "https://github.com/ckeditor/ckeditor4/issues",
-                "source": "https://github.com/ckeditor/ckeditor4/tree/master/plugins/codesnippet"
-            },
-            "time": "2022-01-25T09:28:39+00:00"
-=======
             "name": "drupal/addtoany",
             "version": "2.0.1",
             "source": {
@@ -1298,7 +1264,6 @@
                 "source": "https://git.drupalcode.org/project/addtoany",
                 "issues": "https://www.drupal.org/project/issues/addtoany"
             }
->>>>>>> tailwind-dev
         },
         {
             "name": "drupal/admin_toolbar",
