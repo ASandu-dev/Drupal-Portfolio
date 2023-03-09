@@ -671,6 +671,9 @@ video {
 .h-auto {
   height: auto;
 }
+.h-\[250px\] {
+  height: 250px;
+}
 .h-48 {
   height: 12rem;
 }
@@ -710,9 +713,6 @@ video {
 }
 .w-12 {
   width: 3rem;
-}
-.w-48 {
-  width: 12rem;
 }
 .w-10 {
   width: 2.5rem;
@@ -847,9 +847,9 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
-.bg-gray-200 {
+.bg-gray-100 {
   --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 .bg-gray-300 {
   --tw-bg-opacity: 1;
@@ -859,12 +859,12 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
 .bg-transparent {
   background-color: transparent;
+}
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 .object-cover {
   -o-object-fit: cover;
@@ -1093,36 +1093,6 @@ video {
 .background-image{
   background: linear-gradient(45deg, rgba(86,58,250,0.9)0%, rgba(116,15,214,0.9)100%), url("../../images/hero-bg.jpeg") center center no-repeat;
   background-size: cover;
-}
- //article layout -- full width
-.text-wrap {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, 7/10);
-  gap: 1rem;
-}
-
-.image-container {
-  height: 100%;
-  min-height: 100px;
-  width: 250px;
-}
-
-.text-container {
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .text-wrap::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  .text-container {
-    margin-top: -1rem;
-    padding-left: 1rem;
-    padding-top: 1rem;
-  }
 }
 
 .hover\:bg-gray-200:hover {
@@ -1413,4 +1383,5 @@ video {
     height: 100%;
   }
 }
+
 
