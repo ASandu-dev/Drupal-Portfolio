@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "7f96c633d65b162c1f05a2ec3e26071b",
+=======
+    "content-hash": "6a4f61d91ab9a6076ea44bbf878cbe17",
+>>>>>>> tailwind-dev
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1206,6 +1210,7 @@
             "time": "2022-05-31T18:46:25+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "drupal-ckeditor-libraries-group/codesnippet",
             "version": "4.20.1",
             "source": {
@@ -1238,6 +1243,62 @@
                 "source": "https://github.com/ckeditor/ckeditor4/tree/master/plugins/codesnippet"
             },
             "time": "2022-01-25T09:28:39+00:00"
+=======
+            "name": "drupal/addtoany",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/addtoany.git",
+                "reference": "2.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/addtoany-2.0.1.zip",
+                "reference": "2.0.1",
+                "shasum": "536abb99ae21ca452348cee94428bfe188cad7a6"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.1",
+                    "datestamp": "1674468065",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "AddToAny",
+                    "homepage": "https://www.drupal.org/user/2640913"
+                },
+                {
+                    "name": "micropat",
+                    "homepage": "https://www.drupal.org/user/260224"
+                },
+                {
+                    "name": "VladimirAus",
+                    "homepage": "https://www.drupal.org/user/673120"
+                }
+            ],
+            "description": "Share buttons for Drupal including the AddToAny universal share button, Facebook, Twitter, Pinterest, WhatsApp and many more.",
+            "homepage": "https://www.drupal.org/project/addtoany",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/addtoany",
+                "issues": "https://www.drupal.org/project/issues/addtoany"
+            }
+>>>>>>> tailwind-dev
         },
         {
             "name": "drupal/admin_toolbar",
