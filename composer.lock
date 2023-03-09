@@ -4,11 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "7f96c633d65b162c1f05a2ec3e26071b",
-=======
+
     "content-hash": "6a4f61d91ab9a6076ea44bbf878cbe17",
->>>>>>> tailwind-dev
     "packages": [
         {
             "name": "asm89/stack-cors",
