@@ -1047,6 +1047,10 @@ pre {
   color: lightcyan;
   padding: 1rem;
   margin: 1rem 0;
+  width: 100%;
+  height: 100%;
+  white-space: pre-wrap; /* allows text to wrap within the container */
+  word-wrap: break-word; /* breaks long words onto the next line if needed */
 }
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
@@ -1346,4 +1350,5 @@ pre {
     height: 100%;
   }
 }
+
 
