@@ -1046,6 +1046,7 @@ pre {
   background-color: darkslategrey;
   color: lightcyan;
   padding: 1rem;
+  margin: 1rem 0;
 }
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
