@@ -1,18 +1,14 @@
-<div class="relative bg-white">
 
-    <!-- navbar and branding -->
-    <nav class="flex justify-between z-10 h-32 xs:px-16 lg:px-64 bg-purple-700 items-center">
-        <div class="flex h-11 py-2 w-auto mr-1 items-center">
-            {{ page.branding }}
-        </div>
 
-        <div>
-            {{ page.primary_menu }}
-        </div>
-    </nav>
-
-    <main class="content">
+    <section class="bg-gray-50 min-h-screen flex items-center justify-center">
+        <div class="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
+            <!-- form -->
+            <div class="md:w-full px-8 md:px-16">
+                <h2 class="font-bold text-2xl text-[#002D74]">Login</h2>
+                <p class="text-xs mt-4 text-[#002D74]">If you are already a member, easily log in</p>
         {{ page.content }}
-    </main>
-    
-</div>
+
+            </div>
+        </div>
+    </section>
+

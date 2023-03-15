@@ -50,3 +50,28 @@ function portfolio_theme_suggestions_form_alter(array &$suggestions, array $vari
   // Add a suggestion for form.html.twig based on the form ID.
   $suggestions[] = 'form__' . str_replace('-', '_', $form_id);
 }
+/**
+ * Implements hook_form_alter().
+ */
+function portfolio_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'user_login_form') {
+    // Add a custom class to the "name" field.
+    $form['name']['#attributes']['class'][] = 'p-2 mt-8 rounded-xl border';
+    $form['pass']['#attributes']['class'][] = 'p-2 mt-8 rounded-xl border';
+    $form['actions']['submit']['#attributes']['class'][] = 'bg-[#002D74] w-full rounded-xl text-white py-2 hover:scale-105 duration-300';
+
+    // Add placeholders.
+    $form['name']['#attributes']['placeholder'] = t('username');
+    $form['pass']['#attributes']['placeholder'] = t('password');
+
+    // descriptions
+    $form['name']['#description'] = t('');
+    $form['pass']['#description'] = t('');
+    // Labels
+    $form['name']['#title'] = t('');
+    $form['pass']['#title'] = t('');
+
+    //Submit Value
+    $form['actions']['submit']['#value'] = t('Login');
+  }
+}
