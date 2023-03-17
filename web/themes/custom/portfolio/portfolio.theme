@@ -64,12 +64,12 @@ function portfolio_form_alter(&$form, &$form_state, $form_id) {
     $form['name']['#attributes']['placeholder'] = t('username');
     $form['pass']['#attributes']['placeholder'] = t('password');
 
-    // descriptions
-    $form['name']['#description'] = t('');
-    $form['pass']['#description'] = t('');
+    // descriptions removed
+    unset($form['name']['#description']);
+    unset($form['pass']['#description']);
     // Labels
-    $form['name']['#title'] = t('');
-    $form['pass']['#title'] = t('');
+    $form['name']['#title_display'] = 'invisible';
+    $form['pass']['#title_display'] = 'invisible';
 
     //Submit Value
     $form['actions']['submit']['#value'] = t('Login');
