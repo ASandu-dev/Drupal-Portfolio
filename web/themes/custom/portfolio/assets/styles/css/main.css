@@ -1086,6 +1086,9 @@ pre {
   white-space: pre-wrap; /* allows text to wrap within the container */
   word-wrap: break-word; /* breaks long words onto the next line if needed */
 }
+p{
+  padding: 1rem 0;
+}
 
 div .hidden .alert{
   color:red;
