@@ -65,3 +65,4 @@ web/sites/default/default.settings.php
 web/modules/README.txt
 web/profiles/README.txt
 web/themes/README.txt
+/.ddev/config.yaml
