@@ -28,6 +28,7 @@
         "drupal/fontawesome": "^2.23",
         "drupal/google_analytics": "^4.0",
         "drupal/pathauto": "^1.11",
+        "drupal/rdf": "^2.0",
         "drupal/scss_compiler": "^1.1",
         "drupal/upgrade_status": "^4.0",
         "drush/drush": "^11.1",
