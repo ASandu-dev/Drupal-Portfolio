@@ -24,6 +24,7 @@
         "drupal/core-recommended": "^10.1.5",
         "drupal/disable_enable_all_assign_block": "^2.0",
         "drupal/entity_extra_field": "@alpha",
+        "drupal/eva": "^3.0",
         "drupal/fontawesome": "^2.23",
         "drupal/google_analytics": "^4.0",
         "drupal/pathauto": "^1.11",
