@@ -30,7 +30,7 @@
         "drupal/scss_compiler": "^1.1",
         "drupal/upgrade_status": "^4.0",
         "drush/drush": "^11.1",
-        "psr/log": "^1.1.4 || ^3.0.0",
+        "psr/log": "^3.0.0",
         "symfony/webpack-encore-bundle": "^1.15",
         "twig/twig": "^3.6.0"
     },
