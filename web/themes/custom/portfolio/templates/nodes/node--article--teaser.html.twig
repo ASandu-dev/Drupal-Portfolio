@@ -71,8 +71,8 @@
     <!-- Image -->
     {% if content.field_image %}
         <a href="{{ url }}" class="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
-            <img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}"
-                 alt="{{ content.field_image['#items'].alt }}"
+            <img src="{{ file_url(node.field_image.entity.uri.value) }}"
+                 alt="{{ content.field_image.alt }}"
                  class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                  loading="lazy">
         </a>
