@@ -70,7 +70,7 @@
     <div class="mx-auto max-w-screen-md px-4 md:px-8">
         <h1 class="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-6">{{ label }}</h1>
         <div class="relative mb-6 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:mb-8">
-            <img src="{{ file_url(content.field_image.entity.uri.value) }}"
+            <img src="{{ file_url(node.field_image.entity.uri.value) }}"
                  loading="lazy" alt="{{ content.field_image.alt }}"
                  class="h-full w-full object-cover object-center"/>
         </div>
