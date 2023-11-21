@@ -28,13 +28,50 @@ function portfolio_preprocess_views_view_field__skills__block_1__field_skill_log
   }
 
 }
+
 /**
- * Implements hook_page_alter().
- *
+ * Implements hook_theme_suggestions_HOOK_alter().
+ * suggests a template for a node
  */
 function portfolio_theme_suggestions_page_alter(&$suggestions, $variables){
   //add a page--article suggestion for node type article
-  if (isset($variables['page__node']) && $variables['node']->getType() == 'article') {
+  if (isset($variables['node']) && $variables['node']->getType() == 'article') {
     $suggestions[] = 'page__article';
+  }
+}
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ * suggests a template for a form
+ */
+function portfolio_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  // Get the form ID from the variables array.
+  $form_id = $variables['element']['#form_id'];
+
+  // Add a suggestion for form.html.twig based on the form ID.
+  $suggestions[] = 'form__' . str_replace('-', '_', $form_id);
+}
+/**
+ * Implements hook_form_alter().
+ */
+function portfolio_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'user_login_form') {
+    // Add a custom class to the "name" field.
+    $form['name']['#attributes']['class'][] = 'p-2 mt-8 rounded-xl border';
+    $form['pass']['#attributes']['class'][] = 'p-2 mt-8 rounded-xl border';
+    $form['actions']['submit']['#attributes']['class'][] = 'bg-[#002D74] w-full rounded-xl text-white py-2 hover:scale-105 duration-300';
+
+    // Add placeholders.
+    $form['name']['#attributes']['placeholder'] = t('username');
+    $form['pass']['#attributes']['placeholder'] = t('password');
+
+    // descriptions removed
+    unset($form['name']['#description']);
+    unset($form['pass']['#description']);
+    // Labels
+    $form['name']['#title_display'] = 'invisible';
+    $form['pass']['#title_display'] = 'invisible';
+
+    //Submit Value
+    $form['actions']['submit']['#value'] = t('Login');
   }
 }

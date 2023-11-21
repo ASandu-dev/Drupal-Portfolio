@@ -67,22 +67,49 @@
  *
  */
 #}
-<article class="flex flex-col items-center justify-between bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out">
-  <!-- Image -->
-  <div> {{ content.field_image }} </div>
-  <!-- Content -->
-  <div class="p-6">
-    <!-- Title -->
-    {% if label and not page %}
-    <h2 class="text-lg font-semibold mb-2">
-      <a href="{{ url }}" class="hover:text-indigo-500">{{ label }}</a></h2>
+<article class="flex flex-col overflow-hidden rounded-lg border bg-white">
+    <!-- Image -->
+    {% if content.field_image %}
+        <a href="{{ url }}" class="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
+{#          {{ content.field_image }}#}
+            <img src="{{ file_url(node.field_image.entity.uri.value) }}"
+                 alt="{{ content.field_image.alt }}"
+                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+                 loading="lazy">
+        </a>
     {% endif %}
-    <!-- Meta -->
-    <p class="text-gray-600 text-sm mb-2">By <span class="font-semibold">{{ author_name }}</span></p>
-    <!-- Excerpt -->
-    <p class="text-gray-700 text-sm mb-4">{{ content.body|render|striptags|slice(0, 150)|trim ~ '...' }} </p>
-    <!-- Read More -->
-    <a href="{{ url}}" class="text-indigo-500 font-semibold hover:underline">Read More &rarr;</a>
-  </div>
+    <!-- Content -->
+    <div class="flex flex-1 flex-col p-4 sm:p-6">
+        <!-- Title -->
+        {% if label and not page %}
+            <h2 class="mb-2 text-lg font-semibold text-gray-800">
+                <a href="{{ url }}"
+                   class="transition duration-100 hover:text-indigo-500 active:text-indigo-600">{{ label }}</a>
+            </h2>
+        {% endif %}
+        <!-- Excerpt -->
+        <p class="mb-8 text-gray-500">{{ content.body|render|striptags|slice(0, 250)|trim ~ '...' }} </p>
+
+        <!-- Author info -->
+        <div class="mt-auto flex items-end justify-between">
+            <div class="flex items-center gap-2">
+                <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
+
+                           {{ author_picture }}
+
+                </div>
+                <div>
+                    <span class="block text-indigo-500">{{ author_name }}</span>
+                    {% if node.createdtime %}
+                        <span class="block text-sm text-gray-400">{{ node.createdtime|format_date('custom', 'M / Y') }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        <a href="{{ url }}">
+            <span class="rounded border px-2 py-1 text-sm text-gray-500">Article</span>
+        </a>
+
+        </div>
+    </div>
 </article>
 

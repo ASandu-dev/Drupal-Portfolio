@@ -16,20 +16,25 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "drupal/addtoany": "^2.0",
         "drupal/admin_toolbar": "^3.1",
-        "drupal/core-composer-scaffold": "^9.5.3",
-        "drupal/core-project-message": "^9.5.3",
-        "drupal/core-recommended": "^9.5.3",
+        "drupal/codesnippet": "^1.8",
+        "drupal/core-composer-scaffold": "^10.1.5",
+        "drupal/core-project-message": "^10.1.5",
+        "drupal/core-recommended": "^10.1.5",
         "drupal/disable_enable_all_assign_block": "^2.0",
         "drupal/entity_extra_field": "@alpha",
-        "drupal/eva": "^2.1",
+        "drupal/eva": "^3.0",
         "drupal/fontawesome": "^2.23",
         "drupal/google_analytics": "^4.0",
         "drupal/pathauto": "^1.11",
+        "drupal/rdf": "^2.0",
         "drupal/scss_compiler": "^1.1",
+        "drupal/upgrade_status": "^4.0",
         "drush/drush": "^11.1",
+        "psr/log": "^3.0.0",
         "symfony/webpack-encore-bundle": "^1.15",
-        "twig/twig": "^2.15.4"
+        "twig/twig": "^3.6.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -106,7 +111,7 @@
         }
     },
     "require-dev": {
-        "drupal/devel": "^4.1",
+        "drupal/devel": "^5.1.2",
         "kint-php/kint": "^4.2"
     }
 

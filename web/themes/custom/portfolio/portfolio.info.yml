@@ -1,7 +1,7 @@
 name: Portfolio
 type: theme
 description: 'My portfolio theme'
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 libraries:
  - portfolio/global-styling
 base theme: stable9

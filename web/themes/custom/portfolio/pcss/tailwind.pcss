@@ -2,7 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-.background-image{
-  background: linear-gradient(45deg, rgba(86,58,250,0.9)0%, rgba(116,15,214,0.9)100%), url("../../images/hero-bg.jpeg") center center no-repeat;
-  background-size: cover;
+.background-image {
+    background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("../../images/hero-bg.jpeg") center center no-repeat;
+    background-size: cover;
 }
+
+article pre {
+    background-color: darkslategrey;
+    color: lightcyan;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+    height: 100%;
+    white-space: pre-wrap; /* allows text to wrap within the container */
+    word-wrap: break-word; /* breaks long words onto the next line if needed */
+}
+
+article p {
+    padding: 0.5rem 0;
+    text-indent: 1rem;
+}
+
+article a {
+    text-decoration: none;
+    color: slategray;
+}
+
+article a:hover {
+    color: darkgray;
+}
+
+div .hidden .alert {
+    color: red;
+}
+
