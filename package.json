@@ -1,5 +1,22 @@
 {
+  "scripts": {
+    "build": "postcss web/themes/custom/portfolio/pcss/tailwind.pcss -o web/themes/custom/portfolio/assets/styles/css/main.css",
+    "watch": "watch 'npm run build'"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.11",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.1.0",
+    "postcss-loader": "^7.0.1",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.8",
+    "webpack-cli": "^4.10.0"
+  },
   "dependencies": {
-    "github-calendar": "^2.3.1"
+    "jquerry": "^0.0.1-security",
+    "postcss-cli": "^10.0.0",
+    "specificity": "^0.4.1",
+    "watch": "^1.0.2",
+    "yarn": "^1.22.19"
   }
 }

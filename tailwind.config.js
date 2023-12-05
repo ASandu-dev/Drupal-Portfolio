@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./templates/**/*.twig", "./portfolio.theme"],
+  content: ["web/themes/custom/portfolio/templates/**/*.twig", "./portfolio.theme"],
   theme: {
     screens:{
       'xs' : '360px',
