@@ -30,7 +30,7 @@ node_modules
 .DS_Store?
 .idea
 npm-debug.log
-
+.htaccess
 # Ignore configuration files that may contain sensitive information.
 web/sites/*/settings.local.php
 web/sites/*/settings.php
