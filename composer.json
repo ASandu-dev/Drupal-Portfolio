@@ -26,6 +26,8 @@
         "drupal/entity_extra_field": "@alpha",
         "drupal/eva": "^3.0",
         "drupal/fontawesome": "^2.23",
+        "drupal/gin": "^3.0@rc",
+        "drupal/gin_toolbar": "^1.0@rc",
         "drupal/google_analytics": "^4.0",
         "drupal/pathauto": "^1.11",
         "drupal/rdf": "^2.0",
