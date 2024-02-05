@@ -1,0 +1,17 @@
+uuid: 86bce0b5-61b1-4e73-857d-41061c5dae2d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Skill
+type: skill
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,10 @@
+uuid: 429ce49a-401f-4e2b-a933-934127b32666
+langcode: en
+status: true
+dependencies:
+  module:
+    - block
+id: block.token
+label: Token
+targetEntityType: block
+cache: true

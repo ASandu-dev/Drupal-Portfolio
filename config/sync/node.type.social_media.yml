@@ -1,0 +1,17 @@
+uuid: 2d5121c0-2c5b-4931-bd8a-36525ffb5780
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Social Media'
+type: social_media
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

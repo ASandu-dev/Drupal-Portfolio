@@ -1,0 +1,24 @@
+uuid: 004f4e4c-7539-4fa6-8e56-dcb93c8a49b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.random_article_block
+  module:
+    - views
+  theme:
+    - olivero
+id: views_block__random_article_block_block_1
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:random_article_block-block_1'
+settings:
+  id: 'views_block:random_article_block-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

@@ -1,0 +1,8 @@
+uuid: 37b3df26-77a3-4540-aafc-ae23030a6eca
+langcode: und
+status: true
+dependencies: {  }
+name: wripup
+vid: wripup
+description: 'Description of wripup'
+weight: 0

@@ -1,0 +1,20 @@
+uuid: 29dd1d35-1c30-4820-81ba-d78c4f13a6ca
+langcode: en
+status: false
+dependencies:
+  theme:
+    - portfolio
+id: tabs
+theme: portfolio
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

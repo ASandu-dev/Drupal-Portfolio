@@ -1,0 +1,8 @@
+uuid: bee67556-c69c-4da1-a149-9fde50de0e80
+langcode: und
+status: true
+dependencies: {  }
+name: spigocr
+vid: spigocr
+description: 'Description of spigocr'
+weight: 10
