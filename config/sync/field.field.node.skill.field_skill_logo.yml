@@ -1,0 +1,21 @@
+uuid: 9a98c952-350d-4bee-aabf-87a4d0b8d8f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_skill_logo
+    - node.type.skill
+  module:
+    - fontawesome
+id: node.skill.field_skill_logo
+field_name: field_skill_logo
+entity_type: node
+bundle: skill
+label: 'Skill Logo'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: fontawesome_icon

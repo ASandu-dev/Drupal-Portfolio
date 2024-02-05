@@ -1,0 +1,8 @@
+uuid: d7d67445-8b87-4671-be5e-77d3542eeab1
+langcode: und
+status: true
+dependencies: {  }
+name: corurochaci
+vid: corurochaci
+description: 'Description of corurochaci'
+weight: 4

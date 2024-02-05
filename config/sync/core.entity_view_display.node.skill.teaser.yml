@@ -1,0 +1,24 @@
+uuid: 1e444d9b-1200-48de-bbdc-ea424d5085f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.skill.field_skill_logo
+    - field.field.node.skill.field_skill_name
+    - node.type.skill
+  module:
+    - user
+id: node.skill.teaser
+targetEntityType: node
+bundle: skill
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_skill_logo: true
+  field_skill_name: true

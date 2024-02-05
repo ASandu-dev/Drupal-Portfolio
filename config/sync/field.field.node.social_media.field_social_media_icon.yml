@@ -1,0 +1,21 @@
+uuid: af8c21f6-d568-4abe-af23-1ed083f06ffa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_media_icon
+    - node.type.social_media
+  module:
+    - fontawesome
+id: node.social_media.field_social_media_icon
+field_name: field_social_media_icon
+entity_type: node
+bundle: social_media
+label: 'Social Media Icon'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: fontawesome_icon

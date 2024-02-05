@@ -1,0 +1,24 @@
+uuid: fdd4e6bb-e026-47f5-9929-c5e082c044ea
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.articles
+  module:
+    - views
+  theme:
+    - portfolio
+id: views_block__articles_block_2
+theme: portfolio
+region: content
+weight: -1
+provider: null
+plugin: 'views_block:articles-block_2'
+settings:
+  id: 'views_block:articles-block_2'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

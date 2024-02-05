@@ -1,0 +1,8 @@
+uuid: a0b94b5a-b893-420a-93d7-cc0ef58fe435
+langcode: und
+status: true
+dependencies: {  }
+name: frin
+vid: frin
+description: 'Description of frin'
+weight: 9

@@ -1,0 +1,8 @@
+uuid: e179cd65-70b7-4277-8642-8fbcea0537a9
+langcode: und
+status: true
+dependencies: {  }
+name: diwricrim
+vid: diwricrim
+description: 'Description of diwricrim'
+weight: 3

@@ -1,0 +1,8 @@
+uuid: 636a691a-13c6-4709-8f92-bf387b1d1b3f
+langcode: und
+status: true
+dependencies: {  }
+name: briphagutre
+vid: briphagutre
+description: 'Description of briphagutre'
+weight: 5

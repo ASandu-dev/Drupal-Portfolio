@@ -1,0 +1,44 @@
+uuid: f2ac44d1-aaa2-4ade-ac94-cfc380bd4387
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.skill.field_skill_logo
+    - field.field.node.skill.field_skill_name
+    - node.type.skill
+  module:
+    - fontawesome
+id: node.skill.default
+targetEntityType: node
+bundle: skill
+mode: default
+content:
+  field_skill_logo:
+    type: fontawesome_icon_widget
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_skill_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

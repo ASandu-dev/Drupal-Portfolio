@@ -1,0 +1,28 @@
+uuid: 5e2fb577-333b-4ce5-9569-7fc7e6019635
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.posts.body
+    - node.type.posts
+  module:
+    - text
+    - user
+id: node.posts.default
+targetEntityType: node
+bundle: posts
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

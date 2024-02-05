@@ -1,0 +1,22 @@
+uuid: a4d8e8e3-ac38-4e84-aee2-bf8385c5fd3a
+langcode: en
+status: true
+dependencies:
+  module:
+    - addtoany
+  theme:
+    - portfolio
+id: addtoanyfollowbuttons
+theme: portfolio
+region: social
+weight: 0
+provider: null
+plugin: addtoany_follow_block
+settings:
+  id: addtoany_follow_block
+  label: 'AddToAny follow buttons'
+  label_display: '0'
+  provider: addtoany
+  buttons_size: ''
+  addtoany_html: "<a class=\"a2a_button_facebook\" href=\"https://www.facebook.com/profile.php?id=100075713244129\"></a>\r\n<a class=\"a2a_button_twitter\" href=\"https://twitter.com/andrei_s86\"></a>\r\n<a class=\"a2a_button_linkedin\" href=\"https://www.linkedin.com/in/andrei-sandu-50820a64/\"></a>"
+visibility: {  }

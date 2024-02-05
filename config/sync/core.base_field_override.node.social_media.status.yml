@@ -1,0 +1,22 @@
+uuid: dac71cac-4881-4764-88f8-140438ef65b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.social_media
+id: node.social_media.status
+field_name: status
+entity_type: node
+bundle: social_media
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

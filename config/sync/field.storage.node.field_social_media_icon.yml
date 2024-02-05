@@ -1,0 +1,19 @@
+uuid: d2aaa4d3-07a7-4020-825b-fe34e393b05c
+langcode: en
+status: true
+dependencies:
+  module:
+    - fontawesome
+    - node
+id: node.field_social_media_icon
+field_name: field_social_media_icon
+entity_type: node
+type: fontawesome_icon
+settings: {  }
+module: fontawesome
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: 331f6369-be3b-4914-8ccb-1d82026e8fe2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.social_media
+id: node.social_media.promote
+field_name: promote
+entity_type: node
+bundle: social_media
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
