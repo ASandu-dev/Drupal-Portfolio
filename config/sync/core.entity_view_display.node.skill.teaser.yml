@@ -20,5 +20,6 @@ content:
     weight: 100
     region: content
 hidden:
+  addtoany: true
   field_skill_logo: true
   field_skill_name: true
