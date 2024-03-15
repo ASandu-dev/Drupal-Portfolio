@@ -76,20 +76,4 @@ function portfolio_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
-/**
- * Implements hook_page_attachments().
- */
-function portfolio_page_attachments(array &$attachments) {
-  // Add the Google AdSense meta tag.
-  $attachments['#attached']['html_head'][] = [
-    [
-      '#tag' => 'meta',
-      '#attributes' => [
-        'name' => 'google-adsense-account',
-        'content' => 'ca-pub-6713122281367015',
-      ],
-    ],
-    'portfolio_google_adsense_meta', // Unique identifier for the meta tag.
-  ];
-}
 
