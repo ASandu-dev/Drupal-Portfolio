@@ -11,7 +11,6 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
-  ckeditor: 0
   ckeditor5: 0
   comment: 0
   config: 0
@@ -46,6 +45,7 @@ module:
   path_alias: 0
   portfolio_hello: 0
   rdf: 0
+  scheduler: 0
   search: 0
   shortcut: 0
   system: 0
@@ -57,6 +57,9 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  workflow: 0
+  workflow_access: 0
+  workflows: 0
   pathauto: 1
   views: 10
   standard: 1000
