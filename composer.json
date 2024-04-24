@@ -33,6 +33,7 @@
         "drupal/rdf": "^2.0",
         "drupal/scheduler": "^2.0",
         "drupal/scss_compiler": "^1.1",
+        "drupal/token": "^1.14",
         "drupal/upgrade_status": "^4.0",
         "drupal/workflow": "^1.7",
         "drush/drush": "^12.4.3",
