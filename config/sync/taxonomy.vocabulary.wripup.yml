@@ -6,3 +6,4 @@ name: wripup
 vid: wripup
 description: 'Description of wripup'
 weight: 0
+new_revision: false

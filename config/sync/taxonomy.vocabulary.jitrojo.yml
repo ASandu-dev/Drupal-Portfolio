@@ -6,3 +6,4 @@ name: jitrojo
 vid: jitrojo
 description: 'Description of jitrojo'
 weight: 4
+new_revision: false

@@ -6,3 +6,4 @@ name: spigocr
 vid: spigocr
 description: 'Description of spigocr'
 weight: 10
+new_revision: false

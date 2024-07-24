@@ -1,4 +1,4 @@
-uuid: 7365beda-bce6-40fe-89a0-1bd1e912a880
+uuid: f9cc6749-112b-4a8d-ada1-3a7745ea3071
 langcode: en
 status: true
 dependencies:
@@ -540,6 +540,7 @@ display:
             previous: '‹ previous'
             first: '« first'
             last: 'last »'
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -1083,7 +1084,7 @@ display:
           admin_label: ''
           entity_type: node
           entity_field: uid
-          plugin_id: numeric
+          plugin_id: entity_target_id
           default_action: empty
           exception:
             value: all
@@ -1115,6 +1116,7 @@ display:
             roles: {  }
           break_phrase: false
           not: false
+          target_entity_type_id: user
       defaults:
         empty: false
         access: false

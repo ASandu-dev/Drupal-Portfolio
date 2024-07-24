@@ -6,3 +6,4 @@ name: spili
 vid: spili
 description: 'Description of spili'
 weight: 5
+new_revision: false

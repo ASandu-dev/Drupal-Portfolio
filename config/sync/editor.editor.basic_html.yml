@@ -1,4 +1,4 @@
-uuid: abf9404c-eba3-4cb3-95e6-b0d9f52e176d
+uuid: 4e5e663e-fadb-4fe4-b245-4ff8a9e4726a
 langcode: en
 status: true
 dependencies:
@@ -25,9 +25,8 @@ settings:
       - heading
       - '|'
       - sourceEditing
-      - codeBlock
-      - code
       - '|'
+      - codeBlock
   plugins:
     ckeditor5_codeBlock:
       languages:
@@ -107,7 +106,7 @@ image_upload:
   status: true
   scheme: public
   directory: inline-images
-  max_size: ''
+  max_size: null
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null

@@ -15,6 +15,7 @@ module:
   comment: 0
   config: 0
   contact: 0
+  content_moderation: 0
   contextual: 0
   datetime: 0
   dblog: 0
@@ -31,6 +32,7 @@ module:
   filter: 0
   fontawesome: 0
   gin_toolbar: 0
+  google_analytics: 0
   help: 0
   history: 0
   image: 0
@@ -43,6 +45,7 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  phpass: 0
   portfolio_hello: 0
   rdf: 0
   scheduler: 0
@@ -58,7 +61,6 @@ module:
   user: 0
   views_ui: 0
   workflow: 0
-  workflow_access: 0
   workflows: 0
   pathauto: 1
   views: 10

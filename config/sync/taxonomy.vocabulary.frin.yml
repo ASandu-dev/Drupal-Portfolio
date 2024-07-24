@@ -6,3 +6,4 @@ name: frin
 vid: frin
 description: 'Description of frin'
 weight: 9
+new_revision: false
