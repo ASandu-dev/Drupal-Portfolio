@@ -33,7 +33,8 @@ function portfolio_preprocess_views_view_field__skills__block_1__field_skill_log
  * Implements hook_theme_suggestions_HOOK_alter().
  * suggests a template for a node
  */
-function portfolio_theme_suggestions_page_alter(&$suggestions, $variables){
+function portfolio_theme_suggestions_page_alter(&$suggestions, $variables): void
+{
   //add a page--article suggestion for node type article
   if (isset($variables['node']) && $variables['node']->getType() == 'article') {
     $suggestions[] = 'page__article';
@@ -43,7 +44,8 @@ function portfolio_theme_suggestions_page_alter(&$suggestions, $variables){
  * Implements hook_theme_suggestions_HOOK_alter().
  * suggests a template for a form
  */
-function portfolio_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+function portfolio_theme_suggestions_form_alter(array &$suggestions, array $variables): void
+{
   // Get the form ID from the variables array.
   $form_id = $variables['element']['#form_id'];
 
@@ -53,12 +55,13 @@ function portfolio_theme_suggestions_form_alter(array &$suggestions, array $vari
 /**
  * Implements hook_form_alter().
  */
-function portfolio_form_alter(&$form, &$form_state, $form_id) {
+function portfolio_form_alter(&$form, &$form_state, $form_id): void
+{
   if ($form_id == 'user_login_form') {
     // Add a custom class to the "name" field.
     $form['name']['#attributes']['class'][] = 'p-2 mt-8 rounded-xl border';
     $form['pass']['#attributes']['class'][] = 'p-2 mt-8 rounded-xl border';
-    $form['actions']['submit']['#attributes']['class'][] = 'bg-[#002D74] w-full rounded-xl text-white py-2 hover:scale-105 duration-300';
+    $form['actions']['submit']['#attributes']['class'][] = '!bg-submit w-full rounded-xl text-white py-2 hover:scale-105 duration-300';
 
     // Add placeholders.
     $form['name']['#attributes']['placeholder'] = t('username');

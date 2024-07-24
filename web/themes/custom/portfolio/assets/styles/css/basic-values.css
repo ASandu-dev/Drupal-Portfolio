@@ -22,4 +22,19 @@ img {
   max-width: 100%;
   height: auto;
 }
-
+#edit-actions {
+  width: 100%;
+  padding: 0 20%;
+  display: flex;
+  justify-content: center;
+}
+#edit-submit {
+  width: 50%;
+  align-self: center;
+  margin-top: 25px;
+  cursor: pointer;
+  background-color: #1a920d;
+}
+#edit-submit:hover {
+  background-color: #25cb52;
+}
