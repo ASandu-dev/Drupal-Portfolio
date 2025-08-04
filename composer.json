@@ -22,6 +22,7 @@
         "drupal/core-composer-scaffold": "^10.5.0",
         "drupal/core-project-message": "^10.5.0",
         "drupal/core-recommended": "^10.5.0",
+        "drupal/csp": "^1.15",
         "drupal/devel": "^5.4.0",
         "drupal/disable_enable_all_assign_block": "^2.0",
         "drupal/entity_extra_field": "@alpha",
