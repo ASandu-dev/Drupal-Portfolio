@@ -1,0 +1,20 @@
+uuid: 6bb206c1-089c-4711-920d-d9efe0b63f81
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_reading_time
+field_name: field_reading_time
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

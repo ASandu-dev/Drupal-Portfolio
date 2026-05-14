@@ -1,0 +1,302 @@
+<nav class="sticky top-0 z-50 glass border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <a href="{{ path('<front>') }}" class="flex-shrink-0 flex items-center gap-2 group cursor-pointer">
+        <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white font-bold group-hover:bg-emerald-600 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <span class="text-lg font-bold tracking-tight text-gray-900 dark:text-white uppercase">Andrei Sandu</span>
+      </a>
+
+      <div class="hidden md:flex space-x-8 items-center">
+        <a href="{{ path('<front>') }}" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Home</a>
+        <a href="#skills" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Skills</a>
+        <a href="#projects" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Projects</a>
+        <a href="/blog" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Blog</a>
+        <a href="#github" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">GitHub</a>
+        <a href="#contact" class="px-4 py-2 text-sm font-medium text-white bg-emerald-500 hover:bg-emerald-600 rounded-lg transition-colors">Contact</a>
+        <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+
+      <div class="md:hidden flex items-center gap-2">
+        <button id="mobile-menu-button" class="text-gray-500 hover:text-emerald-500 p-2" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-200 dark:border-gray-800 p-4 space-y-4">
+    <a href="{{ path('<front>') }}" class="block text-sm font-medium text-gray-600 dark:text-gray-300">Home</a>
+    <a href="#projects" class="block text-sm font-medium text-gray-600 dark:text-gray-300">Projects</a>
+    <a href="/blog" class="block text-sm font-medium text-gray-600 dark:text-gray-300">Blog</a>
+    <a href="#contact" class="block text-sm font-medium text-emerald-500">Contact</a>
+  </div>
+</nav>
+
+<header class="relative pt-20 pb-32 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-xs font-bold mb-8 uppercase tracking-widest">
+      <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+      Location: United Kingdom
+    </div>
+    <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-6 tracking-tight text-center">
+      Hi, I&apos;m <span class="text-emerald-500">Andrei Sandu</span>
+    </h1>
+    <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed text-center">
+      Web Architect &amp; Cybersecurity Enthusiast. Specializing in secure Drupal platforms, penetration testing, and modern SaaS architectures.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="#projects" class="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-emerald-500/20">
+        View Projects
+      </a>
+      <a href="/blog" class="px-8 py-4 glass text-gray-900 dark:text-white font-bold rounded-xl hover:bg-white/10 transition-all">
+        Read Blog
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="skills" class="py-20 border-t border-gray-100 dark:border-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-3">Technical Expertise</h2>
+      <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">A practical stack shaped by Drupal delivery, SaaS engineering, and security-driven workflows.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="glass p-8 rounded-3xl">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Current Skills</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">Production technologies used in client work, personal products, and day-to-day architecture decisions.</p>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">Drupal</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">PHP</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">JavaScript / TypeScript</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">Next.js</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">React</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">Node.js / Express</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">Docker</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">PostgreSQL / Prisma</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">Linux</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">Cloudflare</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">Security basics / web scanning</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">Git / GitHub</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">Tailwind CSS</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/20">Material UI</span>
+        </div>
+      </div>
+
+      <div class="glass p-8 rounded-3xl">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Learning Goals</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">Focused next-step capabilities to deepen platform ownership and scale secure SaaS operations.</p>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/20">Kubernetes</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/20">AWS</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/20">Azure</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/20">Advanced DevOps</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/20">CI/CD</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/20">Ansible</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/20">Cybersecurity / penetration testing</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/20">SaaS architecture</span>
+          <span class="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/20">AI-assisted development workflows</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="py-20 bg-emerald-500/5">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="glass p-10 rounded-3xl relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-8 opacity-10">
+        <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">About Andrei</h2>
+      <div class="prose prose-lg dark:prose-invert text-gray-600 dark:text-gray-400">
+        <p class="mb-4">
+          I am a Web Architect and Security Researcher focused on building resilient digital ecosystems. With a deep background in <strong>Drupal 11</strong> and <strong>full-stack JavaScript</strong>, I bridge the gap between high-performance development and rigorous security standards.
+        </p>
+        <p class="mb-4">
+          My work revolves around the intersection of architecture and defense. Whether I&apos;m designing decoupled enterprise platforms or conducting penetration tests on SaaS infrastructures, my goal is always to create systems that are as secure as they are functional.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+          <div class="flex items-center gap-2 text-emerald-500 font-bold">
+            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+            Penetration Testing
+          </div>
+          <div class="flex items-center gap-2 text-emerald-500 font-bold">
+            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+            Drupal Theme Architecture
+          </div>
+          <div class="flex items-center gap-2 text-emerald-500 font-bold">
+            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+            Vulnerability Research
+          </div>
+          <div class="flex items-center gap-2 text-emerald-500 font-bold">
+            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+            SaaS Product Development
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="py-20 bg-gray-50/50 dark:bg-black/20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Projects</h2>
+        <p class="text-gray-500">Portfolio highlights across SaaS, Drupal commerce delivery, and infrastructure automation.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+      <div class="glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full">
+        <div class="scan-line opacity-0 group-hover:opacity-30"></div>
+        <div class="flex justify-between items-start mb-4">
+          <div class="p-3 bg-emerald-500/10 rounded-xl">
+            <svg class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">ScanSentinel</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Multi-tenant cyber hygiene scanner with secure auth, subscription-ready architecture, and automated network and SSL checks for SaaS customers.</p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Next.js</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Express</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">PostgreSQL</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Prisma</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Docker</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Nmap / OpenSSL</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Auth0</span>
+        </div>
+      </div>
+
+      <div class="glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full">
+        <div class="scan-line opacity-0 group-hover:opacity-30"></div>
+        <div class="flex justify-between items-start mb-4">
+          <div class="p-3 bg-orange-500/10 rounded-xl">
+            <svg class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Rex London Work</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Drupal Commerce development focused on product media quality, responsive image styles, performance optimization, and Platform.sh/Upsun deployment workflows.</p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Drupal 11</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Drupal Commerce</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Image Optimization</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Platform.sh / Upsun</span>
+        </div>
+      </div>
+
+      <div class="glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full">
+        <div class="scan-line opacity-0 group-hover:opacity-30"></div>
+        <div class="flex justify-between items-start mb-4">
+          <div class="p-3 bg-emerald-500/10 rounded-xl">
+            <svg class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 014-4h1a5 5 0 019.9-1A4 4 0 1120 15H3z" /></svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Homelab / NAS Infrastructure</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Self-hosted lab architecture on UGreen NAS with Docker Compose, Cloudflare tunnels, Pi-hole, Omada controller, and internal service automation.</p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">UGreen NAS</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Docker Compose</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Cloudflare Tunnel</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Ansible / Semaphore</span>
+        </div>
+      </div>
+
+      <div class="glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full">
+        <div class="scan-line opacity-0 group-hover:opacity-30"></div>
+        <div class="flex justify-between items-start mb-4">
+          <div class="p-3 bg-orange-500/10 rounded-xl">
+            <svg class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.55-2.28A1 1 0 0121 8.62v6.76a1 1 0 01-1.45.9L15 14m-6 4h6a2 2 0 002-2V8a2 2 0 00-2-2H9a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">FFmpeg Media Converter</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Node/Next.js utility for converting GIF and video assets into efficient web-ready formats such as WebM and MP4.</p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Node.js</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Next.js</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">FFmpeg</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Media Optimization</span>
+        </div>
+      </div>
+
+      <div class="glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full">
+        <div class="scan-line opacity-0 group-hover:opacity-30"></div>
+        <div class="flex justify-between items-start mb-4">
+          <div class="p-3 bg-emerald-500/10 rounded-xl">
+            <svg class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 009.75 21h4.5a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0014.25 3h-4.5z" /></svg>
+          </div>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Drupal Admin / Module Work</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Custom Drupal 11 modules, recipes, content type architecture, Paragraphs workflows, and admin tooling for streamlined editorial operations.</p>
+        <div class="flex flex-wrap gap-2 mt-auto">
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Drupal 11</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Custom Modules</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Paragraphs</span>
+          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Admin Automation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="github" class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-3 text-center">Development Pulse</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 text-center mb-8">Combined contribution view for <span class="text-emerald-500 font-semibold">ASandu-dev</span> and <span class="text-orange-500 font-semibold">CMAndrei</span>.</p>
+    <div class="glass p-8 rounded-3xl">
+      {% if portfolio_calendar_block %}
+        {{ portfolio_calendar_block }}
+      {% else %}
+        <p class="text-sm text-gray-600 dark:text-gray-400">Enable the Portfolio Calendar module to display activity.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-20 bg-emerald-500/5">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6 text-center">Let&apos;s collaborate</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-10 text-center">
+      I&apos;m currently based in the <strong>United Kingdom</strong> and available for freelance security audits, Drupal architecture consulting, and SaaS development projects.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-6">
+      <button id="copy-email" class="px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-xl flex items-center justify-center gap-3 transition-all hover:scale-105">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" /></svg>
+        Copy Email
+      </button>
+      <div class="flex items-center gap-4 justify-center">
+        <a href="https://andreisandu.net" class="p-4 glass rounded-xl text-gray-500 hover:text-emerald-500 transition-colors" target="_blank" rel="noopener noreferrer"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg></a>
+        <a href="https://www.linkedin.com/in/andrei-sandu-50820a64/" class="p-4 glass rounded-xl text-gray-500 hover:text-emerald-500 transition-colors" target="_blank" rel="noopener noreferrer"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="glass border-t border-gray-200 dark:border-gray-800 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-6 h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-xs font-bold">AS</div>
+          <span class="text-lg font-bold text-gray-900 dark:text-white uppercase tracking-tight">Andrei Sandu</span>
+        </div>
+        <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Web Architect &amp; Cybersecurity Researcher.</p>
+      </div>
+      <p class="text-xs text-gray-500 dark:text-gray-600 text-center">&copy; 2026 Andrei Sandu. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

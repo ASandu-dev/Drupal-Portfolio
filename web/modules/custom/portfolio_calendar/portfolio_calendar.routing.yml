@@ -1,0 +1,14 @@
+portfolio_calendar.settings:
+  path: '/admin/config/services/portfolio-calendar'
+  defaults:
+    _form: '\Drupal\portfolio_calendar\Form\PortfolioCalendarSettingsForm'
+    _title: 'Portfolio Calendar settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+portfolio_calendar.activity:
+  path: '/portfolio-calendar/activity'
+  defaults:
+    _controller: '\Drupal\portfolio_calendar\Controller\PortfolioCalendarController::activity'
+  requirements:
+    _permission: 'access content'

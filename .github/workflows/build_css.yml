@@ -1,26 +1,87 @@
-name: Build Portfolio Theme
+name: Build and Validate
 
 on:
   push:
-    branches: [pleasetest]
+    branches: [production, main, develop]
+  pull_request:
+    branches: [production, main]
 
 jobs:
-  build:
+  validate:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer:v2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: '22'
+          cache: 'npm'
 
-      - name: Install Dependencies
-        working-directory: web/themes/custom/portfolio
-        run: npm install
-      
-      - name: Build
-        working-directory: web/themes/custom/portfolio
-        run: npm run build
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: Install Node dependencies
+        run: npm ci --include=dev
+
+      - name: Composer validate
+        run: composer validate --no-check-publish
+
+      - name: PHP Syntax check — custom theme
+        run: php -l web/themes/custom/portfolio_showcase/portfolio_showcase.theme
+
+      - name: PHP Syntax check — portfolio_calendar module
+        run: |
+          php -l web/modules/custom/portfolio_calendar/src/Plugin/Block/PortfolioCalendarBlock.php
+          php -l web/modules/custom/portfolio_calendar/src/Form/PortfolioCalendarSettingsForm.php
+          php -l web/modules/custom/portfolio_calendar/src/Controller/PortfolioCalendarController.php
+
+      - name: JavaScript Syntax check — theme
+        run: |
+          node --check web/themes/custom/portfolio_showcase/assets/js/theme-init.js
+          node --check web/themes/custom/portfolio_showcase/assets/js/theme-toggle.js
+          node --check web/themes/custom/portfolio_showcase/assets/js/portfolio-showcase.js
+
+      - name: JavaScript Syntax check — calendar module
+        run: node --check web/modules/custom/portfolio_calendar/js/portfolio_calendar.js
+
+      - name: YAML syntax check — theme and module config
+        run: |
+          php -r "
+          require 'vendor/autoload.php';
+          \$files = [
+            'web/themes/custom/portfolio_showcase/portfolio_showcase.info.yml',
+            'web/themes/custom/portfolio_showcase/portfolio_showcase.libraries.yml',
+            'web/modules/custom/portfolio_calendar/portfolio_calendar.info.yml',
+            'web/modules/custom/portfolio_calendar/portfolio_calendar.libraries.yml',
+            'web/modules/custom/portfolio_calendar/portfolio_calendar.routing.yml',
+            'web/modules/custom/portfolio_calendar/portfolio_calendar.links.menu.yml',
+          ];
+          foreach (\$files as \$file) {
+            Symfony\Component\Yaml\Yaml::parseFile(\$file);
+            echo 'OK ' . \$file . PHP_EOL;
+          }"
+
+      - name: Rebuild Tailwind CSS
+        run: npx tailwindcss -c web/themes/custom/portfolio_showcase/tailwind.config.js -i web/themes/custom/portfolio_showcase/src/tailwind.input.css -o web/themes/custom/portfolio_showcase/assets/css/portfolio-showcase.tailwind.css --minify
+
+      - name: Composer audit
+        run: composer audit

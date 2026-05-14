@@ -1,0 +1,19 @@
+global:
+  version: 20260514
+  css:
+    theme:
+      https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap:
+        type: external
+        minified: true
+      assets/css/portfolio-showcase.tailwind.css: {}
+      assets/css/portfolio-showcase.css: {}
+  js:
+    assets/js/theme-init.js:
+      header: true
+      weight: -30
+    assets/js/theme-toggle.js:
+      attributes:
+        defer: true
+    assets/js/portfolio-showcase.js:
+      attributes:
+        defer: true

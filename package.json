@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "postcss web/themes/custom/portfolio/pcss/tailwind.pcss -o web/themes/custom/portfolio/assets/styles/css/main.css",
+    "build": "tailwindcss -c web/themes/custom/portfolio_showcase/tailwind.config.js -i web/themes/custom/portfolio_showcase/src/tailwind.input.css -o web/themes/custom/portfolio_showcase/assets/css/portfolio-showcase.tailwind.css --minify",
     "watch": "watch 'npm run build'"
   },
   "devDependencies": {

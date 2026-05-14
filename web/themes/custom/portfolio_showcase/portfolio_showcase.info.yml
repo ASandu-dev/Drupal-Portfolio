@@ -1,0 +1,11 @@
+name: Portfolio Showcase
+type: theme
+description: 'Drupal 11 custom theme based on the static portfolio design.'
+core_version_requirement: ^10 || ^11
+base theme: false
+libraries:
+  - portfolio_showcase/global
+regions:
+  header: Header
+  content: Content
+  footer: Footer

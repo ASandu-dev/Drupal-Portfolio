@@ -1,0 +1,10 @@
+calendar:
+  css:
+    theme:
+      css/portfolio_calendar.css: {}
+  js:
+    js/portfolio_calendar.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once

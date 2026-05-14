@@ -1,0 +1,37 @@
+{% set image = node.field_featured_image.entity %}
+{% set image_url = image ? file_url(image.uri.value) : '' %}
+{% set pub_date = node.field_published_date[0].value ?? '' %}
+{% set date = pub_date ? pub_date|date('F j, Y') : node.getCreatedTime()|date('F j, Y') %}
+
+<article{{ attributes.addClass('glass glass-hover overflow-hidden rounded-2xl group flex flex-col h-full') }}>
+  <div class="aspect-[4/3] bg-gray-800 relative overflow-hidden">
+    {% if image_url %}
+      <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" class="w-full h-full object-cover">
+    {% endif %}
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-orange-500/20"></div>
+    {% if content.field_tags|render %}
+      <div class="absolute bottom-4 left-4">
+        {{ content.field_tags }}
+      </div>
+    {% endif %}
+  </div>
+  <div class="p-5 flex flex-col flex-1">
+    <div class="text-xs text-gray-500 mb-1">
+      {{ date }}
+      {% if node.field_reading_time[0].value %}
+        &bull; {{ node.field_reading_time[0].value }} min read
+      {% endif %}
+    </div>
+    <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-500 transition-colors">
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h3>
+    {% if content.field_excerpt|render %}
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-3">
+        {{ content.field_excerpt }}
+      </p>
+    {% endif %}
+    <a href="{{ url }}" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-500 mt-auto">
+      {{ 'Read Report'|t }} &rarr;
+    </a>
+  </div>
+</article>

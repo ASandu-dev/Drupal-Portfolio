@@ -1,0 +1,6 @@
+name: Portfolio Calendar
+type: module
+description: 'Provides the Development Pulse GitHub calendar block for the portfolio theme.'
+package: Custom
+core_version_requirement: ^10 || ^11
+configure: portfolio_calendar.settings

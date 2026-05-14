@@ -1,0 +1,64 @@
+{% set image = node.field_featured_image.entity %}
+{% set image_url = image ? file_url(image.uri.value) : '' %}
+{% set pub_date = node.field_published_date[0].value ?? '' %}
+
+<article{{ attributes.addClass('py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8') }}>
+  <header class="mb-16">
+    <div class="flex items-center gap-3 text-xs font-bold text-emerald-500 uppercase tracking-widest mb-6">
+      <span>{{ 'Architecture Report'|t }}</span>
+      <span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
+      <span>{{ pub_date ? pub_date|date('F j, Y') : node.getCreatedTime()|date('F j, Y') }}</span>
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-8 leading-tight tracking-tight">
+      {{ label }}
+    </h1>
+
+    {% if image_url %}
+      <div class="mb-8 rounded-2xl overflow-hidden">
+        <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" class="w-full h-auto object-cover">
+      </div>
+    {% endif %}
+
+    <div class="flex items-center justify-between border-y border-gray-100 dark:border-gray-800 py-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 font-bold">AS</div>
+        <div>
+          <div class="text-sm font-bold text-gray-900 dark:text-white">{{ node.getOwner().displayName }}</div>
+          <div class="text-xs text-gray-500">Drupal Architect &amp; Security Researcher</div>
+        </div>
+      </div>
+      {% if node.field_reading_time[0].value %}
+        <div class="text-xs text-gray-500">{{ node.field_reading_time[0].value }} min read</div>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if node.field_external_url[0] %}
+    <div class="mb-6">
+      <a href="{{ node.field_external_url[0].uri }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-500 hover:underline">
+        {{ 'Read original article'|t }} &rarr;
+      </a>
+    </div>
+  {% endif %}
+
+  <div{{ content_attributes.addClass('prose prose-lg dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 leading-relaxed space-y-8') }}>
+    {{ content.body }}
+  </div>
+
+  {% if content.field_tags|render %}
+    <div class="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800">
+      <div class="flex flex-wrap gap-2">
+        {{ content.field_tags }}
+      </div>
+    </div>
+  {% endif %}
+
+  <footer class="mt-24 pt-12 border-t border-gray-100 dark:border-gray-800">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+      <a href="/blog" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-500 hover:gap-3 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+        {{ 'Back to Intelligence Reports'|t }}
+      </a>
+    </div>
+  </footer>
+</article>

@@ -1,0 +1,5 @@
+portfolio_calendar.settings:
+  title: 'Portfolio Calendar'
+  description: 'Configure GitHub usernames and tokens for Development Pulse.'
+  route_name: portfolio_calendar.settings
+  parent: system.admin_config_services

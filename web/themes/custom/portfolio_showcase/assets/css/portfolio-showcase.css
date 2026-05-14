@@ -1,0 +1,74 @@
+@layer base {
+  :root {
+    --bg-primary: #f9fafb;
+    --bg-secondary: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --border-color: #e5e7eb;
+    --primary-color: #10b981;
+    --accent-color: #f97316;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --glass-blur: blur(12px);
+  }
+
+  .dark {
+    --bg-primary: #030712;
+    --bg-secondary: #111827;
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --border-color: #1f2937;
+    --primary-color: #34d399;
+    --accent-color: #fb923c;
+    --card-bg: rgba(17, 24, 39, 0.7);
+  }
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.glass-hover:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+}
+
+.scan-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  animation: scan 3s infinite linear;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+nav {
+  z-index: 50;
+}
