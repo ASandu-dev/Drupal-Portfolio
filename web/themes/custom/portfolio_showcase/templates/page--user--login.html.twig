@@ -1,0 +1,47 @@
+<div class="min-h-screen bg-[#f9fafb] dark:bg-[#030712] transition-colors duration-300">
+  <nav class="sticky top-0 z-50 glass border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="{{ path('<front>') }}" class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white font-bold">AS</div>
+          <span class="text-lg font-bold tracking-tight text-gray-900 dark:text-white uppercase">Andrei Sandu</span>
+        </a>
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="{{ path('<front>') }}" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Home</a>
+          <a href="/blog" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Blog</a>
+          <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <span id="theme-icon"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-20">
+    <div class="max-w-md mx-auto px-4 sm:px-6">
+      <div class="text-center mb-8">
+        <div class="w-14 h-14 bg-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-emerald-500/20">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Welcome Back</h1>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mt-2">Sign in to your account to continue.</p>
+      </div>
+
+      <div class="glass p-8 rounded-3xl">
+        {{ page.content }}
+      </div>
+
+      <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
+        <a href="{{ path('<front>') }}" class="text-emerald-500 hover:text-emerald-600 font-medium transition-colors">&larr; Back to home</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="glass border-t border-gray-200 dark:border-gray-800 py-12 mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs text-gray-500 dark:text-gray-600">&copy; 2026 Andrei Sandu. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
