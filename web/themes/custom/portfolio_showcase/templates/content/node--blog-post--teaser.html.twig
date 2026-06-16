@@ -4,34 +4,44 @@
 {% set date = pub_date ? pub_date|date('F j, Y') : node.getCreatedTime()|date('F j, Y') %}
 
 <article{{ attributes.addClass('glass glass-hover overflow-hidden rounded-2xl group flex flex-col h-full') }}>
-  <div class="aspect-[4/3] bg-gray-800 relative overflow-hidden">
+  <a href="{{ url }}" class="aspect-[4/3] bg-gray-100 dark:bg-gray-800 relative overflow-hidden block">
     {% if image_url %}
-      <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" class="w-full h-full object-cover">
+      <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+    {% else %}
+      <div class="w-full h-full flex items-center justify-center">
+        <svg class="w-12 h-12 text-gray-300 dark:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+      </div>
     {% endif %}
-    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-orange-500/20"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     {% if content.field_tags|render %}
-      <div class="absolute bottom-4 left-4">
+      <div class="absolute bottom-3 left-3 flex flex-wrap gap-1">
         {{ content.field_tags }}
       </div>
     {% endif %}
-  </div>
+  </a>
+
   <div class="p-5 flex flex-col flex-1">
-    <div class="text-xs text-gray-500 mb-1">
-      {{ date }}
+    <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
+      <time datetime="{{ pub_date }}">{{ date }}</time>
       {% if node.field_reading_time[0].value %}
-        &bull; {{ node.field_reading_time[0].value }} min read
+        <span class="text-gray-300 dark:text-gray-600">&bull;</span>
+        <span>{{ node.field_reading_time[0].value }} min read</span>
       {% endif %}
     </div>
-    <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-500 transition-colors">
+
+    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-500 transition-colors leading-snug">
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h3>
+
     {% if content.field_excerpt|render %}
-      <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-3">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-3 leading-relaxed">
         {{ content.field_excerpt }}
       </p>
     {% endif %}
-    <a href="{{ url }}" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-500 mt-auto">
-      {{ 'Read Report'|t }} &rarr;
+
+    <a href="{{ url }}" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-500 mt-auto hover:gap-3 transition-all group/link">
+      {{ 'Read Report'|t }}
+      <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
     </a>
   </div>
 </article>

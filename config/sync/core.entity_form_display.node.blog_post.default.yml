@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.blog_post.body
     - field.field.node.blog_post.field_excerpt
     - field.field.node.blog_post.field_external_url
     - field.field.node.blog_post.field_featured_image
@@ -14,18 +15,20 @@ dependencies:
     - datetime
     - image
     - link
-    - path
     - text
 id: node.blog_post.default
 targetEntityType: node
 bundle: blog_post
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 10
+  body:
+    type: text_textarea_with_summary
+    weight: 1
     region: content
-    settings: {  }
+    settings:
+      rows: 15
+      summary_rows: 0
+      placeholder: 'Write your article here...'
     third_party_settings: {  }
   field_excerpt:
     type: text_textarea
@@ -33,15 +36,7 @@ content:
     region: content
     settings:
       rows: 3
-      placeholder: ''
-    third_party_settings: {  }
-  field_external_url:
-    type: link_default
-    weight: 7
-    region: content
-    settings:
-      placeholder_url: 'https://example.com/article'
-      placeholder_title: ''
+      placeholder: 'A short summary shown on listing cards (optional)'
     third_party_settings: {  }
   field_featured_image:
     type: image_image
@@ -62,7 +57,7 @@ content:
     weight: 5
     region: content
     settings:
-      placeholder: '5'
+      placeholder: 'e.g. 10'
     third_party_settings: {  }
   field_tags:
     type: entity_reference_autocomplete_tags
@@ -70,25 +65,20 @@ content:
     region: content
     settings:
       match_limit: 10
-      placeholder: ''
       size: 60
+      placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
+  field_external_url:
+    type: link_default
+    weight: 7
     region: content
-    settings: {  }
+    settings:
+      placeholder_url: 'https://example.com/article'
+      placeholder_title: ''
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 16
+    weight: 8
     region: content
     settings:
       display_label: true
@@ -101,22 +91,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 5
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  url_redirects:
-    weight: 50
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
-  body: true
+  created: true
+  path: true
   promote: true
   revision_log: true
+  sticky: true
+  uid: true
+  url_redirects: true

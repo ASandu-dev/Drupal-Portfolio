@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Template for the blog listing page.
+ * View machine name: blogpage
+ */
+#}
+{%
+  set classes = [
+    'py-12 md:py-20',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-12 md:mb-16 text-center">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4 tracking-tight">
+        {{ 'Intelligence Reports'|t }}
+      </h1>
+      <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+        {{ 'Technical deep-dives into cybersecurity, web vulnerabilities, and secure coding practices.'|t }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {{ rows }}
+    </div>
+
+    {% if pager %}
+      <div class="mt-12">
+        {{ pager }}
+      </div>
+    {% endif %}
+  </div>
+</div>
