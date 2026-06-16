@@ -17,7 +17,7 @@ filters:
       id: commonmark
       enabled: true
       render_strategy:
-        type: filter_output
+        type: none
         custom_allowed_html: null
         plugins: {  }
       override: false
