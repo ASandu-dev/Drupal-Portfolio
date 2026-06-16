@@ -1,46 +1,65 @@
 {% set image = node.field_featured_image.entity %}
 {% set image_url = image ? file_url(image.uri.value) : '' %}
-{% set project_url = node.field_project_url[0].url ?? url %}
+{% set project_url = node.field_project_url[0].url ?? '' %}
 {% set project_link_text = node.field_project_url[0].title ?? 'View Project' %}
 {% set blog_ref = node.field_blog_reference[0].entity %}
 {% set technologies = node.field_technologies %}
 {% set has_description = content.body|render|striptags|trim is not empty %}
 {% set has_summary = node.body.summary is not empty %}
 
-<article{{ attributes.addClass('glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full') }}>
+<article{{ attributes.addClass('glass glass-hover overflow-hidden rounded-2xl group flex flex-col h-full') }}>
   <div class="scan-line opacity-0 group-hover:opacity-30"></div>
-  <div class="flex justify-between items-start mb-4">
-    <div class="p-3 bg-emerald-500/10 rounded-xl">
-      {% if image_url %}
-        <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" class="h-6 w-6 object-cover rounded">
-      {% else %}
-        <svg class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-      {% endif %}
-    </div>
-    {% if project_url != url %}
-      <a href="{{ project_url }}" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-emerald-500 transition-colors" aria-label="{{ project_link_text }}">
-        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+
+  {# Featured image area #}
+  <div class="aspect-[16/10] bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+    {% if image_url %}
+      <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+    {% else %}
+      <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-500/10 to-orange-500/10">
+        <svg class="w-16 h-16 text-emerald-500/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+      </div>
+    {% endif %}
+
+    {# External link button (top-right) #}
+    {% if project_url %}
+      <a href="{{ project_url }}" target="_blank" rel="noopener noreferrer" class="absolute top-3 right-3 p-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-lg text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400 hover:scale-110 transition-all shadow-sm" aria-label="{{ project_link_text }}">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
       </a>
     {% endif %}
   </div>
-  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{{ label }}</h3>
-  {% if has_description or has_summary %}
-    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed line-clamp-3">
-      {% if has_description %}
-        {{ content.body }}
-      {% else %}
-        {{ node.body.summary }}
-      {% endif %}
-    </p>
-  {% endif %}
-  <div class="flex flex-wrap gap-2 mt-auto">
-    {% for tech in technologies %}
-      <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">{{ tech.value }}</span>
-    {% endfor %}
+
+  {# Card body #}
+  <div class="p-5 flex flex-col flex-1">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-500 transition-colors leading-snug">
+      {{ label }}
+    </h3>
+
+    {% if has_description or has_summary %}
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-3 leading-relaxed">
+        {% if has_description %}
+          {{ content.body }}
+        {% else %}
+          {{ node.body.summary }}
+        {% endif %}
+      </p>
+    {% endif %}
+
+    {# Technology badges #}
+    {% if technologies is not empty %}
+      <div class="flex flex-wrap gap-1.5 mt-auto mb-3">
+        {% for tech in technologies %}
+          <span class="px-2 py-0.5 text-xs font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full border border-emerald-500/20">{{ tech.value }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {# Blog reference link #}
+    {% if blog_ref %}
+      <a href="{{ path('entity.node.canonical', {'node': blog_ref.id()}) }}" class="inline-flex items-center gap-1 text-xs text-emerald-500 font-semibold hover:text-emerald-400 transition-colors group/link">
+        Read more
+        <svg class="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    {% endif %}
   </div>
-  {% if blog_ref %}
-    <a href="{{ path('entity.node.canonical', {'node': blog_ref.id()}) }}" class="inline-flex items-center gap-1 text-xs text-emerald-500 font-semibold mt-3 hover:text-emerald-400 transition-colors">
-      Read more &rarr;
-    </a>
-  {% endif %}
 </article>
