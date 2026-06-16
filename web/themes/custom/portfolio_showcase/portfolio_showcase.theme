@@ -34,7 +34,7 @@ function portfolio_showcase_preprocess_page(array &$variables): void {
 
   // Load project nodes for the front page.
   $nids = \Drupal::entityQuery('node')
-    ->accessCheck(FALSE)
+    ->accessCheck(TRUE)
     ->condition('type', 'project')
     ->condition('status', 1)
     ->sort('created', 'DESC')
@@ -43,9 +43,16 @@ function portfolio_showcase_preprocess_page(array &$variables): void {
 
   $variables['projects'] = [];
   if (!empty($nids)) {
+    $nodes = Node::loadMultiple($nids);
     $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
-    foreach (Node::loadMultiple($nids) as $nid => $node) {
-      $variables['projects'][$nid] = $view_builder->view($node, 'teaser');
+    foreach ($nodes as $node) {
+      $view = $view_builder->view($node, 'teaser');
+      $variables['projects'][] = $view;
     }
   }
+
+  // Ensure the page cache is invalidated when any project node is modified.
+  (new CacheableMetadata())
+    ->addCacheTags(['node_list:project'])
+    ->applyTo($variables);
 }
