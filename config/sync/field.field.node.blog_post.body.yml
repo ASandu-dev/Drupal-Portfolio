@@ -1,9 +1,10 @@
-uuid: 8f7e5a2b-3c1d-4e9f-b6a8-2d7c3e5f1a9b
-langcode: en
+uuid: c7503b63-3e5e-4f4a-a885-ca9df13c8e16
+langcode: en-gb
 status: true
 dependencies:
   config:
     - field.storage.node.body
+    - filter.format.markdown
     - node.type.blog_post
   module:
     - text
@@ -12,12 +13,14 @@ field_name: body
 entity_type: node
 bundle: blog_post
 label: Body
-description: 'Main article content.'
+description: ''
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  display_summary: false
+  display_summary: true
   required_summary: false
+  allowed_formats:
+    - markdown
 field_type: text_with_summary

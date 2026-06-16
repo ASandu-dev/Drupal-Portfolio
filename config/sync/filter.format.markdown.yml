@@ -1,0 +1,24 @@
+uuid: 16f064ae-88ff-4618-bb4f-c312ee97299a
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - markdown
+name: Markdown
+format: markdown
+weight: 1
+filters:
+  markdown:
+    id: markdown
+    provider: markdown
+    status: true
+    weight: 0
+    settings:
+      id: commonmark
+      enabled: true
+      render_strategy:
+        type: filter_output
+        custom_allowed_html: null
+        plugins: {  }
+      override: false
+    filterFormat: null
