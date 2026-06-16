@@ -4,7 +4,8 @@
 {% set project_link_text = node.field_project_url[0].title ?? 'View Project' %}
 {% set blog_ref = node.field_blog_reference[0].entity %}
 {% set technologies = node.field_technologies %}
-{% set description = content.body|render ? content.body : node.body.summary %}
+{% set has_description = content.body|render|striptags|trim is not empty %}
+{% set has_summary = node.body.summary is not empty %}
 
 <article{{ attributes.addClass('glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full') }}>
   <div class="scan-line opacity-0 group-hover:opacity-30"></div>
@@ -23,7 +24,15 @@
     {% endif %}
   </div>
   <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{{ label }}</h3>
-  <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">{{ description }}</p>
+  {% if has_description or has_summary %}
+    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed line-clamp-3">
+      {% if has_description %}
+        {{ content.body }}
+      {% else %}
+        {{ node.body.summary }}
+      {% endif %}
+    </p>
+  {% endif %}
   <div class="flex flex-wrap gap-2 mt-auto">
     {% for tech in technologies %}
       <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">{{ tech.value }}</span>
