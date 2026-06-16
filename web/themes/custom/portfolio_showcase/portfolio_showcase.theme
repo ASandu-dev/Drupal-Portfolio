@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_preprocess_page().
@@ -12,21 +13,39 @@ function portfolio_showcase_preprocess_page(array &$variables): void {
     return;
   }
 
+  // Load calendar block.
   if (!\Drupal::moduleHandler()->moduleExists('portfolio_calendar')) {
     $variables['portfolio_calendar_block'] = [];
-    return;
+  }
+  else {
+    $block_manager = \Drupal::service('plugin.manager.block');
+    $plugin_block = $block_manager->createInstance('portfolio_calendar_pulse_block', []);
+    $access = $plugin_block->access(\Drupal::currentUser(), TRUE);
+
+    if (!$access->isAllowed()) {
+      $variables['portfolio_calendar_block'] = [];
+    }
+    else {
+      $build = $plugin_block->build();
+      CacheableMetadata::createFromObject($access)->applyTo($build);
+      $variables['portfolio_calendar_block'] = $build;
+    }
   }
 
-  $block_manager = \Drupal::service('plugin.manager.block');
-  $plugin_block = $block_manager->createInstance('portfolio_calendar_pulse_block', []);
-  $access = $plugin_block->access(\Drupal::currentUser(), TRUE);
+  // Load project nodes for the front page.
+  $nids = \Drupal::entityQuery('node')
+    ->accessCheck(FALSE)
+    ->condition('type', 'project')
+    ->condition('status', 1)
+    ->sort('created', 'DESC')
+    ->range(0, 50)
+    ->execute();
 
-  if (!$access->isAllowed()) {
-    $variables['portfolio_calendar_block'] = [];
-    return;
+  $variables['projects'] = [];
+  if (!empty($nids)) {
+    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+    foreach (Node::loadMultiple($nids) as $nid => $node) {
+      $variables['projects'][$nid] = $view_builder->view($node, 'teaser');
+    }
   }
-
-  $build = $plugin_block->build();
-  CacheableMetadata::createFromObject($access)->applyTo($build);
-  $variables['portfolio_calendar_block'] = $build;
 }

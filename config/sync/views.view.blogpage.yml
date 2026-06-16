@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - node.type.article
+    - node.type.blog_post
   module:
     - node
     - user
@@ -152,7 +152,7 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            article: article
+            blog_post: blog_post
           group: 1
           exposed: false
           expose:
