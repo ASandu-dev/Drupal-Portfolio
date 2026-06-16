@@ -37,12 +37,7 @@
   {# Featured image (full bleed) #}
   {% if image_url %}
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-      <figure>
-        <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" class="w-full h-auto rounded-2xl object-cover shadow-lg" loading="lazy">
-        {% if node.field_featured_image.alt %}
-          <figcaption class="mt-3 text-center text-xs text-gray-400">{{ node.field_featured_image.alt }}</figcaption>
-        {% endif %}
-      </figure>
+      <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" class="w-full h-auto rounded-2xl object-cover shadow-lg" loading="lazy">
     </div>
   {% endif %}
 
