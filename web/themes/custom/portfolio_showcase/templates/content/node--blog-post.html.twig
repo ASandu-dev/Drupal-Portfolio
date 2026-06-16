@@ -2,139 +2,239 @@
 {% set image_url = image ? file_url(image.uri.value) : '' %}
 {% set pub_date = node.field_published_date[0].value ?? '' %}
 {% set reading_time = node.field_reading_time[0].value ?? 0 %}
+{% set date_formatted = pub_date ? pub_date|date('F j, Y') : node.getCreatedTime()|date('F j, Y') %}
 
 <article{{ attributes.addClass('reading-container') }}>
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-    {# Reading progress bar #}
-    <div class="fixed top-0 left-0 h-1 bg-emerald-500 z-50 transition-all duration-150"
-         id="reading-progress" style="width: 0%"></div>
+  {# Reading progress bar #}
+  <div class="fixed top-0 left-0 h-1 bg-emerald-500 z-50 transition-all duration-150"
+       id="reading-progress" style="width: 0%"></div>
 
-    {# Header #}
-    <header class="mb-12">
-      <div class="flex items-center gap-3 text-xs font-bold text-emerald-500 uppercase tracking-widest mb-6">
+  {# Hero header #}
+  <header class="relative pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-3 text-xs font-bold text-emerald-500 uppercase tracking-widest mb-6">
         <span>{{ 'Intelligence Report'|t }}</span>
         <span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
-        <time datetime="{{ pub_date }}">{{ pub_date ? pub_date|date('F j, Y') : node.getCreatedTime()|date('F j, Y') }}</time>
+        <time datetime="{{ pub_date }}">{{ date_formatted }}</time>
         {% if reading_time %}
           <span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
           <span>{{ reading_time }} min read</span>
         {% endif %}
       </div>
 
-      <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight tracking-tight">
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight tracking-tight text-balance">
         {{ label }}
       </h1>
 
       {% if content.field_excerpt|render %}
-        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed text-balance">
           {{ content.field_excerpt }}
         </p>
       {% endif %}
+    </div>
+  </header>
 
-      {# Author card #}
-      <div class="flex items-center gap-4 py-6 border-y border-gray-100 dark:border-gray-800">
-        <div class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 font-bold text-sm">AS</div>
+  {# Featured image (full bleed) #}
+  {% if image_url %}
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <figure>
+        <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" class="w-full h-auto rounded-2xl object-cover shadow-lg" loading="lazy">
+        {% if node.field_featured_image.alt %}
+          <figcaption class="mt-3 text-center text-xs text-gray-400">{{ node.field_featured_image.alt }}</figcaption>
+        {% endif %}
+      </figure>
+    </div>
+  {% endif %}
+
+  {# Author + share bar #}
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 py-4 border-y border-gray-100 dark:border-gray-800">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 font-bold text-xs">AS</div>
         <div>
           <div class="text-sm font-bold text-gray-900 dark:text-white">{{ node.getOwner().displayName }}</div>
           <div class="text-xs text-gray-500">Drupal Architect &amp; Security Researcher</div>
         </div>
       </div>
-    </header>
+      <button id="copy-link" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 glass rounded-lg hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+        <span>{{ 'Copy link'|t }}</span>
+      </button>
+    </div>
+  </div>
 
-    {# Featured image #}
-    {% if image_url %}
-      <figure class="mb-12 -mx-4 sm:mx-0">
-        <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" class="w-full h-auto rounded-2xl object-cover" loading="lazy">
-        {% if node.field_featured_image.alt %}
-          <figcaption class="mt-3 text-center text-xs text-gray-400">{{ node.field_featured_image.alt }}</figcaption>
+  {# External link notice #}
+  {% if node.field_external_url[0] %}
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+      <a href="{{ node.field_external_url[0].uri }}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between gap-4 p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-xl group/external hover:bg-emerald-500/10 transition-colors">
+        <div>
+          <div class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-0.5">{{ 'Originally published on'|t }}</div>
+          <div class="text-sm text-emerald-500 font-medium">{{ node.field_external_url[0].uri|replace({'https://': '', 'http://': '', 'www.': ''})|split('/')[0] }}</div>
+        </div>
+        <svg class="w-5 h-5 text-emerald-500 group-hover/external:translate-x-1 group-hover/external:-translate-y-1 transition-transform shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+    </div>
+  {% endif %}
+
+  {# Content area: sidebar ToC + body #}
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex gap-8 lg:gap-12">
+
+      {# Sidebar: sticky ToC (desktop) #}
+      <aside class="hidden lg:block w-56 shrink-0">
+        <div class="sticky top-24" id="toc-sidebar">
+          <h2 class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">{{ 'In this article'|t }}</h2>
+          <nav class="space-y-0.5 border-l-2 border-gray-100 dark:border-gray-800" id="toc-links">
+          </nav>
+        </div>
+      </aside>
+
+      {# Main content #}
+      <div class="min-w-0 flex-1">
+        {# Mobile ToC (collapsible) #}
+        <details class="lg:hidden mb-8 glass rounded-2xl group/toc" id="toc-mobile">
+          <summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+            <span class="text-sm font-bold text-gray-900 dark:text-white">{{ 'In this article'|t }}</span>
+            <svg class="w-4 h-4 text-gray-400 group-open/toc:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <nav class="px-4 pb-4 space-y-1" id="toc-links-mobile">
+          </nav>
+        </details>
+
+        {# Body #}
+        <div{{ content_attributes.addClass('prose prose-base md:prose-lg dark:prose-invert max-w-none
+          prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900 dark:prose-headings:text-white
+          prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
+          prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+          prose-p:leading-relaxed
+          prose-a:text-emerald-500 prose-a:no-underline hover:prose-a:underline
+          prose-img:rounded-xl prose-img:shadow-md
+          prose-blockquote:border-emerald-500 prose-blockquote:bg-emerald-500/5 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:text-gray-700 dark:prose-blockquote:text-gray-300
+          prose-code:before:content-none prose-code:after:content-none prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-normal
+          prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:rounded-xl prose-pre:shadow-lg
+          prose-strong:text-gray-900 dark:prose-strong:text-white
+          prose-li:marker:text-emerald-500
+        ') }}>
+          {{ content.body }}
+        </div>
+
+        {# Tags #}
+        {% if content.field_tags|render %}
+          <div class="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800">
+            <h3 class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">{{ 'Topics'|t }}</h3>
+            <div class="flex flex-wrap gap-2">
+              {{ content.field_tags }}
+            </div>
+          </div>
         {% endif %}
-      </figure>
-    {% endif %}
 
-    {# Table of contents (auto-generated from body headings) #}
-    <div class="mb-12 p-6 glass rounded-2xl hidden md:block" id="toc">
-      <h2 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">{{ 'In this article'|t }}</h2>
-      <nav class="toc-links text-sm space-y-2" id="toc-links">
-      </nav>
-    </div>
-
-    {# External link #}
-    {% if node.field_external_url[0] %}
-      <div class="mb-8 p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-xl">
-        <a href="{{ node.field_external_url[0].uri }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-500 hover:underline">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          {{ 'Read original article'|t }} &rarr;
-        </a>
-      </div>
-    {% endif %}
-
-    {# Body content #}
-    <div{{ content_attributes.addClass('prose prose-lg md:prose-xl dark:prose-invert max-w-none') }}>
-      {{ content.body }}
-    </div>
-
-    {# Tags #}
-    {% if content.field_tags|render %}
-      <div class="mt-16 pt-8 border-t border-gray-100 dark:border-gray-800">
-        <h3 class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">{{ 'Topics'|t }}</h3>
-        <div class="flex flex-wrap gap-2">
-          {{ content.field_tags }}
+        {# Author bio card #}
+        <div class="mt-12 p-6 glass rounded-2xl">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 font-bold text-lg shrink-0">AS</div>
+            <div>
+              <div class="font-bold text-gray-900 dark:text-white mb-1">{{ node.getOwner().displayName }}</div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                {{ 'Web Architect and Security Researcher specializing in Drupal platforms, penetration testing, and modern SaaS architectures. Based in the United Kingdom.'|t }}
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    {% endif %}
 
-    {# Footer / back link #}
-    <footer class="mt-16 pt-8 border-t border-gray-100 dark:border-gray-800">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-        <a href="/blog" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-500 hover:gap-3 transition-all group">
-          <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-          {{ 'Back to Intelligence Reports'|t }}
-        </a>
-
-        <div class="flex items-center gap-4">
-          <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
-            {{ 'Back to top'|t }} &uarr;
-          </button>
-        </div>
+        {# Footer navigation #}
+        <footer class="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800">
+          <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+            <a href="/blog" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-500 hover:gap-3 transition-all group">
+              <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              {{ 'Back to Intelligence Reports'|t }}
+            </a>
+            <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+              {{ 'Back to top'|t }} &uarr;
+            </button>
+          </div>
+        </footer>
       </div>
-    </footer>
+    </div>
   </div>
 </article>
 
-{# Reading progress & ToC JavaScript #}
 <script>
 (function() {
-  // Reading progress bar
   var bar = document.getElementById('reading-progress');
   if (bar) {
     window.addEventListener('scroll', function() {
-      var scroll = window.scrollY || document.documentElement.scrollTop;
-      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      bar.style.width = height > 0 ? ((scroll / height) * 100) + '%' : '0%';
+      var s = window.scrollY || document.documentElement.scrollTop;
+      var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      bar.style.width = h > 0 ? ((s / h) * 100) + '%' : '0%';
     });
   }
 
-  // Auto-generate table of contents from body headings
-  var toc = document.getElementById('toc-links');
-  if (toc) {
-    var content = document.querySelector('.prose');
-    if (content) {
-      var headings = content.querySelectorAll('h2, h3');
-      if (headings.length >= 2) {
-        headings.forEach(function(h, i) {
-          var id = 'section-' + i;
-          h.id = id;
-          var li = document.createElement('a');
-          li.href = '#' + id;
-          li.className = 'block text-gray-600 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors py-0.5';
-          if (h.tagName === 'H3') li.className += ' pl-4';
-          li.textContent = h.textContent;
-          toc.appendChild(li);
-        });
+  var content = document.querySelector('.prose');
+  var headings = content ? content.querySelectorAll('h2, h3') : [];
+  if (headings.length >= 2) {
+    var linksDesktop = document.getElementById('toc-links');
+    var linksMobile = document.getElementById('toc-links-mobile');
+    headings.forEach(function(h, i) {
+      var id = 'section-' + i;
+      h.id = id;
+      var a = document.createElement('a');
+      a.href = '#' + id;
+      a.className = 'block text-sm py-1 pl-4 border-l-2 -ml-[2px] transition-colors duration-150';
+      a.setAttribute('data-toc-link', '');
+      if (h.tagName === 'H3') {
+        a.className += ' pl-8 text-xs';
+        a.style.borderColor = 'transparent';
       } else {
-        document.getElementById('toc').style.display = 'none';
+        a.style.borderColor = 'transparent';
       }
+      a.style.color = '';
+      a.textContent = h.textContent;
+      if (linksDesktop) linksDesktop.appendChild(a.cloneNode(true));
+      if (linksMobile) linksMobile.appendChild(a.cloneNode(true));
+    });
+
+    // Highlight active ToC link on scroll
+    var tocLinks = document.querySelectorAll('[data-toc-link]');
+    if (tocLinks.length) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            tocLinks.forEach(function(link) {
+              if (link.textContent === entry.target.textContent) {
+                link.style.borderColor = 'currentColor';
+                link.classList.add('text-emerald-500');
+              } else {
+                link.style.borderColor = 'transparent';
+                link.classList.remove('text-emerald-500');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-80px 0px -80% 0px' });
+      headings.forEach(function(h) { observer.observe(h); });
     }
+  } else {
+    var sidebar = document.getElementById('toc-sidebar');
+    var mobile = document.getElementById('toc-mobile');
+    if (sidebar) sidebar.style.display = 'none';
+    if (mobile) mobile.style.display = 'none';
+  }
+
+  // Copy link
+  var copyBtn = document.getElementById('copy-link');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        var span = copyBtn.querySelector('span');
+        var orig = span.textContent;
+        span.textContent = '{{ 'Copied!'|t }}';
+        copyBtn.classList.add('text-emerald-500');
+        setTimeout(function() {
+          span.textContent = orig;
+          copyBtn.classList.remove('text-emerald-500');
+        }, 2000);
+      });
+    });
   }
 })();
 </script>
