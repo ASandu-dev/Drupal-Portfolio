@@ -162,93 +162,13 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-      <div class="glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full">
-        <div class="scan-line opacity-0 group-hover:opacity-30"></div>
-        <div class="flex justify-between items-start mb-4">
-          <div class="p-3 bg-emerald-500/10 rounded-xl">
-            <svg class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-          </div>
+      {% for project in projects %}
+        {{ project }}
+      {% else %}
+        <div class="col-span-full text-center py-12">
+          <p class="text-gray-500 dark:text-gray-400">No projects yet. Check back soon.</p>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">ScanSentinel</h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Multi-tenant cyber hygiene scanner with secure auth, subscription-ready architecture, and automated network and SSL checks for SaaS customers.</p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Next.js</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Express</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">PostgreSQL</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Prisma</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Docker</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Nmap / OpenSSL</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Auth0</span>
-        </div>
-      </div>
-
-      <div class="glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full">
-        <div class="scan-line opacity-0 group-hover:opacity-30"></div>
-        <div class="flex justify-between items-start mb-4">
-          <div class="p-3 bg-orange-500/10 rounded-xl">
-            <svg class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Rex London Work</h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Drupal Commerce development focused on product media quality, responsive image styles, performance optimization, and Platform.sh/Upsun deployment workflows.</p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Drupal 11</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Drupal Commerce</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Image Optimization</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Platform.sh / Upsun</span>
-        </div>
-      </div>
-
-      <div class="glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full">
-        <div class="scan-line opacity-0 group-hover:opacity-30"></div>
-        <div class="flex justify-between items-start mb-4">
-          <div class="p-3 bg-emerald-500/10 rounded-xl">
-            <svg class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 014-4h1a5 5 0 019.9-1A4 4 0 1120 15H3z" /></svg>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Homelab / NAS Infrastructure</h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Self-hosted lab architecture on UGreen NAS with Docker Compose, Cloudflare tunnels, Pi-hole, Omada controller, and internal service automation.</p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">UGreen NAS</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Docker Compose</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Cloudflare Tunnel</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Ansible / Semaphore</span>
-        </div>
-      </div>
-
-      <div class="glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full">
-        <div class="scan-line opacity-0 group-hover:opacity-30"></div>
-        <div class="flex justify-between items-start mb-4">
-          <div class="p-3 bg-orange-500/10 rounded-xl">
-            <svg class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.55-2.28A1 1 0 0121 8.62v6.76a1 1 0 01-1.45.9L15 14m-6 4h6a2 2 0 002-2V8a2 2 0 00-2-2H9a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">FFmpeg Media Converter</h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Node/Next.js utility for converting GIF and video assets into efficient web-ready formats such as WebM and MP4.</p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Node.js</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Next.js</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">FFmpeg</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Media Optimization</span>
-        </div>
-      </div>
-
-      <div class="glass glass-hover p-6 rounded-2xl group relative overflow-hidden flex flex-col h-full">
-        <div class="scan-line opacity-0 group-hover:opacity-30"></div>
-        <div class="flex justify-between items-start mb-4">
-          <div class="p-3 bg-emerald-500/10 rounded-xl">
-            <svg class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 009.75 21h4.5a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0014.25 3h-4.5z" /></svg>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Drupal Admin / Module Work</h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Custom Drupal 11 modules, recipes, content type architecture, Paragraphs workflows, and admin tooling for streamlined editorial operations.</p>
-        <div class="flex flex-wrap gap-2 mt-auto">
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Drupal 11</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Custom Modules</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Paragraphs</span>
-          <span class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">Admin Automation</span>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

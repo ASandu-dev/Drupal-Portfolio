@@ -1,0 +1,18 @@
+uuid: 829cc210-38c1-4a45-8a01-780e21db79ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Project
+type: project
+description: 'Use projects to showcase portfolio work with links to live sites and related blog articles.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false
