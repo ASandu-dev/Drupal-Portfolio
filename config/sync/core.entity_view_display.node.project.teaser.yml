@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.project.body
     - field.field.node.project.field_blog_reference
     - field.field.node.project.field_featured_image
     - field.field.node.project.field_project_url

@@ -3,11 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.project.body
     - field.field.node.project.field_blog_reference
     - field.field.node.project.field_featured_image
     - field.field.node.project.field_project_url
     - field.field.node.project.field_tags
     - field.field.node.project.field_technologies
+    - image.style.thumbnail
     - node.type.project
   module:
     - image
@@ -26,7 +28,8 @@ content:
     settings:
       rows: 9
       summary_rows: 3
-      placeholder: ''
+      placeholder: 'A short description of the project'
+      show_summary: false
     third_party_settings: {  }
   created:
     type: datetime_timestamp

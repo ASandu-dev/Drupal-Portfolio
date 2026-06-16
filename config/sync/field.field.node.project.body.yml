@@ -1,5 +1,5 @@
-uuid: 3a7f6e1c-4b2d-5f8a-b9c7-6d1e4f2a0c8d
-langcode: en
+uuid: c509ff4f-c353-417d-8690-bb5c867bbda1
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -11,7 +11,7 @@ id: node.project.body
 field_name: body
 entity_type: node
 bundle: project
-label: 'Description'
+label: Description
 description: 'A short description of the project shown on the portfolio card.'
 required: false
 translatable: true
@@ -20,4 +20,5 @@ default_value_callback: ''
 settings:
   display_summary: true
   required_summary: false
+  allowed_formats: {  }
 field_type: text_with_summary
