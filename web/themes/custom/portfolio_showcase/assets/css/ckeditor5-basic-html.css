@@ -1,0 +1,234 @@
+/* CKEditor 5 — Basic HTML editor styles matching site prose typography */
+
+.ck-content {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #334155;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings */
+.ck-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  line-height: 1.3;
+}
+
+.ck-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 2rem 0 0.75rem;
+  line-height: 1.4;
+}
+
+.ck-content h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 1.5rem 0 0.5rem;
+  line-height: 1.4;
+}
+
+.ck-content h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 1.25rem 0 0.5rem;
+  line-height: 1.45;
+}
+
+.ck-content h6 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  margin: 1rem 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Paragraphs */
+.ck-content p {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+/* Links */
+.ck-content a {
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ck-content a:hover {
+  text-decoration: underline;
+}
+
+/* Bold / Strong */
+.ck-content strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Italic */
+.ck-content em {
+  font-style: italic;
+}
+
+/* Code */
+.ck-content code {
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Monaco, monospace;
+  font-size: 0.875rem;
+  background: #f1f5f9;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  color: #334155;
+}
+
+/* Blockquotes */
+.ck-content blockquote {
+  border-left: 3px solid #10b981;
+  background: rgba(16, 185, 129, 0.05);
+  padding: 0.25rem 1.5rem;
+  margin: 1.25rem 0;
+  color: #475569;
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: normal;
+}
+
+/* Lists */
+.ck-content ul,
+.ck-content ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.ck-content li {
+  margin-bottom: 0.25rem;
+}
+
+.ck-content ul li {
+  list-style-type: disc;
+}
+
+.ck-content ol li {
+  list-style-type: decimal;
+}
+
+.ck-content li::marker {
+  color: #10b981;
+}
+
+/* Definition lists */
+.ck-content dl {
+  margin: 1rem 0;
+}
+
+.ck-content dt {
+  font-weight: 600;
+  margin-top: 0.75rem;
+}
+
+.ck-content dd {
+  margin-left: 1.5rem;
+  color: #475569;
+}
+
+/* Cite */
+.ck-content cite {
+  font-style: italic;
+  color: #64748b;
+}
+
+/* Images */
+.ck-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+.ck-content figure {
+  margin: 1rem 0;
+}
+
+/* Horizontal rule */
+.ck-content hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 2rem 0;
+}
+
+/* Tables */
+.ck-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.875rem;
+}
+
+.ck-content th,
+.ck-content td {
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.ck-content th {
+  background: #f8fafc;
+  font-weight: 600;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .ck-content {
+    color: #94a3b8;
+    background: #0f172a;
+  }
+
+  .ck-content h2,
+  .ck-content h3,
+  .ck-content h4,
+  .ck-content h5 {
+    color: #f1f5f9;
+  }
+
+  .ck-content h6 {
+    color: #94a3b8;
+  }
+
+  .ck-content strong {
+    color: #f1f5f9;
+  }
+
+  .ck-content code {
+    background: #1e293b;
+    color: #94a3b8;
+  }
+
+  .ck-content blockquote {
+    background: rgba(16, 185, 129, 0.05);
+    color: #94a3b8;
+  }
+
+  .ck-content th {
+    background: #1e293b;
+  }
+
+  .ck-content th,
+  .ck-content td,
+  .ck-content h2,
+  .ck-content hr {
+    border-color: #334155;
+  }
+}

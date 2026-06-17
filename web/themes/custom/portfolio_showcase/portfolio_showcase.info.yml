@@ -5,6 +5,8 @@ core_version_requirement: ^10 || ^11
 base theme: false
 libraries:
   - portfolio_showcase/global
+ckeditor5-stylesheets:
+  - assets/css/ckeditor5-basic-html.css
 regions:
   header: Header
   content: Content
