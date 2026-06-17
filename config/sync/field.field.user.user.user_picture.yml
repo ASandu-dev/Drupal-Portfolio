@@ -1,5 +1,5 @@
-uuid: ffc7a02b-2a1b-4c24-882f-ff79c7dacd11
-langcode: en
+uuid: 358f6586-24cf-41ad-9e1a-be5b2508cdc1
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -8,7 +8,7 @@ dependencies:
     - image
     - user
 _core:
-  default_config_hash: twhm-ZOwSVkUjuLI_pQsaPo_pVLcqFfDmY-ojfqw0yk
+  default_config_hash: TE3gYVzd6g0deXqUl8SEu2azHwVG-SdXm3kwbrz0kHw
 id: user.user.user_picture
 field_name: user_picture
 entity_type: user
@@ -23,7 +23,7 @@ settings:
   handler: 'default:file'
   handler_settings: {  }
   file_directory: 'pictures/[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'png gif jpg jpeg'
+  file_extensions: 'png gif jpg jpeg webp'
   max_filesize: ''
   max_resolution: ''
   min_resolution: ''

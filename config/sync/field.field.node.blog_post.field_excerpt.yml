@@ -1,9 +1,10 @@
-uuid: 1fa92fa9-6cfa-4296-8b73-0d34b9107baa
-langcode: en
+uuid: cae0a5cb-c3dd-4a43-ae53-742a052617fa
+langcode: en-gb
 status: true
 dependencies:
   config:
     - field.storage.node.field_excerpt
+    - filter.format.markdown
     - node.type.blog_post
   module:
     - text
@@ -12,10 +13,12 @@ field_name: field_excerpt
 entity_type: node
 bundle: blog_post
 label: 'Summary / Excerpt'
-description: 'A short summary of the blog post shown on listing cards.'
+description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
-settings: {  }
+settings:
+  allowed_formats:
+    - markdown
 field_type: text_long

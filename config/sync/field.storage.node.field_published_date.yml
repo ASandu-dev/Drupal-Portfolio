@@ -1,10 +1,10 @@
-uuid: e5f7ce3e-e6bb-4bfb-8c6b-897002d81e1c
-langcode: en
+uuid: 4f9e1df6-8126-406b-9b9e-769bdd1ce4d0
+langcode: en-gb
 status: true
 dependencies:
   module:
-    - node
     - datetime
+    - node
 id: node.field_published_date
 field_name: field_published_date
 entity_type: node

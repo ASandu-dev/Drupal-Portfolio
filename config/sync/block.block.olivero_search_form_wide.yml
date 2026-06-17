@@ -1,5 +1,5 @@
-uuid: 89bd39e3-0bb1-4e3e-82ad-b65fca33315b
-langcode: en
+uuid: 3944d94b-13cd-45af-8098-fed238425c60
+langcode: en-gb
 status: true
 dependencies:
   module:
@@ -19,5 +19,5 @@ settings:
   label: 'Search form (wide)'
   label_display: '0'
   provider: search
-  page_id: ''
+  page_id: null
 visibility: {  }

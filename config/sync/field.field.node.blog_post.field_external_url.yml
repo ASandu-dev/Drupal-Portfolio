@@ -1,5 +1,5 @@
-uuid: d2a3ad90-dd99-4418-abea-ee43a74bd818
-langcode: en
+uuid: d114826d-ae69-4501-b0ba-e8527204ed61
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -12,9 +12,9 @@ field_name: field_external_url
 entity_type: node
 bundle: blog_post
 label: 'External URL'
-description: 'If this is a cross-post or external article, link to the original URL.'
+description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

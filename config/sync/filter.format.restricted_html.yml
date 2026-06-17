@@ -1,9 +1,9 @@
-uuid: 61bc96c8-c6a4-4a93-8e3e-26e85460b0f7
-langcode: en
+uuid: 6b4168ac-68b5-490c-851e-d71b84972159
+langcode: en-gb
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: oz6NyPDAB4HB6N9hgH2LwNVtCd-sXbMG1fbn5KsRIDI
+  default_config_hash: QiKqQS_YGAT3Qr4vaAgZICJknm-MGCzt_xBAMqg-tRM
 name: 'Restricted HTML'
 format: restricted_html
 weight: 1
@@ -20,7 +20,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<br> <p> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dl> <dt> <dd> <a hreflang href> <blockquote cite> <ul type> <ol type start> <strong> <em> <code> <li>'
+      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_url:

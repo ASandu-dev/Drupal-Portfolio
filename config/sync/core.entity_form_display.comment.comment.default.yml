@@ -1,4 +1,4 @@
-uuid: fdad2278-49f6-4215-a164-27e7a0a1b4f0
+uuid: 328cdb7f-f342-4c50-853c-8a7ed97d53f0
 langcode: en
 status: true
 dependencies:
@@ -24,6 +24,13 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   subject:
     type: string_textfield

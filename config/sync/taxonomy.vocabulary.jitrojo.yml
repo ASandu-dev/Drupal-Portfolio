@@ -1,9 +1,0 @@
-uuid: e8730c84-70e4-446b-a8dc-5802aff44580
-langcode: und
-status: true
-dependencies: {  }
-name: jitrojo
-vid: jitrojo
-description: 'Description of jitrojo'
-weight: 4
-new_revision: false

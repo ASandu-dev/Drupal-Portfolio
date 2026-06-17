@@ -1,11 +1,13 @@
-uuid: 7246ae91-8b01-4065-a259-e9ad2d96c288
-langcode: en
+uuid: 1e3fce7b-7206-4875-a777-abecd82f8d98
+langcode: en-gb
 status: true
 dependencies:
   config:
     - filter.format.full_html
   module:
     - ckeditor5
+_core:
+  default_config_hash: lurcn8yf33g3Dkzdc55cTfJa9salGp9ytSYyG1s7QMI
 format: full_html
 editor: ckeditor5
 settings:
@@ -29,8 +31,8 @@ settings:
       - horizontalLine
       - '|'
       - heading
-      - '|'
       - codeBlock
+      - '|'
       - sourceEditing
   plugins:
     ckeditor5_codeBlock:
@@ -90,6 +92,7 @@ settings:
       properties:
         reversed: true
         startIndex: true
+        styles: true
       multiBlock: true
     ckeditor5_sourceEditing:
       allowed_tags: {  }

@@ -1,5 +1,5 @@
-uuid: d45c3b5e-2086-428a-8f53-4582ff048890
-langcode: en
+uuid: acea98ac-c030-441a-9870-e8f78803bdfb
+langcode: en-gb
 status: true
 dependencies:
   module:
@@ -19,5 +19,5 @@ settings:
   label: 'Search form (narrow)'
   label_display: '0'
   provider: search
-  page_id: ''
+  page_id: null
 visibility: {  }

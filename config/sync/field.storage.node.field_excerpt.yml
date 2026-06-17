@@ -1,9 +1,10 @@
-uuid: 4f0150dd-95b3-448d-ac9e-b8eac18d69b8
-langcode: en
+uuid: 76bb609a-06db-4df6-9c95-b7ffa327529c
+langcode: en-gb
 status: true
 dependencies:
   module:
     - node
+    - text
 id: node.field_excerpt
 field_name: field_excerpt
 entity_type: node

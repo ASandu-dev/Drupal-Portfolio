@@ -1,4 +1,4 @@
-uuid: 4e5e663e-fadb-4fe4-b245-4ff8a9e4726a
+uuid: 0e41530a-9460-4175-965c-2e217f703da7
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,8 @@ dependencies:
     - filter.format.basic_html
   module:
     - ckeditor5
+_core:
+  default_config_hash: Qi2tIe-L97EutlMmhEvhsNxZOpOoA-RH82c4BQb5n4A
 format: basic_html
 editor: ckeditor5
 settings:
@@ -23,55 +25,10 @@ settings:
       - drupalInsertImage
       - '|'
       - heading
+      - code
       - '|'
       - sourceEditing
-      - '|'
-      - codeBlock
   plugins:
-    ckeditor5_codeBlock:
-      languages:
-        -
-          label: 'Plain text'
-          language: plaintext
-        -
-          label: C
-          language: c
-        -
-          label: 'C#'
-          language: cs
-        -
-          label: C++
-          language: cpp
-        -
-          label: CSS
-          language: css
-        -
-          label: Diff
-          language: diff
-        -
-          label: HTML
-          language: html
-        -
-          label: Java
-          language: java
-        -
-          label: JavaScript
-          language: javascript
-        -
-          label: PHP
-          language: php
-        -
-          label: Python
-          language: python
-        -
-          label: Ruby
-          language: ruby
-        -
-          label: TypeScript
-          language: typescript
-        -
-          label: XML
-          language: xml
     ckeditor5_heading:
       enabled_headings:
         - heading2
@@ -85,6 +42,7 @@ settings:
       properties:
         reversed: false
         startIndex: true
+        styles: true
       multiBlock: true
     ckeditor5_sourceEditing:
       allowed_tags:
@@ -92,11 +50,8 @@ settings:
         - '<dl>'
         - '<dt>'
         - '<dd>'
-        - '<span>'
         - '<a hreflang>'
         - '<blockquote cite>'
-        - '<ul type>'
-        - '<ol type>'
         - '<h2 id>'
         - '<h3 id>'
         - '<h4 id>'

@@ -1,11 +1,11 @@
-uuid: dbb32344-6680-4012-8416-9830339bd8a8
-langcode: en
+uuid: ba562e8b-9574-40f0-8f29-24875c26999a
+langcode: en-gb
 status: true
 dependencies:
   module:
-    - node
     - file
     - image
+    - node
 id: node.field_featured_image
 field_name: field_featured_image
 entity_type: node
@@ -13,14 +13,9 @@ type: image
 settings:
   target_type: file
   display_field: false
-  display_default: false
+  display_default: true
   uri_scheme: public
-  default_image:
-    uuid: ''
-    alt: ''
-    title: ''
-    width: null
-    height: null
+  default_image: {  }
 module: image
 locked: false
 cardinality: 1

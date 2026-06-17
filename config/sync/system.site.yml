@@ -1,15 +1,15 @@
 _core:
-  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
-langcode: en
-uuid: 60eac1a7-ef37-46a5-9bb0-dbb5ec1f6eca
-name: Portfolio
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: en-gb
+uuid: 9511ce12-5fcb-4fc2-9da9-b58b44132ecb
+name: portfolio
 mail: contact@andreisandu.net
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /home
+  front: /node
 admin_compact_mode: false
 weight_select_max: 100
-default_langcode: en
+default_langcode: en-gb
 mail_notification: null

@@ -1,9 +1,0 @@
-uuid: a74ab4f9-2c99-45e8-b117-70d1d8aaf7da
-langcode: und
-status: true
-dependencies: {  }
-name: thavashachip
-vid: thavashachip
-description: 'Description of thavashachip'
-weight: 9
-new_revision: false

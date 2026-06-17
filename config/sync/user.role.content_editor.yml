@@ -1,8 +1,9 @@
-uuid: a7467287-edc0-40ff-bddd-883c7a30b766
-langcode: en
+uuid: add8da50-f097-47b8-a719-4312f1011d81
+langcode: en-gb
 status: true
 dependencies:
   config:
+    - filter.format.markdown
     - node.type.article
     - node.type.page
     - taxonomy.vocabulary.tags
@@ -10,15 +11,14 @@ dependencies:
     - comment
     - contextual
     - file
-    - help
+    - filter
     - node
     - path
     - system
     - taxonomy
     - toolbar
-    - tour
 _core:
-  default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
+  default_config_hash: e_wG1u7SrGaJbY2-Szgbgl-c8T3kdirU3uTNq2c_QJQ
 id: content_editor
 label: 'Content editor'
 weight: 2
@@ -28,9 +28,7 @@ permissions:
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
-  - 'access help pages'
   - 'access toolbar'
-  - 'access tour'
   - 'administer url aliases'
   - 'create article content'
   - 'create page content'
@@ -46,6 +44,7 @@ permissions:
   - 'edit own page content'
   - 'edit terms in tags'
   - 'revert all revisions'
+  - 'use text format markdown'
   - 'view all revisions'
   - 'view own unpublished content'
   - 'view the administration theme'

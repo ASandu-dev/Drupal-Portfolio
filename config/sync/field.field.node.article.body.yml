@@ -1,5 +1,5 @@
-uuid: a594fd6d-91c9-4bd1-be1c-d52872c7508c
-langcode: en
+uuid: 939800dc-c4d2-43ad-89ba-2a40c39bd577
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -8,7 +8,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: IjZnOLWk1Pjq3WRg2pLSA1ERh7Po7izCq_p6UztZr2c
+  default_config_hash: 4Wxs1LseZ8JsNwD9uJVIbzZqG35yQXN8Eo1Hub6NMuI
 id: node.article.body
 field_name: body
 entity_type: node
@@ -20,6 +20,7 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  display_summary: false
+  display_summary: true
   required_summary: false
+  allowed_formats: {  }
 field_type: text_with_summary

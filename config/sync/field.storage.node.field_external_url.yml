@@ -1,10 +1,10 @@
-uuid: 1c661d03-feee-4709-a8f3-f40f30231c60
-langcode: en
+uuid: 78143b2f-f185-4606-b1ed-079932c28eb0
+langcode: en-gb
 status: true
 dependencies:
   module:
-    - node
     - link
+    - node
 id: node.field_external_url
 field_name: field_external_url
 entity_type: node

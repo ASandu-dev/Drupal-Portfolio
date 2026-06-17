@@ -1,11 +1,11 @@
-uuid: e2c08ddb-ae12-46e5-aa54-9f976eb1569f
-langcode: en
+uuid: b9b8a5b9-8bfe-47c2-a199-9df3ef17325a
+langcode: en-gb
 status: false
 dependencies:
   module:
     - comment
 _core:
-  default_config_hash: K7eNlfU7NEUajz01wItywZklr2oaPgL6s1_97fmDXLA
+  default_config_hash: N4mUjXpPckUkVRY1PbKw4GGoL1i2ECU7PL3EreiKStk
 id: comment.full
 label: 'Full comment'
 description: ''

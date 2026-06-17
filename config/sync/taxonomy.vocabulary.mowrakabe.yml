@@ -1,9 +1,0 @@
-uuid: 6cc4d5b2-6bbf-4df5-87c9-55dfda9b3429
-langcode: und
-status: true
-dependencies: {  }
-name: mowrakabe
-vid: mowrakabe
-description: 'Description of mowrakabe'
-weight: 10
-new_revision: false
