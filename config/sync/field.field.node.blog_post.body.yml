@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - filter.format.restricted_html
+    - filter.format.markdown
     - node.type.blog_post
   module:
     - text
@@ -22,5 +22,5 @@ settings:
   display_summary: false
   required_summary: false
   allowed_formats:
-    - restricted_html
+    - markdown
 field_type: text_with_summary

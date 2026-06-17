@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - filter.format.markdown
-    - filter.format.restricted_html
     - node.type.article
     - node.type.page
     - taxonomy.vocabulary.tags
@@ -46,7 +45,6 @@ permissions:
   - 'edit terms in tags'
   - 'revert all revisions'
   - 'use text format markdown'
-  - 'use text format restricted_html'
   - 'view all revisions'
   - 'view own unpublished content'
   - 'view the administration theme'

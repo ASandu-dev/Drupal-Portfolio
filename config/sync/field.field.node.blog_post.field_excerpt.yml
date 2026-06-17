@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_excerpt
-    - filter.format.restricted_html
+    - filter.format.markdown
     - node.type.blog_post
   module:
     - text
@@ -20,5 +20,5 @@ default_value: {  }
 default_value_callback: ''
 settings:
   allowed_formats:
-    - restricted_html
+    - markdown
 field_type: text_long
