@@ -189,6 +189,73 @@
   font-weight: 600;
 }
 
+/* ---- CKEditor 5 Style dropdown classes ---- */
+
+/* Lead paragraph */
+.ck-content p.lead {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #475569;
+  font-weight: 400;
+}
+
+/* Caption / small text */
+.ck-content p.caption {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #64748b;
+  margin-top: -0.5rem;
+}
+
+/* Highlighted text */
+.ck-content span.highlight {
+  background: rgba(16, 185, 129, 0.15);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  color: #065f46;
+  font-weight: 500;
+}
+
+/* Callout blockquote */
+.ck-content blockquote.callout {
+  border-left: 4px solid #3b82f6;
+  background: rgba(59, 130, 246, 0.06);
+  padding: 1rem 1.25rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: normal;
+}
+
+/* Warning callout blockquote */
+.ck-content blockquote.warning {
+  border-left: 4px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
+  padding: 1rem 1.25rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: normal;
+}
+
+/* Badge / label */
+.ck-content span.badge {
+  display: inline-block;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #065f46;
+  background: rgba(16, 185, 129, 0.12);
+  border-radius: 9999px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Centered text */
+.ck-content p.centered {
+  text-align: center;
+}
+
+/* ---- Dark mode overrides ---- */
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .ck-content {
@@ -230,5 +297,34 @@
   .ck-content h2,
   .ck-content hr {
     border-color: #334155;
+  }
+
+  .ck-content p.lead {
+    color: #94a3b8;
+  }
+
+  .ck-content p.caption {
+    color: #64748b;
+  }
+
+  .ck-content span.highlight {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+  }
+
+  .ck-content blockquote.callout {
+    background: rgba(59, 130, 246, 0.08);
+    color: #94a3b8;
+  }
+
+  .ck-content blockquote.warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: #94a3b8;
+  }
+
+  .ck-content span.badge {
+    background: rgba(16, 185, 129, 0.18);
+    color: #6ee7b7;
+    border-color: rgba(16, 185, 129, 0.3);
   }
 }

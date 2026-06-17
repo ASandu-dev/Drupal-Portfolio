@@ -26,6 +26,7 @@ settings:
       - '|'
       - heading
       - code
+      - style
       - '|'
       - sourceEditing
   plugins:
@@ -44,6 +45,29 @@ settings:
         startIndex: true
         styles: true
       multiBlock: true
+    ckeditor5_style:
+      styles:
+        -
+          label: Lead
+          element: '<p class="lead">'
+        -
+          label: Caption
+          element: '<p class="caption">'
+        -
+          label: Centered
+          element: '<p class="centered">'
+        -
+          label: Highlight
+          element: '<span class="highlight">'
+        -
+          label: Badge
+          element: '<span class="badge">'
+        -
+          label: 'Callout (info)'
+          element: '<blockquote class="callout">'
+        -
+          label: 'Warning'
+          element: '<blockquote class="warning">'
     ckeditor5_sourceEditing:
       allowed_tags:
         - '<cite>'
@@ -57,6 +81,7 @@ settings:
         - '<h4 id>'
         - '<h5 id>'
         - '<h6 id>'
+        - '<span class>'
 image_upload:
   status: true
   scheme: public
