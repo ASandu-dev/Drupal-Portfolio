@@ -1,5 +1,5 @@
-uuid: 57a7ad5f-4b49-437b-9f2a-697068df7327
-langcode: en
+uuid: a18b005c-ffc4-4d0d-babf-b159947c379d
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -14,11 +14,8 @@ bundle: blog_post
 label: 'Published Date'
 description: ''
 required: false
-translatable: false
-default_value:
-  -
-    default_date_type: now
-    default_date: now
+translatable: true
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: datetime

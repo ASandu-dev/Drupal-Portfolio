@@ -1,15 +1,17 @@
-uuid: a6db51f7-6523-4093-a087-99a05e821887
-langcode: en
+uuid: 96e6c5c2-fd46-4a57-a662-29af963083fc
+langcode: en-gb
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.blog_post.body
     - field.field.node.blog_post.field_excerpt
     - field.field.node.blog_post.field_external_url
     - field.field.node.blog_post.field_featured_image
     - field.field.node.blog_post.field_published_date
     - field.field.node.blog_post.field_reading_time
     - field.field.node.blog_post.field_tags
+    - image.style.medium
     - node.type.blog_post
   module:
     - datetime
@@ -21,13 +23,21 @@ targetEntityType: node
 bundle: blog_post
 mode: teaser
 content:
+  body:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 300
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_excerpt:
     type: text_trimmed
     label: hidden
     settings:
       trim_length: 200
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_featured_image:
     type: image
@@ -51,7 +61,7 @@ content:
     region: content
   field_reading_time:
     type: number_integer
-    label: inline
+    label: hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
@@ -64,13 +74,13 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 10
     region: content
 hidden:
-  body: true
   field_external_url: true
+  langcode: true
