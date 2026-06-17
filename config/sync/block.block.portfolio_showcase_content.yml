@@ -1,0 +1,22 @@
+uuid: 88502886-d979-417f-84cf-580ad847a28c
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - portfolio_showcase
+_core:
+  default_config_hash: a0Yyx1GeyKarZ4T_yXQBR_ZFKnXiFLtxAb6gWLd8nr0
+id: portfolio_showcase_content
+theme: portfolio_showcase
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -52,9 +52,6 @@ web/themes/README.txt
 # Drupal scaffold recipes
 recipes/
 
-# Exported Drupal config sync (per-environment, may contain different hashes)
-# web/sites/default/files/sync/
-
 # OS and editor files
 .DS_Store
 .DS_Store?

@@ -1,0 +1,22 @@
+uuid: 24905be9-dcb1-4fae-ad00-2f0a14c37aba
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - portfolio_showcase
+_core:
+  default_config_hash: jccFSSVqV0WCDb6NtML1VWAWTtDbZ-zn5YgTRMgMrIM
+id: portfolio_showcase_help
+theme: portfolio_showcase
+region: header
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

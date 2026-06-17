@@ -1,0 +1,20 @@
+uuid: 80689ba3-379b-4308-a7f3-d9392c67e5c7
+langcode: en-gb
+status: true
+dependencies:
+  theme:
+    - portfolio_showcase
+_core:
+  default_config_hash: fNwDdW063tk_ktzSWzZVeQS9wzvLooVO280BQ9WrsIs
+id: portfolio_showcase_page_title
+theme: portfolio_showcase
+region: header
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

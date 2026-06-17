@@ -1,0 +1,22 @@
+uuid: 9f404be2-51cc-4bb7-a132-22bf5de44594
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - portfolio_showcase
+_core:
+  default_config_hash: '-Ac3ISpIT0PQ-whzD7_dw0SdKi6dAbRFNWdSjOiVDqg'
+id: portfolio_showcase_messages
+theme: portfolio_showcase
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }
