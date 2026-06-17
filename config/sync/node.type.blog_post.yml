@@ -1,11 +1,18 @@
-uuid: 485ac6f4-7728-4a28-a7f9-bc0bac1e429d
-langcode: en-gb
+uuid: 0b43b46c-88c3-4f8e-be97-338b74efd35d
+langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 name: 'Blog Post'
 type: blog_post
 description: 'Use blog posts for editorial content on the Intelligence Reports blog page.'
-help: null
+help: ''
 new_revision: true
 preview_mode: 1
 display_submitted: true

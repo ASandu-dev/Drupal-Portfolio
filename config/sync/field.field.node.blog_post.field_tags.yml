@@ -1,5 +1,5 @@
-uuid: 46818341-8d97-4dd1-a05d-c91b674465fa
-langcode: en-gb
+uuid: e2fcec87-c023-4178-98b5-995a17d3ae89
+langcode: en
 status: true
 dependencies:
   config:
@@ -11,7 +11,7 @@ field_name: field_tags
 entity_type: node
 bundle: blog_post
 label: Tags
-description: ''
+description: 'Categorise the blog post with tags.'
 required: false
 translatable: true
 default_value: {  }
@@ -21,5 +21,9 @@ settings:
   handler_settings:
     target_bundles:
       tags: tags
+    sort:
+      field: name
+      direction: asc
     auto_create: true
+    auto_create_bundle: ''
 field_type: entity_reference

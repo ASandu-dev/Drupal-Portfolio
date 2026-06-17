@@ -1,5 +1,5 @@
-uuid: 3791ba2f-1e60-4a07-b4ca-520c8fd6297b
-langcode: en-gb
+uuid: f4a04c27-2ff9-4b00-93b2-ad34dbb6b605
+langcode: en
 status: true
 dependencies:
   config:
@@ -10,9 +10,9 @@ field_name: field_reading_time
 entity_type: node
 bundle: blog_post
 label: 'Reading Time (minutes)'
-description: ''
+description: 'Estimated reading time in minutes.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

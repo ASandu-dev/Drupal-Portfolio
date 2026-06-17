@@ -1,16 +1,15 @@
-uuid: a15fe3e9-aba1-446a-bcc6-4b96cb511433
-langcode: en-gb
+uuid: 2f5f0766-8e50-42c4-9aa7-ee521d075782
+langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.blog_post.body
+    - core.entity_view_mode.node.teaser
     - field.field.node.blog_post.field_excerpt
     - field.field.node.blog_post.field_external_url
     - field.field.node.blog_post.field_featured_image
     - field.field.node.blog_post.field_published_date
     - field.field.node.blog_post.field_reading_time
     - field.field.node.blog_post.field_tags
-    - image.style.medium
     - node.type.blog_post
   module:
     - datetime
@@ -23,19 +22,12 @@ targetEntityType: node
 bundle: blog_post
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_excerpt:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_external_url:
     type: link
@@ -47,18 +39,18 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 6
     region: content
   field_featured_image:
     type: image
     label: hidden
     settings:
       image_link: ''
-      image_style: medium
+      image_style: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   field_published_date:
     type: datetime_default
@@ -67,16 +59,16 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_reading_time:
     type: number_integer
-    label: hidden
+    label: inline
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 5
+    weight: 4
     region: content
   field_tags:
     type: entity_reference_label
@@ -84,12 +76,12 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 6
+    weight: 5
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 0
     region: content
 hidden:
-  langcode: true
+  body: true
