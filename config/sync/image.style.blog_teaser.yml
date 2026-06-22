@@ -1,0 +1,20 @@
+uuid: d7a5b4e0-7e2d-4c91-a8d4-f1b8c3e9a2f6
+langcode: en-gb
+status: true
+dependencies: {  }
+name: blog_teaser
+label: 'Blog teaser (720x450)'
+effects:
+  7f2b8c1a-3a5d-4e9f-b2c7-d8e1f4a6b3c9:
+    uuid: 7f2b8c1a-3a5d-4e9f-b2c7-d8e1f4a6b3c9
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 720
+      height: 450
+  8e3a9d2b-4b6e-4f0a-a3d8-e9f2b5c7d4e1:
+    uuid: 8e3a9d2b-4b6e-4f0a-a3d8-e9f2b5c7d4e1
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

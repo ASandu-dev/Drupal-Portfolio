@@ -11,7 +11,7 @@ dependencies:
     - field.field.node.blog_post.field_published_date
     - field.field.node.blog_post.field_reading_time
     - field.field.node.blog_post.field_tags
-    - image.style.medium
+    - image.style.blog_teaser
     - node.type.blog_post
   module:
     - datetime
@@ -43,8 +43,8 @@ content:
     type: image
     label: hidden
     settings:
-      image_link: content
-      image_style: medium
+      image_link: ''
+      image_style: blog_teaser
       image_loading:
         attribute: lazy
     third_party_settings: {  }
