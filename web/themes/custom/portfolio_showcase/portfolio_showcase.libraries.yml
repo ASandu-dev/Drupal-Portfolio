@@ -1,5 +1,5 @@
 global:
-  version: 20260514
+  version: 20260622
   css:
     theme:
       https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap:

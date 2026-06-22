@@ -29,7 +29,7 @@ content:
     region: content
     settings:
       rows: 25
-      placeholder: 'Write in Markdown — headings, code blocks, lists, links...'
+      placeholder: ''
     third_party_settings: {  }
   created:
     type: datetime_timestamp

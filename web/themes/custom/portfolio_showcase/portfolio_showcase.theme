@@ -3,7 +3,11 @@
 declare(strict_types=1);
 
 use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Datetime\DateFormatterInterface;
+use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
+use Drupal\user\UserInterface;
 
 /**
  * Implements hook_preprocess_page().
@@ -48,4 +52,89 @@ function portfolio_showcase_preprocess_page(array &$variables): void {
       $variables['projects'][$nid] = $view_builder->view($node, 'teaser');
     }
   }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ *
+ * Provides computed variables for blog_post nodes to keep Twig templates
+ * clean and avoid inline logic.
+ */
+function portfolio_showcase_preprocess_node(array &$variables): void {
+  $node = $variables['node'];
+
+  if ($node->getType() !== 'blog_post') {
+    return;
+  }
+
+  $date_formatter = \Drupal::service('date.formatter');
+  assert($date_formatter instanceof DateFormatterInterface);
+
+  // -- Date --
+  $pub_date_raw = $node->get('field_published_date')->value;
+  $timestamp = !empty($pub_date_raw)
+    ? $node->get('field_published_date')->date->getTimestamp()
+    : $node->getCreatedTime();
+
+  $variables['date'] = [
+    'iso' => date('c', (int) $timestamp),
+    'formatted' => $date_formatter->format((int) $timestamp, 'blog_date'),
+  ];
+
+  // -- Reading time --
+  $minutes = $node->get('field_reading_time')->value;
+  $variables['reading_time'] = !empty($minutes)
+    ? \Drupal::translation()->formatPlural((int) $minutes, '1 min read', '@count min read')
+    : '';
+
+  // -- Author info (derived from node owner) --
+  $owner = $node->getOwner();
+  $variables['author'] = [
+    'name' => $owner instanceof UserInterface ? $owner->getDisplayName() : t('Anonymous'),
+    'initials' => _portfolio_showcase_get_initials($owner instanceof UserInterface ? $owner->getDisplayName() : ''),
+    'bio' => '',
+  ];
+
+  // Attempt to get a bio from a user field if it exists.
+  if ($owner instanceof UserInterface && $owner->hasField('field_bio')) {
+    $bio = $owner->get('field_bio')->value;
+    if (!empty($bio)) {
+      $variables['author']['bio'] = $bio;
+    }
+  }
+
+  // -- Category label (taxonomy-configurable via a site setting or just "Report") --
+  $variables['category_label'] = t('Report');
+
+  // If the node uses a specific taxonomy term as primary category, use it.
+  $tags = $node->get('field_tags')->referencedEntities();
+  if (!empty($tags)) {
+    $first_tag = reset($tags);
+    if ($first_tag instanceof \Drupal\taxonomy\TermInterface) {
+      $variables['category_label'] = $first_tag->label();
+    }
+  }
+
+  // -- Back URL --
+  $variables['back_url'] = Url::fromUserInput('/blog')->toString();
+}
+
+/**
+ * Extracts initials from a display name.
+ *
+ * "Andrei Sandu" -> "AS"
+ * "Andrei"        -> "A"
+ */
+function _portfolio_showcase_get_initials(string $name): string {
+  $parts = preg_split('/\s+/', trim($name));
+  if (empty($parts) || $parts === FALSE) {
+    return '?';
+  }
+  $initials = '';
+  foreach ($parts as $part) {
+    if (mb_strlen($part) > 0) {
+      $initials .= mb_strtoupper(mb_substr($part, 0, 1));
+    }
+  }
+  return $initials !== '' ? $initials : '?';
 }

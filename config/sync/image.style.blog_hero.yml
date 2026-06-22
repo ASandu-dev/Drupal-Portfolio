@@ -1,0 +1,21 @@
+uuid: a3c8f1d2-5e4b-7a6d-9f0e-b2c4d8a1f6e3
+langcode: en-gb
+status: true
+dependencies: {  }
+name: blog_hero
+label: 'Blog hero (1600x900)'
+effects:
+  4b7d1e2f-8c3a-5e9b-0a2d-f6c4b8d1e3f7:
+    uuid: 4b7d1e2f-8c3a-5e9b-0a2d-f6c4b8d1e3f7
+    id: image_scale
+    weight: 0
+    data:
+      width: 1600
+      height: 900
+      upscale: false
+  5c8e2f3a-9d4b-6f0c-b3e8-a7d1f9e4c5b2:
+    uuid: 5c8e2f3a-9d4b-6f0c-b3e8-a7d1f9e4c5b2
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
