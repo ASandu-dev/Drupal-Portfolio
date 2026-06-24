@@ -19,12 +19,13 @@
 #}
 {% set has_tags = content.field_tags|render|striptags|trim is not empty %}
 {% set has_excerpt = content.field_excerpt|render|striptags|trim is not empty %}
+{% set has_image = node.field_featured_image is not empty and node.field_featured_image.entity is not empty %}
 
 <article{{ attributes.addClass('blog-teaser group relative flex flex-col h-full bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 dark:hover:shadow-gray-950/50 hover:border-gray-200 dark:hover:border-gray-700 hover:-translate-y-1') }}>
 
   {# --- Media Section --- #}
   <a href="{{ url }}" class="block relative overflow-hidden aspect-[16/10] bg-gray-100 dark:bg-gray-800 [&_img]:w-full [&_img]:h-full [&_img]:object-cover" aria-hidden="true" tabindex="-1">
-    {% if content.field_featured_image|render|striptags|trim is not empty %}
+    {% if has_image %}
       {{ content.field_featured_image }}
     {% else %}
       <div class="flex items-center justify-center h-full">
