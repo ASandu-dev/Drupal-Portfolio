@@ -70,9 +70,29 @@
   {% endif %}
 
   {# --- External link --- #}
-  {% if content.field_external_url|render|striptags|trim is not empty %}
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-      {{ content.field_external_url }}
+  {% set has_external_url = node.field_external_url is not empty and node.field_external_url.0.uri is not empty %}
+  {% if has_external_url %}
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div class="group relative rounded-2xl border border-emerald-500/20 bg-emerald-500/5 dark:bg-emerald-500/10 p-5 sm:p-6 transition-all duration-300 hover:border-emerald-500/40 hover:bg-emerald-500/10 dark:hover:bg-emerald-500/15 hover:shadow-lg hover:shadow-emerald-500/10">
+        <div class="flex items-center gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 transition-transform duration-300 group-hover:scale-110">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-bold uppercase tracking-widest text-emerald-500/70 dark:text-emerald-400/70 mb-1">{{ 'External Resource'|t }}</p>
+            <div class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 truncate [&_a]:text-emerald-600 dark:[&_a]:text-emerald-400 [&_a]:no-underline group-hover:[&_a]:underline">
+              {{ content.field_external_url }}
+            </div>
+          </div>
+          <div class="flex-shrink-0 text-emerald-500/50 transition-transform duration-300 group-hover:translate-x-1">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
   {% endif %}
 
