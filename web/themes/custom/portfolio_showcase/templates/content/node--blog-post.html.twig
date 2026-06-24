@@ -25,7 +25,7 @@
 <article{{ attributes.addClass('blog-full') }}>
 
   {# --- Header --- #}
-  <header class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-24 pb-8 md:pb-12">
+  <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-24 pb-8 md:pb-12">
 
     {# Category badge #}
     <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest mb-6">
@@ -62,7 +62,7 @@
 
   {# --- Featured Image --- #}
   {% if content.field_featured_image|render|striptags|trim is not empty %}
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
       <figure class="rounded-2xl overflow-hidden shadow-lg">
         {{ content.field_featured_image }}
       </figure>
@@ -71,13 +71,13 @@
 
   {# --- External link --- #}
   {% if content.field_external_url|render|striptags|trim is not empty %}
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
       {{ content.field_external_url }}
     </div>
   {% endif %}
 
   {# --- Body Content --- #}
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
     <div{{ content_attributes.addClass('prose prose-lg dark:prose-invert max-w-none blog-prose') }}>
       {{ content.body }}
     </div>
@@ -86,7 +86,7 @@
   {# --- Tags --- #}
   {% set has_tags = content.field_tags|render|striptags|trim is not empty %}
   {% if has_tags %}
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
       <div class="pt-8 border-t border-gray-100 dark:border-gray-800">
         <div class="flex flex-wrap gap-2">
           {{ content.field_tags }}
@@ -96,7 +96,7 @@
   {% endif %}
 
   {# --- Footer --- #}
-  <footer class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+  <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
     <div class="pt-8 border-t border-gray-100 dark:border-gray-800">
       <a href="{{ back_url }}" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-500 dark:text-emerald-400 hover:gap-3 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-emerald-500 focus-visible:outline-offset-4 rounded">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
