@@ -96,6 +96,8 @@ settings:
         startIndex: true
         styles: true
       multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
     ckeditor5_style:
       styles:
         -
@@ -122,8 +124,6 @@ settings:
         -
           label: 'Success callout'
           element: '<blockquote class="success">'
-    ckeditor5_sourceEditing:
-      allowed_tags: {  }
 image_upload:
   status: true
   scheme: public
