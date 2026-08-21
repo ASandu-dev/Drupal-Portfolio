@@ -1,6 +1,0 @@
-name: Portfolio Fixes
-type: module
-description: 'Fixes external-redirect errors on content deletion and other site-specific adjustments.'
-core_version_requirement: ^10 || ^11
-dependencies:
-  - drupal:user
