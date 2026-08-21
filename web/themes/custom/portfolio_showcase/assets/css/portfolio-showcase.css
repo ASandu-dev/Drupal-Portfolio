@@ -324,3 +324,116 @@ nav {
 }
 
 .blog-full .fi
+/* ============================================================
+   Login form (user login / register / password reset)
+   ============================================================ */
+.login-card .user-login-form,
+.login-card .user-pass,
+.login-card .user-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.login-card .form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.login-card label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: 0.01em;
+}
+
+.dark .login-card label {
+  color: #d1d5db;
+}
+
+.login-card input[type="text"],
+.login-card input[type="email"],
+.login-card input[type="password"],
+.login-card input[type="url"],
+.login-card input[type="number"] {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #111827;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark .login-card input[type="text"],
+.dark .login-card input[type="email"],
+.dark .login-card input[type="password"],
+.dark .login-card input[type="url"],
+.dark .login-card input[type="number"] {
+  background: #0b0f17;
+  border-color: #1f2937;
+  color: #f9fafb;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+}
+
+.login-card .form-actions {
+  margin-top: 0.25rem;
+}
+
+.login-card input[type="submit"],
+.login-card .button--primary {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: #10b981;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.login-card input[type="submit"]:hover,
+.login-card .button--primary:hover {
+  background: #059669;
+}
+
+.login-card input[type="submit"]:active,
+.login-card .button--primary:active {
+  transform: translateY(1px);
+}
+
+.login-card .description {
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.dark .login-card .description {
+  color: #9ca3af;
+}
+
+.login-card .item-list__item a,
+.login-card ul li a {
+  color: #10b981;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.login-card .item-list__item a:hover,
+.login-card ul li a:hover {
+  text-decoration: underline;
+}
+
+.login-card .messages {
+  border-radius: 0.75rem;
+  font-size: 0.85rem;
+}

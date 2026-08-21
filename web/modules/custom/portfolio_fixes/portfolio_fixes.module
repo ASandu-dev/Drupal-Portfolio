@@ -1,0 +1,73 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Fixes the "Redirects to external URLs are not allowed by default, use
+ * \Drupal\Core\Routing\TrustedRedirectResponse for it." error that occurs when
+ * a form (typically an entity delete confirmation) redirects to an external
+ * destination. Core's RedirectResponseTrait::setRedirect() throws if the
+ * redirect URL is external; we neutralise external destinations before the
+ * default submit handler runs so the form falls back to a safe internal path.
+ */
+function portfolio_fixes_form_alter(&$form, FormStateInterface $form_state, $form_id): void {
+  // Only act on forms that perform a redirect on submit.
+  if (empty($form['#submit']) && empty($form['actions']['submit']['#submit'])) {
+    return;
+  }
+
+  // Prepend a submit handler that clears any external redirect destination.
+  $handler = '_portfolio_fixes_sanitize_external_destination';
+
+  if (!empty($form['#submit'])) {
+    array_unshift($form['#submit'], $handler);
+  }
+  if (!empty($form['actions']['submit']['#submit'])) {
+    array_unshift($form['actions']['submit']['#submit'], $handler);
+  }
+  elseif (!empty($form['actions']['submit'])) {
+    $form['actions']['submit']['#submit'] = [$handler];
+  }
+}
+
+/**
+ * Submit handler: if the current redirect destination is external, drop it so
+ * the form's default submit redirects to a safe internal page instead.
+ */
+function _portfolio_fixes_sanitize_external_destination($form, FormStateInterface $form_state): void {
+  // The destination is normally carried in $_REQUEST['destination'].
+  if (!empty($_REQUEST['destination']) && _portfolio_fixes_is_external($_REQUEST['destination'])) {
+    unset($_REQUEST['destination']);
+    if (!empty($_SESSION['destination'])) {
+      unset($_SESSION['destination']);
+    }
+    return;
+  }
+
+  // Some forms set an explicit external redirect in $form_state.
+  $redirect = $form_state->getRedirect();
+  if ($redirect instanceof Url && $redirect->isExternal()) {
+    $form_state->setRedirect('<front>');
+  }
+}
+
+/**
+ * Determines whether a destination string points to an external host.
+ */
+function _portfolio_fixes_is_external(string $destination): bool {
+  // Internal paths start with '/' or are route names; external ones carry a
+  // scheme or a different host.
+  if (preg_match('#^[a-z][a-z0-9+.-]*://#i', $destination)) {
+    return TRUE;
+  }
+  // A leading '//' or a full domain without scheme is also external.
+  if (preg_match('#^//[^/]#', $destination)) {
+    return TRUE;
+  }
+  return FALSE;
+}

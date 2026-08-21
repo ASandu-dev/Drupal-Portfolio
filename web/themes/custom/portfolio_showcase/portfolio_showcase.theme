@@ -117,6 +117,22 @@ function portfolio_showcase_preprocess_node(array &$variables): void {
 
   // -- Back URL --
   $variables['back_url'] = Url::fromUserInput('/blog')->toString();
+
+  // -- Excerpt (lead) and CTA from the app-generated fields --
+  // The ScanSentinel app publishes field_excerpt (Summary/Excerpt) and a
+  // suggested CTA. Surface them so the full view matches the app preview.
+  $excerpt = $node->get('field_excerpt')->value;
+  $variables['excerpt'] = !empty($excerpt) ? trim($excerpt) : '';
+
+  // Suggested CTA is stored on field_external_url only when it is a real URL.
+  // If it is just text (a call-to-action sentence), show it as a CTA block.
+  $variables['cta'] = '';
+  if ($node->hasField('field_external_url') && !$node->get('field_external_url')->isEmpty()) {
+    $uri = $node->get('field_external_url')->uri;
+    if (!empty($uri) && !preg_match('#^https?://#i', $uri)) {
+      $variables['cta'] = $node->get('field_external_url')->value;
+    }
+  }
 }
 
 /**
