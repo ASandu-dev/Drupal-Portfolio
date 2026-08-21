@@ -10,18 +10,28 @@ use Drupal\Core\Url;
  *
  * Fixes the "Redirects to external URLs are not allowed by default, use
  * \Drupal\Core\Routing\TrustedRedirectResponse for it." error that occurs when
- * a form (typically an entity delete confirmation) redirects to an external
- * destination. Core's RedirectResponseTrait::setRedirect() throws if the
- * redirect URL is external; we neutralise external destinations before the
- * default submit handler runs so the form falls back to a safe internal path.
+ * an entity delete confirmation form redirects to an external destination.
+ * Core's RedirectResponseTrait::setRedirect() throws if the redirect URL is
+ * external; we neutralise external destinations before the default submit
+ * handler runs so the form falls back to a safe internal path.
+ *
+ * Scoped to delete/entity forms only — user login, registration and password
+ * reset forms are deliberately excluded so authentication is never affected.
  */
 function portfolio_fixes_form_alter(&$form, FormStateInterface $form_state, $form_id): void {
-  // Only act on forms that perform a redirect on submit.
-  if (empty($form['#submit']) && empty($form['actions']['submit']['#submit'])) {
+  // Only act on delete confirmation forms.
+  $is_delete_form = !empty($form['#entity_delete_form'])
+    || str_ends_with((string) $form_id, '_delete_form')
+    || str_ends_with((string) $form_id, '_delete');
+  if (!$is_delete_form) {
     return;
   }
 
-  // Prepend a submit handler that clears any external redirect destination.
+  // Never touch user authentication forms.
+  if (in_array($form_id, ['user_login_form', 'user_register_form', 'user_pass'], TRUE)) {
+    return;
+  }
+
   $handler = '_portfolio_fixes_sanitize_external_destination';
 
   if (!empty($form['#submit'])) {
@@ -40,7 +50,6 @@ function portfolio_fixes_form_alter(&$form, FormStateInterface $form_state, $for
  * the form's default submit redirects to a safe internal page instead.
  */
 function _portfolio_fixes_sanitize_external_destination($form, FormStateInterface $form_state): void {
-  // The destination is normally carried in $_REQUEST['destination'].
   if (!empty($_REQUEST['destination']) && _portfolio_fixes_is_external($_REQUEST['destination'])) {
     unset($_REQUEST['destination']);
     if (!empty($_SESSION['destination'])) {
@@ -49,7 +58,6 @@ function _portfolio_fixes_sanitize_external_destination($form, FormStateInterfac
     return;
   }
 
-  // Some forms set an explicit external redirect in $form_state.
   $redirect = $form_state->getRedirect();
   if ($redirect instanceof Url && $redirect->isExternal()) {
     $form_state->setRedirect('<front>');
@@ -60,12 +68,9 @@ function _portfolio_fixes_sanitize_external_destination($form, FormStateInterfac
  * Determines whether a destination string points to an external host.
  */
 function _portfolio_fixes_is_external(string $destination): bool {
-  // Internal paths start with '/' or are route names; external ones carry a
-  // scheme or a different host.
   if (preg_match('#^[a-z][a-z0-9+.-]*://#i', $destination)) {
     return TRUE;
   }
-  // A leading '//' or a full domain without scheme is also external.
   if (preg_match('#^//[^/]#', $destination)) {
     return TRUE;
   }
