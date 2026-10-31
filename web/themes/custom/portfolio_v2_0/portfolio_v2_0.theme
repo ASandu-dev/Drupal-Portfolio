@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Datetime\DateFormatterInterface;
-use Drupal\Core\Render\PlainTextOutput;
+use Drupal\Component\Render\PlainTextOutput;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
