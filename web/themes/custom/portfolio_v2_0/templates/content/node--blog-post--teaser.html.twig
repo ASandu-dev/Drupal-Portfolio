@@ -5,11 +5,16 @@
  */
 #}
 {% set has_image = node.field_featured_image is defined and not node.field_featured_image.isEmpty() %}
+{% set has_image_url = node.field_featured_image_url is defined and node.field_featured_image_url.0.uri %}
 
 <article{{ attributes.addClass('journal-card') }}>
   <a class="journal-card-cover" href="{{ url }}" aria-label="{{ 'Read'|t }} {{ label }}">
     {% if has_image %}
       {{ content.field_featured_image }}
+    {% elseif has_image_url %}
+      <img src="{{ node.field_featured_image_url.0.uri }}"
+           alt="{{ node.field_featured_image_url.0.title|default(label) }}"
+           loading="lazy">
     {% else %}
       <span class="journal-cover-art" aria-hidden="true">
         <span class="cover-orbit cover-orbit-one"></span>

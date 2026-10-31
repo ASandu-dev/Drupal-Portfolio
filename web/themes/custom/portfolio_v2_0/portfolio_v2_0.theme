@@ -118,6 +118,10 @@ function portfolio_v2_0_preprocess_node(array &$variables): void {
     : '';
   $variables['has_featured_image'] = $node->hasField('field_featured_image')
     && !$node->get('field_featured_image')->isEmpty();
+  $variables['has_featured_image_url'] = $node->hasField('field_featured_image_url')
+    && !$node->get('field_featured_image_url')->isEmpty()
+    && !empty($node->get('field_featured_image_url')->uri);
+  $variables['has_cover_image'] = $variables['has_featured_image'] || $variables['has_featured_image_url'];
 
   $variables['external_resource_url'] = '';
   $variables['cta'] = '';
