@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Datetime\DateFormatterInterface;
+use Drupal\Core\Render\PlainTextOutput;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Drupal\user\UserInterface;
+use League\CommonMark\CommonMarkConverter;
 
 /**
  * Implements hook_preprocess_page().
@@ -57,7 +59,15 @@ function portfolio_v2_0_preprocess_page(array &$variables): void {
  */
 function portfolio_v2_0_preprocess_node(array &$variables): void {
   $node = $variables['node'];
-  if (!$node instanceof NodeInterface || $node->getType() !== 'blog_post') {
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+
+  if (($variables['view_mode'] ?? '') === 'teaser') {
+    $variables['teaser_excerpt'] = _portfolio_v2_0_get_teaser_excerpt($node);
+  }
+
+  if ($node->getType() !== 'blog_post') {
     return;
   }
 
@@ -121,6 +131,41 @@ function portfolio_v2_0_preprocess_node(array &$variables): void {
       $variables['cta'] = $resource->value ?? '';
     }
   }
+}
+
+/**
+ * Builds a plain-text teaser excerpt from the node's summary or body.
+ */
+function _portfolio_v2_0_get_teaser_excerpt(NodeInterface $node): string {
+  $source = '';
+  if ($node->getType() === 'blog_post' && $node->hasField('field_excerpt') && !$node->get('field_excerpt')->isEmpty()) {
+    $source = (string) $node->get('field_excerpt')->value;
+  }
+  elseif ($node->hasField('body') && !$node->get('body')->isEmpty()) {
+    $body = $node->get('body')->first();
+    $source = (string) ($body?->summary ?: $body?->value);
+  }
+
+  if ($source === '') {
+    return '';
+  }
+
+  $converter = new CommonMarkConverter();
+  $rendered = $converter->convert($source);
+  $rendered_html = preg_replace('/<h[1-6]\b[^>]*>.*?<\/h[1-6]>/is', ' ', (string) $rendered) ?? (string) $rendered;
+  $excerpt = PlainTextOutput::renderFromHtml($rendered_html);
+  $excerpt = preg_replace('/\s+/u', ' ', trim($excerpt)) ?? trim($excerpt);
+
+  if (mb_strlen($excerpt) > 180) {
+    $excerpt = mb_substr($excerpt, 0, 180);
+    $last_space = mb_strrpos($excerpt, ' ');
+    if ($last_space !== FALSE && $last_space >= 140) {
+      $excerpt = mb_substr($excerpt, 0, $last_space);
+    }
+    $excerpt = rtrim($excerpt, " \t\n\r\0\x0B.,;:-") . '…';
+  }
+
+  return $excerpt;
 }
 
 /**

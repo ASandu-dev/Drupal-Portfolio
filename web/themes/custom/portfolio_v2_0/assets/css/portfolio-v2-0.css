@@ -818,6 +818,18 @@
   background: #1d1d1a;
 }
 
+.portfolio-v2 #github-merged-activity .calendar-summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 24px;
+  color: #aaa99f;
+}
+
+.portfolio-v2 #github-merged-activity .calendar-summary-item {
+  margin: 0;
+}
+
 .portfolio-v2 .activity-card-top {
   display: flex;
   justify-content: space-between;
@@ -2322,6 +2334,14 @@
 
   .portfolio-v2 .article-footer {
     margin-top: 48px;
+  }
+}
+
+@media (min-width: 681px) {
+  .portfolio-v2 #github-merged-activity .calendar-summary-items {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
   }
 }
 

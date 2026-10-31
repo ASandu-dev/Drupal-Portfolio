@@ -9,10 +9,6 @@
 {% set project_url = node.field_project_url[0].url ?? '' %}
 {% set project_link_text = node.field_project_url[0].title ?? 'Explore project'|t %}
 {% set blog_ref = node.field_blog_reference[0].entity %}
-{% set has_description = content.body|render|striptags|trim is not empty %}
-{% set has_summary = node.body.summary is not empty %}
-{% set description = content.body|render|striptags|trim %}
-
 <article{{ attributes.addClass('project-card') }}>
   <div class="project-art">
     {% if project_url %}<a class="project-art-link" href="{{ project_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ project_link_text }}">{% endif %}
@@ -27,9 +23,8 @@
   <div class="project-copy">
     <span class="project-type">{{ node.type.entity.label }}</span>
     <h3>{{ label }}</h3>
-    {% if has_description or has_summary %}
-      {% set project_excerpt = description ?: node.body.summary %}
-      <p>{{ project_excerpt|length > 180 ? project_excerpt|slice(0, 177) ~ '…' : project_excerpt }}</p>
+    {% if teaser_excerpt %}
+      <p>{{ teaser_excerpt }}</p>
     {% endif %}
     {% if node.field_technologies is not empty %}
       <ul class="project-tags" aria-label="{{ 'Technologies'|t }}">

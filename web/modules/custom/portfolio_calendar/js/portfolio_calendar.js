@@ -86,15 +86,16 @@
     }).length;
 
     var header = document.createElement('div');
-    header.className = 'flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6';
+    header.className = 'calendar-summary flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6';
 
     var sourceLabel = getSourceLabel(payload);
     var generatedLabel = formatGeneratedAt(payload.meta && payload.meta.generatedAt);
-    header.innerHTML = '<div>'
-      + '<p class="text-sm text-gray-500 dark:text-gray-400">' + totalContributions + ' contributions across ' + activeDays + ' active days</p>'
-      + '<p class="text-xs text-gray-400 dark:text-gray-500">Last updated: ' + generatedLabel + '</p>'
-      + '<p class="text-xs text-gray-400 dark:text-gray-500">' + sourceLabel + '</p>'
-      + '</div>';
+    var summaryItems = document.createElement('div');
+    summaryItems.className = 'calendar-summary-items';
+    summaryItems.innerHTML = '<p class="calendar-summary-item text-sm text-gray-500 dark:text-gray-400">' + totalContributions + ' contributions across ' + activeDays + ' active days</p>'
+      + '<p class="calendar-summary-item text-xs text-gray-400 dark:text-gray-500">Last updated: ' + generatedLabel + '</p>'
+      + '<p class="calendar-summary-item text-xs text-gray-400 dark:text-gray-500">' + sourceLabel + '</p>';
+    header.appendChild(summaryItems);
 
     var notices = document.createElement('div');
     notices.className = 'space-y-2 mb-4';
