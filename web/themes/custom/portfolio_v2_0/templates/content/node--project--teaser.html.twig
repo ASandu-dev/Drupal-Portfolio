@@ -11,6 +11,7 @@
 {% set blog_ref = node.field_blog_reference[0].entity %}
 {% set has_description = content.body|render|striptags|trim is not empty %}
 {% set has_summary = node.body.summary is not empty %}
+{% set description = content.body|render|striptags|trim %}
 
 <article{{ attributes.addClass('project-card') }}>
   <div class="project-art">
@@ -27,7 +28,8 @@
     <span class="project-type">{{ node.type.entity.label }}</span>
     <h3>{{ label }}</h3>
     {% if has_description or has_summary %}
-      <p>{% if has_description %}{{ content.body|render|striptags|trim|truncate(180, true, '…') }}{% else %}{{ node.body.summary }}{% endif %}</p>
+      {% set project_excerpt = description ?: node.body.summary %}
+      <p>{{ project_excerpt|length > 180 ? project_excerpt|slice(0, 177) ~ '…' : project_excerpt }}</p>
     {% endif %}
     {% if node.field_technologies is not empty %}
       <ul class="project-tags" aria-label="{{ 'Technologies'|t }}">
