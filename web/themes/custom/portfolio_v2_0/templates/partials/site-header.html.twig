@@ -1,0 +1,18 @@
+<a class="skip-link" href="#main">{{ 'Skip to content'|t }}</a>
+<nav class="site-nav" aria-label="{{ 'Main navigation'|t }}">
+  <div class="nav-inner">
+    <a class="wordmark" href="{{ path('<front>') }}" aria-label="{{ 'Andrei Sandu home'|t }}">
+      <span class="wordmark-mark" aria-hidden="true">AS<span>.</span></span>
+      <span>ANDREI SANDU</span>
+    </a>
+    <button class="menu-toggle" id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="{{ 'Open menu'|t }}">
+      <span></span><span></span>
+    </button>
+    <div class="nav-links" id="mobile-menu">
+      <a href="{{ path('<front>') }}#work">{{ 'Selected work'|t }}</a>
+      <a href="{{ path('<front>') }}#expertise">{{ 'Expertise'|t }}</a>
+      <a href="/blog">{{ 'Journal'|t }}</a>
+      <a class="nav-cta" href="{{ path('<front>') }}#contact">{{ 'Let’s talk'|t }} <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</nav>

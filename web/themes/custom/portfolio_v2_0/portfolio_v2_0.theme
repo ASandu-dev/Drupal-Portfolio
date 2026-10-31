@@ -1,0 +1,143 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Datetime\DateFormatterInterface;
+use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function portfolio_v2_0_preprocess_page(array &$variables): void {
+  if (!\Drupal::service('path.matcher')->isFrontPage()) {
+    return;
+  }
+
+  $variables['projects'] = [];
+  $nids = \Drupal::entityQuery('node')
+    ->accessCheck(TRUE)
+    ->condition('type', 'project')
+    ->condition('status', 1)
+    ->sort('created', 'DESC')
+    ->range(0, 50)
+    ->execute();
+
+  if ($nids) {
+    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+    foreach (Node::loadMultiple($nids) as $nid => $node) {
+      $variables['projects'][$nid] = $view_builder->view($node, 'teaser');
+    }
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('portfolio_calendar')) {
+    $variables['portfolio_calendar_block'] = [];
+    return;
+  }
+
+  $plugin_block = \Drupal::service('plugin.manager.block')
+    ->createInstance('portfolio_calendar_pulse_block', []);
+  $access = $plugin_block->access(\Drupal::currentUser(), TRUE);
+
+  if (!$access->isAllowed()) {
+    $variables['portfolio_calendar_block'] = [];
+    return;
+  }
+
+  $build = $plugin_block->build();
+  CacheableMetadata::createFromObject($access)->applyTo($build);
+  $variables['portfolio_calendar_block'] = $build;
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function portfolio_v2_0_preprocess_node(array &$variables): void {
+  $node = $variables['node'];
+  if (!$node instanceof NodeInterface || $node->getType() !== 'blog_post') {
+    return;
+  }
+
+  $date_formatter = \Drupal::service('date.formatter');
+  assert($date_formatter instanceof DateFormatterInterface);
+
+  $published_date = $node->hasField('field_published_date')
+    ? $node->get('field_published_date')->value
+    : NULL;
+  $timestamp = $published_date && $node->get('field_published_date')->date
+    ? $node->get('field_published_date')->date->getTimestamp()
+    : $node->getCreatedTime();
+  $variables['date'] = [
+    'iso' => date('c', (int) $timestamp),
+    'formatted' => $date_formatter->format((int) $timestamp, 'blog_date'),
+  ];
+
+  $minutes = $node->hasField('field_reading_time')
+    ? $node->get('field_reading_time')->value
+    : NULL;
+  $variables['reading_time'] = $minutes
+    ? \Drupal::translation()->formatPlural((int) $minutes, '1 min read', '@count min read')
+    : '';
+
+  $owner = $node->getOwner();
+  $author_name = $owner instanceof UserInterface ? $owner->getDisplayName() : '';
+  $variables['author'] = [
+    'name' => $author_name ?: t('Andrei Sandu'),
+    'initials' => _portfolio_v2_0_get_initials($author_name ?: 'Andrei Sandu'),
+    'bio' => '',
+  ];
+  if ($owner instanceof UserInterface && $owner->hasField('field_bio')) {
+    $variables['author']['bio'] = $owner->get('field_bio')->value ?? '';
+  }
+
+  $variables['category_label'] = t('Field note');
+  if ($node->hasField('field_tags')) {
+    $tags = $node->get('field_tags')->referencedEntities();
+    if ($tags) {
+      $first_tag = reset($tags);
+      $variables['category_label'] = $first_tag->label();
+    }
+  }
+
+  $variables['back_url'] = Url::fromUserInput('/blog')->toString();
+  $variables['excerpt'] = $node->hasField('field_excerpt')
+    ? trim((string) $node->get('field_excerpt')->value)
+    : '';
+  $variables['has_featured_image'] = $node->hasField('field_featured_image')
+    && !$node->get('field_featured_image')->isEmpty();
+
+  $variables['external_resource_url'] = '';
+  $variables['cta'] = '';
+  if ($node->hasField('field_external_url') && !$node->get('field_external_url')->isEmpty()) {
+    $resource = $node->get('field_external_url')->first();
+    $uri = $resource?->uri ?? '';
+    if (preg_match('#^https?://#i', $uri)) {
+      $variables['external_resource_url'] = $uri;
+    }
+    elseif ($resource) {
+      $variables['cta'] = $resource->value ?? '';
+    }
+  }
+}
+
+/**
+ * Extracts initials from a display name.
+ */
+function _portfolio_v2_0_get_initials(string $name): string {
+  $parts = preg_split('/\s+/', trim($name));
+  if (!$parts) {
+    return '?';
+  }
+
+  $initials = '';
+  foreach ($parts as $part) {
+    if ($part !== '') {
+      $initials .= mb_strtoupper(mb_substr($part, 0, 1));
+    }
+  }
+
+  return $initials !== '' ? $initials : '?';
+}

@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Long-form editorial layout for full blog posts.
+ */
+#}
+<article{{ attributes.addClass('journal-article section-wrap') }}>
+  <a class="journal-back-link" href="{{ back_url }}"><span aria-hidden="true">←</span> {{ 'Journal / Field notes'|t }}</a>
+
+  <header class="article-header">
+    <div class="section-kicker"><span>{{ 'FIELD NOTE'|t }}</span> {{ category_label }}</div>
+    <div class="article-meta">
+      <time datetime="{{ date.iso }}">{{ date.formatted }}</time>
+      {% if reading_time %}<span aria-hidden="true">/</span><span>{{ reading_time }}</span>{% endif %}
+    </div>
+    <h1>{{ label }}</h1>
+    {% if excerpt %}<p class="article-deck">{{ excerpt }}</p>{% endif %}
+    <div class="article-author">
+      <span class="author-monogram" aria-hidden="true">{{ author.initials }}<span>.</span></span>
+      <span><strong>{{ author.name }}</strong>{% if author.bio %}<small>{{ author.bio }}</small>{% endif %}</span>
+      <span class="author-note">{{ 'PRACTICE /'|t }} {{ date.iso|date('Y') }}</span>
+    </div>
+  </header>
+
+  <div class="article-cover{% if has_featured_image %} article-cover--image{% endif %}"{% if has_featured_image %} role="img" aria-label="{{ label }}"{% else %} role="img" aria-label="{{ 'Abstract editorial artwork'|t }}"{% endif %}>
+    {% if has_featured_image %}
+      {{ content.field_featured_image }}
+    {% else %}
+      <span class="cover-orbit cover-orbit-one"></span>
+      <span class="cover-orbit cover-orbit-two"></span>
+      <span class="cover-core" aria-hidden="true">AS<span>.</span></span>
+    {% endif %}
+    <span class="cover-index">{{ category_label }} / {{ 'FIELD NOTES'|t }}</span>
+    <span class="cover-coordinate">{{ 'BUILD · SECURE · SHIP'|t }}</span>
+  </div>
+
+  <div class="article-reading-layout">
+    <aside class="article-aside" aria-label="{{ 'Article details'|t }}">
+      {% if external_resource_url %}
+        <div class="journal-resource">
+          <span class="resource-label">{{ 'REFERENCED RESOURCE'|t }}</span>
+          <a href="{{ external_resource_url }}" target="_blank" rel="noopener noreferrer">{{ external_resource_url|replace({'https://': '', 'http://': ''}) }} <span aria-hidden="true">↗</span></a>
+        </div>
+      {% endif %}
+      {% if cta %}
+        <div class="article-aside-note"><span>{{ 'A NOTE'|t }}</span><p>{{ cta }}</p></div>
+      {% endif %}
+    </aside>
+    <div{{ content_attributes.addClass('journal-prose') }}>
+      {{ content.body }}
+    </div>
+  </div>
+
+  {% set has_tags = content.field_tags|render|striptags|trim is not empty %}
+  <footer class="article-footer">
+    {% if has_tags %}<div class="article-tags" aria-label="{{ 'Article topics'|t }}">{{ content.field_tags }}</div>{% endif %}
+    <a class="journal-back-link" href="{{ back_url }}"><span aria-hidden="true">←</span> {{ 'Back to the journal'|t }}</a>
+  </footer>
+</article>

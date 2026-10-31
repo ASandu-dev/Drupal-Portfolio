@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Project card for the portfolio front page.
+ */
+#}
+{% set image = node.field_featured_image.entity %}
+{% set image_url = image ? file_url(image.uri.value) : '' %}
+{% set project_url = node.field_project_url[0].url ?? '' %}
+{% set project_link_text = node.field_project_url[0].title ?? 'Explore project'|t %}
+{% set blog_ref = node.field_blog_reference[0].entity %}
+{% set has_description = content.body|render|striptags|trim is not empty %}
+{% set has_summary = node.body.summary is not empty %}
+
+<article{{ attributes.addClass('project-card') }}>
+  <div class="project-art">
+    {% if project_url %}<a class="project-art-link" href="{{ project_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ project_link_text }}">{% endif %}
+    {% if image_url %}
+      <img src="{{ image_url }}" alt="{{ node.field_featured_image.alt }}" loading="lazy">
+    {% else %}
+      <div class="project-art-placeholder" aria-hidden="true"><span>AS<span>.</span></span></div>
+    {% endif %}
+    {% if project_url %}</a>{% endif %}
+    <span class="project-index">{{ 'SELECTED WORK'|t }}</span>
+  </div>
+  <div class="project-copy">
+    <span class="project-type">{{ node.type.entity.label }}</span>
+    <h3>{{ label }}</h3>
+    {% if has_description or has_summary %}
+      <p>{% if has_description %}{{ content.body|render|striptags|trim|truncate(180, true, '…') }}{% else %}{{ node.body.summary }}{% endif %}</p>
+    {% endif %}
+    {% if node.field_technologies is not empty %}
+      <ul class="project-tags" aria-label="{{ 'Technologies'|t }}">
+        {% for technology in node.field_technologies %}
+          <li>{{ technology.value }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if project_url %}
+      <a class="project-link" href="{{ project_url }}" target="_blank" rel="noopener noreferrer">{{ project_link_text }} <span aria-hidden="true">↗</span></a>
+    {% endif %}
+    {% if blog_ref %}
+      <a class="project-link project-blog-link" href="{{ path('entity.node.canonical', {'node': blog_ref.id()}) }}">{{ 'Related field note'|t }} <span aria-hidden="true">↗</span></a>
+    {% endif %}
+  </div>
+</article>

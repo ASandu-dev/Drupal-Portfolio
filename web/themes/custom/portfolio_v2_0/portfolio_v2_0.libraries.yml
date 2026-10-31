@@ -1,0 +1,12 @@
+global:
+  version: 2.0.0
+  css:
+    theme:
+      https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap:
+        type: external
+        minified: true
+      assets/css/portfolio-v2-0.css: {}
+  js:
+    assets/js/portfolio-v2-0.js:
+      attributes:
+        defer: true

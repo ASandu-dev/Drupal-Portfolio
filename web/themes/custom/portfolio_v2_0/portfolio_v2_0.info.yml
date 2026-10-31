@@ -1,0 +1,13 @@
+name: 'Portfolio v2.0'
+type: theme
+description: 'An editorial portfolio theme with a journal, custom project cards, and animated hero artwork.'
+version: 2.0.0
+package: Custom
+core_version_requirement: ^11
+base theme: false
+libraries:
+  - portfolio_v2_0/global
+regions:
+  header: Header
+  content: Content
+  footer: Footer

@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Journal card for blog post teaser view mode.
+ */
+#}
+{% set has_image = node.field_featured_image is defined and not node.field_featured_image.isEmpty() %}
+{% set has_excerpt = node.field_excerpt is defined and not node.field_excerpt.isEmpty() %}
+
+<article{{ attributes.addClass('journal-card') }}>
+  <a class="journal-card-cover" href="{{ url }}" aria-label="{{ 'Read'|t }} {{ label }}">
+    {% if has_image %}
+      {{ content.field_featured_image }}
+    {% else %}
+      <span class="journal-cover-art" aria-hidden="true">
+        <span class="cover-orbit cover-orbit-one"></span>
+        <span class="cover-orbit cover-orbit-two"></span>
+        <span class="cover-core">AS<span>.</span></span>
+      </span>
+    {% endif %}
+    <span class="cover-index">{{ 'FIELD NOTE'|t }}</span>
+    <span class="cover-coordinate">{{ category_label }}</span>
+  </a>
+  <div class="journal-card-copy">
+    <div class="journal-card-meta">
+      <span class="journal-category">{{ category_label }}</span>
+      <time datetime="{{ date.iso }}">{{ date.formatted }}</time>
+      {% if reading_time %}<span>{{ reading_time }}</span>{% endif %}
+    </div>
+    <h2><a href="{{ url }}" rel="bookmark">{{ label }}</a></h2>
+    {% if has_excerpt %}
+      <p>{{ node.field_excerpt.value }}</p>
+    {% elseif node.body.value %}
+      <p>{{ node.body.value|striptags|trim|truncate(180, true, '…') }}</p>
+    {% endif %}
+    <a class="journal-read-link" href="{{ url }}">{{ 'Read the field note'|t }} <span aria-hidden="true">↗</span></a>
+  </div>
+</article>

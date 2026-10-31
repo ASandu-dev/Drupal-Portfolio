@@ -1,0 +1,123 @@
+<div class="portfolio-v2">
+  {{ include('@portfolio_v2_0/partials/site-header.html.twig') }}
+  {% if page.header %}
+    <div class="section-wrap region-header">{{ page.header }}</div>
+  {% endif %}
+
+  <main id="main">
+    <header class="hero section-wrap" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> {{ 'INDEPENDENT WEB ARCHITECT'|t }} <span class="eyebrow-divider">/</span> {{ 'UNITED KINGDOM'|t }}</p>
+        <h1>{{ 'Digital things'|t }}<br>{{ 'built to'|t }} <span class="accent-word">{{ 'work.'|t }}</span><br><span class="outline-word">{{ 'And built to last.'|t }}</span></h1>
+        <p class="hero-intro">{{ 'I’m Andrei — a web architect and cybersecurity enthusiast helping ambitious teams build modern digital products with security at their core.'|t }}</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">{{ 'Explore selected work'|t }} <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="mailto:hello@andreisandu.net">{{ 'Have a project in mind?'|t }} <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-meta"><span>DRUPAL · SAAS · SECURITY</span><span class="meta-line"></span><span>{{ 'WORKING WORLDWIDE'|t }}</span></div>
+      </div>
+      <div class="hero-art" role="img" aria-label="{{ 'Abstract illustration of secure, connected software systems'|t }}">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-grid"></div>
+        <div class="art-label art-label-top"><span class="art-label-dot"></span> SYSTEM STATUS <strong>ALL CLEAR</strong></div>
+        <div class="art-core"><div class="core-halo"></div><div class="core-monogram">AS</div><span class="core-caption">BUILD / SECURE / SHIP</span></div>
+        <div class="art-node node-a"><span>01</span><strong>ARCHITECTURE</strong><i>Connected by design</i></div>
+        <div class="art-node node-b"><span>02</span><strong>SECURITY</strong><i>Considered from day one</i></div>
+        <div class="art-node node-c"><span>03</span><strong>PRODUCT</strong><i>Made for real people</i></div>
+        <div class="art-label art-label-bottom">INDEPENDENT THINKING. SOLID ENGINEERING.</div>
+      </div>
+      <a class="scroll-cue" href="#intro"><span class="scroll-cue-line"></span> {{ 'SCROLL TO EXPLORE'|t }}</a>
+    </header>
+
+    <section class="intro-section section-wrap" id="intro" aria-labelledby="intro-title">
+      <div class="section-kicker"><span>01</span> {{ 'A LITTLE ABOUT MY APPROACH'|t }}</div>
+      <div class="intro-grid">
+        <h2 id="intro-title">{{ 'Good technology'|t }}<br>{{ 'should feel'|t }} <em>{{ 'effortless.'|t }}</em></h2>
+        <div class="intro-copy">
+          <p>{{ 'I work at the intersection of web architecture, product engineering, and security. From ambitious SaaS ideas to established Drupal platforms, I turn complexity into digital experiences that feel simple, stay dependable, and take security seriously.'|t }}</p>
+          <p>{{ 'Based in the United Kingdom and collaborating with teams everywhere, I bring a practical, thoughtful approach to the whole product lifecycle — from first architecture decisions to the details that make a product feel finished.'|t }}</p>
+          <a class="text-link" href="#expertise">{{ 'More about what I do'|t }} <span aria-hidden="true">↘</span></a>
+        </div>
+      </div>
+      <div class="service-strip" aria-label="{{ 'Services'|t }}">
+        <article class="service-item"><span class="service-number">01 / STRATEGY</span><h3>{{ 'Web architecture'|t }}</h3><p>{{ 'Clear technical foundations for platforms that need to grow.'|t }}</p></article>
+        <article class="service-item"><span class="service-number">02 / ENGINEERING</span><h3>{{ 'SaaS development'|t }}</h3><p>{{ 'Thoughtful full-stack products, from first build to launch.'|t }}</p></article>
+        <article class="service-item"><span class="service-number">03 / ASSURANCE</span><h3>{{ 'Security consulting'|t }}</h3><p>{{ 'Security-minded reviews and stronger digital foundations.'|t }}</p></article>
+      </div>
+    </section>
+
+    <section class="work-section" id="work" aria-labelledby="work-title">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div><div class="section-kicker"><span>02</span> {{ 'SELECTED WORK'|t }}</div><h2 id="work-title">{{ 'Built with'|t }} <em>{{ 'intention.'|t }}</em></h2></div>
+          <p>{{ 'A selection of product, platform, and engineering work shaped around real-world needs.'|t }}</p>
+        </div>
+        <div class="project-grid">
+          {% for project in projects %}
+            {{ project }}
+          {% else %}
+            <p class="empty-state">{{ 'Project highlights will appear here soon.'|t }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="expertise-section section-wrap" id="expertise" aria-labelledby="expertise-title">
+      <div class="section-kicker"><span>03</span> {{ 'TOOLS OF THE TRADE'|t }}</div>
+      <div class="expertise-heading"><h2 id="expertise-title">{{ 'The right tools'|t }}<br>{{ 'for the'|t }} <em>{{ 'real world.'|t }}</em></h2><p>{{ 'A practical stack shaped by Drupal delivery, SaaS engineering, and security-driven workflows — with an eye on what’s next.'|t }}</p></div>
+      <div class="skills-layout">
+        <div class="skill-group">
+          <div class="skill-group-head"><h3>{{ 'In the toolkit'|t }}</h3><span>{{ 'WHAT I WORK WITH'|t }}</span></div>
+          <ul class="skill-list"><li>Drupal</li><li>PHP</li><li>JavaScript</li><li>TypeScript</li><li>Next.js</li><li>React</li><li>Node.js / Express</li><li>Docker</li><li>PostgreSQL</li><li>Prisma</li><li>Linux</li><li>Cloudflare</li><li>{{ 'Web security'|t }}</li><li>Git / GitHub</li><li>Tailwind CSS</li><li>Material UI</li></ul>
+        </div>
+        <div class="skill-group learning-group">
+          <div class="skill-group-head"><h3>{{ 'On the horizon'|t }}</h3><span>{{ 'ALWAYS LEARNING'|t }}</span></div>
+          <ul class="learning-list"><li>Kubernetes</li><li>AWS &amp; Azure</li><li>{{ 'Advanced DevOps'|t }}</li><li>CI/CD &amp; Ansible</li><li>{{ 'Penetration testing'|t }}</li><li>{{ 'SaaS architecture'|t }}</li><li>{{ 'AI-assisted development'|t }}</li></ul>
+          <div class="learning-note"><span aria-hidden="true">✳</span> {{ 'Curiosity is part of the job.'|t }}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="activity-section" id="github" aria-labelledby="activity-title">
+      <div class="section-wrap">
+        <div class="activity-heading">
+          <div><div class="section-kicker"><span>04</span> {{ 'A STEADY BUILD RHYTHM'|t }}</div><h2 id="activity-title">{{ 'In the'|t }} <em>{{ 'making.'|t }}</em></h2></div>
+          <p>{{ 'One view of contributions across'|t }} <a href="https://github.com/ASandu-dev" target="_blank" rel="noopener noreferrer">ASandu-dev</a> {{ 'and'|t }} <a href="https://github.com/CMAndrei" target="_blank" rel="noopener noreferrer">CMAndrei</a>.</p>
+        </div>
+        <div class="activity-card">
+          <div class="activity-card-top"><span><i></i> {{ 'CONTRIBUTION ACTIVITY'|t }}</span><span>{{ 'OPEN-SOURCE / PERSONAL'|t }}</span></div>
+          {% if portfolio_calendar_block %}
+            {{ portfolio_calendar_block }}
+          {% else %}
+            <p class="empty-state">{{ 'Contribution activity is currently unavailable.'|t }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section section-wrap" id="contact" aria-labelledby="contact-title">
+      <div class="contact-panel">
+        <div class="contact-orb" aria-hidden="true"></div>
+        <div class="section-kicker"><span>05</span> {{ 'HAVE A GOOD ONE IN MIND?'|t }}</div>
+        <div class="contact-grid">
+          <div><h2 id="contact-title">{{ 'Let’s make'|t }}<br>{{ 'it'|t }} <em>{{ 'happen.'|t }}</em></h2><p>{{ 'Need a security-minded technical partner? Have a Drupal platform to rethink or a SaaS idea ready to build? I’d love to hear what you’re working on.'|t }}</p></div>
+          <div class="contact-actions">
+            <a class="contact-email" href="mailto:hello@andreisandu.net">hello@andreisandu.net <span aria-hidden="true">↗</span></a>
+            <span class="contact-location"><i></i> {{ 'Based in the United Kingdom · Available worldwide'|t }}</span>
+            <div class="social-links"><a href="https://www.linkedin.com/in/andrei-sandu-50820a64/" target="_blank" rel="noopener noreferrer">LINKEDIN <span aria-hidden="true">↗</span></a><a href="https://github.com/ASandu-dev" target="_blank" rel="noopener noreferrer">GITHUB <span aria-hidden="true">↗</span></a><a href="/blog">JOURNAL <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </div>
+        <div class="contact-bottom"><span>{{ 'GOOD WORK STARTS WITH A CONVERSATION.'|t }}</span><span>{{ 'UK · WORLDWIDE'|t }}</span></div>
+      </div>
+    </section>
+    {% if page.content %}
+      <div class="section-wrap front-content-region">{{ page.content }}</div>
+    {% endif %}
+  </main>
+
+  {% if page.footer %}
+    <div class="section-wrap region-footer">{{ page.footer }}</div>
+  {% endif %}
+  {{ include('@portfolio_v2_0/partials/site-footer.html.twig') }}
+</div>

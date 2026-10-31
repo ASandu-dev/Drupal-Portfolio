@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Editorial journal listing for the blog view.
+ */
+#}
+<div{{ attributes.addClass('journal-view') }}>
+  <header class="journal-hero section-wrap">
+    <div class="journal-hero-copy">
+      <div class="section-kicker"><span>01</span> {{ 'NOTES FROM THE BUILD'|t }}</div>
+      <h1>{{ 'Thoughtful work.'|t }}<br><em>{{ 'Written down.'|t }}</em></h1>
+    </div>
+    <div class="journal-hero-aside">
+      <p>{{ 'Field notes on web architecture, security, and the small decisions that make digital products feel dependable.'|t }}</p>
+      <div class="journal-stat"><span>{{ 'THE JOURNAL'|t }}</span><span>{{ 'IDEAS / PRACTICE / PERSPECTIVE'|t }}</span></div>
+    </div>
+  </header>
+
+  <section class="journal-entries section-wrap" aria-labelledby="journal-latest-title">
+    <div class="journal-section-heading">
+      <div class="section-kicker"><span>02</span> {{ 'LATEST WRITING'|t }}</div>
+      <h2 class="visually-hidden" id="journal-latest-title">{{ 'Latest journal entries'|t }}</h2>
+    </div>
+    {% if exposed %}
+      <div class="journal-exposed">{{ exposed }}</div>
+    {% endif %}
+    {% if header %}
+      <div class="journal-view-header">{{ header }}</div>
+    {% endif %}
+
+    {% if rows %}
+      <div class="journal-grid">
+        {{ rows }}
+      </div>
+    {% elseif empty %}
+      <div class="journal-empty">{{ empty }}</div>
+    {% endif %}
+
+    {% if pager %}
+      <nav class="journal-pager" aria-label="{{ 'Pagination'|t }}">{{ pager }}</nav>
+    {% endif %}
+    {{ attachment_after }}
+  </section>
+</div>

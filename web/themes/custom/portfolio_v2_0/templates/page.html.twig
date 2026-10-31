@@ -1,0 +1,13 @@
+<div class="portfolio-v2">
+  {{ include('@portfolio_v2_0/partials/site-header.html.twig') }}
+  {% if page.header %}
+    <div class="section-wrap region-header">{{ page.header }}</div>
+  {% endif %}
+  <main id="main" class="page-main section-wrap">
+    {{ page.content }}
+  </main>
+  {% if page.footer %}
+    <div class="section-wrap region-footer">{{ page.footer }}</div>
+  {% endif %}
+  {{ include('@portfolio_v2_0/partials/site-footer.html.twig') }}
+</div>
